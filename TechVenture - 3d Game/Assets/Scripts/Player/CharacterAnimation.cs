@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MOVE : MonoBehaviour
+public class CharacterAnimation : MonoBehaviour
 {
     public float Maxspeed;
     public float RotatSpeed;
