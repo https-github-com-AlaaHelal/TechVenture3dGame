@@ -7,6 +7,7 @@ TagManager:
   - BinaryInformation
   - BinaryQuestion
   - Information
+  - CollectedItems
   layers:
   - Default
   - TransparentFX
