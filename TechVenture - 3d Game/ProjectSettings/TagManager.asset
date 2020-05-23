@@ -8,6 +8,8 @@ TagManager:
   - BinaryQuestion
   - Information
   - CollectedItems
+  - lockerpuzzle
+  - toolboxpuzzle
   layers:
   - Default
   - TransparentFX

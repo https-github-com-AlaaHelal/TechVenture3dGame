@@ -35,6 +35,7 @@ public class Educational : MonoBehaviour
         if (Ball.gameObject.tag == "BinaryInformation")
         {
             Number = 0;
+            
             Display();
 
         }
@@ -69,13 +70,13 @@ public class Educational : MonoBehaviour
     }
     IEnumerator TimeToShowScreen(int Number)
     {
+
         yield return new WaitForSeconds(4f);
         baseScreen.SetBool("open", true);
         yield return new WaitForSeconds(2f);
         Screen.SetBool("open", true);
         yield return new WaitForSeconds(1.5f);
         DisplayInformationORQuestion(Number);
-        Balls[Number].SetActive(false);
 
 
 
@@ -101,11 +102,15 @@ public class Educational : MonoBehaviour
         if (Number < 10)
         {
             InformationText[Number].gameObject.SetActive(true);
+            Balls[Number].SetActive(false);
+
         }
         if (Number >= 10)
         {
 
             QuestionPanels[Number - 10].gameObject.SetActive(true);
+            Balls[Number].SetActive(false);
+
         }
     }
     void HideInformationORQuestion(int Number)
