@@ -6,6 +6,7 @@ public class CollectingItems : MonoBehaviour
 {
     public GameObject Player;
     bool nearToItem = false;
+    public Item item;
 
     // Update is called once per frame
     void Update()
@@ -29,19 +30,28 @@ public class CollectingItems : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        bool wasPickedUp = Inventory.instance.Add(item);  // Add to inventory
+
         if (other.CompareTag("Player"))
         {
+
             print("press Space");
             nearToItem = true;
         }
-    }
 
-    private void OnTriggerStay(Collider other)
+
+        if (wasPickedUp)
+        {
+
+            this.gameObject.SetActive(false);
+        }
+    }
+        private void OnTriggerStay(Collider other)
     {
         if (other.CompareTag("Player"))
         {
-            if (Input.GetKeyDown(KeyCode.Space))
-                this.gameObject.SetActive(false);
+            if (Input.GetKeyDown(KeyCode.Space)) {  }
+                //this.gameObject.SetActive(false);
         }
     }
 
