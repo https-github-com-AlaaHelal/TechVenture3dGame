@@ -56,7 +56,7 @@ public class LockerPuzzle : MonoBehaviour
             b2.image.sprite = trueimg;
             b3.image.sprite = trueimg;
             b4.image.sprite = trueimg;
-            StartCoroutine(exit());
+            //StartCoroutine(exit());
 
             lockeranimator.SetBool("open", true);
             binaryInformationball.GetComponent<SphereCollider>().isTrigger = true;
