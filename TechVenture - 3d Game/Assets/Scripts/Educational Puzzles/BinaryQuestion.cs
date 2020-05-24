@@ -4,7 +4,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 
-public class BinaryQuestion : MonoBehaviour
+public class BinaryQuestion : Educational
 {
     // Start is called before the first frame update
     public TextMeshProUGUI Text1;
@@ -12,13 +12,14 @@ public class BinaryQuestion : MonoBehaviour
     public TextMeshProUGUI Text3;
     public TextMeshProUGUI Text4;
     public TextMeshProUGUI Text5;
+
     public Button b1;
     public Button b2;
     public Button b3;
     public Button b4;
     public Button b5;
-    public Canvas educational;
   
+    public GameObject keycard;
 
     public Sprite trueimg;
 
@@ -43,7 +44,7 @@ public class BinaryQuestion : MonoBehaviour
     void Start()
     {
 
-
+        keycard.SetActive(false);
 
     }
 
@@ -52,12 +53,14 @@ public class BinaryQuestion : MonoBehaviour
     {
         if (n1 == 1 & n2 == 0 & n3 == 1 & n4 == 1 & n5==0 )
         {
+           
             istrue = true;
             b1.image.sprite = trueimg;
             b2.image.sprite = trueimg;
             b3.image.sprite = trueimg;
             b4.image.sprite = trueimg;
             b5.image.sprite = trueimg;
+            keycard.SetActive(true);
             StartCoroutine(exit());
 
 
@@ -67,9 +70,18 @@ public class BinaryQuestion : MonoBehaviour
 
     }
     IEnumerator exit()
-    {   
-        yield return new WaitForSeconds(1f);
-        educational.enabled = false;
+    {
+        yield return new WaitForSeconds(1.5f);
+        QuestionPanels[0].SetActive(false);
+        yield return new WaitForSeconds(.5f);
+      masgg.gameObject.SetActive(true);
+        yield return new WaitForSeconds(2f);
+        Destroy(masgg.gameObject);
+
+
+
+
+
 
     }
     public void ChangeButton1()

@@ -6,7 +6,7 @@ using TMPro;
 
 
 
-public class LockerPuzzle : MonoBehaviour
+public class LockerPuzzle : UEPuzzleCanvas
 {
     public TextMeshProUGUI Text1;
     public TextMeshProUGUI Text2;
@@ -56,10 +56,8 @@ public class LockerPuzzle : MonoBehaviour
             b2.image.sprite = trueimg;
             b3.image.sprite = trueimg;
             b4.image.sprite = trueimg;
-            //StartCoroutine(exit());
+            StartCoroutine(exit());
 
-            lockeranimator.SetBool("open", true);
-            binaryInformationball.GetComponent<SphereCollider>().isTrigger = true;
 
         }
 
@@ -67,7 +65,14 @@ public class LockerPuzzle : MonoBehaviour
     IEnumerator exit()
     {
         yield return new WaitForSeconds(1.5f);
-        puzzle.enabled = false;
+      //UEpuzzlesCanvas.enabled = false;
+        Destroy(PuzzlesPanels[0]);
+        yield return new WaitForSeconds(.5f);
+        lockeranimator.SetBool("open", true);
+        yield return new WaitForSeconds(1.5f);
+        binaryInformationball.GetComponent<SphereCollider>().isTrigger = true;
+
+
 
     }
     public void ChangeButton1()

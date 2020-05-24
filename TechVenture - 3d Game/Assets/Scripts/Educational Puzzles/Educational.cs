@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class Educational : MonoBehaviour
 {
@@ -14,6 +15,8 @@ public class Educational : MonoBehaviour
     public GameObject[] InformationText = new GameObject[10];
     public  GameObject[] QuestionPanels = new GameObject[10];
     int Number;
+    public GameObject masgg;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -35,7 +38,6 @@ public class Educational : MonoBehaviour
         if (Ball.gameObject.tag == "BinaryInformation")
         {
             Number = 0;
-            
             Display();
 
         }
@@ -85,6 +87,7 @@ public class Educational : MonoBehaviour
     //hide screen when Exit
     IEnumerator TimeToHideScreen(int Number)
     {
+      
         yield return new WaitForSeconds(.5f);
         HideInformationORQuestion(Number);
         yield return new WaitForSeconds(1f);
@@ -121,7 +124,8 @@ public class Educational : MonoBehaviour
         }
         if (Number >= 10)
             
-        {
+        {   
+
             QuestionPanels[Number - 10].gameObject.SetActive(false);
         }
     }
