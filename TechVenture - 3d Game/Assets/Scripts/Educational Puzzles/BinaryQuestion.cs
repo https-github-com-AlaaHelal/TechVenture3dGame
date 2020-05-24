@@ -18,8 +18,9 @@ public class BinaryQuestion : Educational
     public Button b3;
     public Button b4;
     public Button b5;
-  
-    public GameObject keycard;
+
+    public GameObject Card;
+    private CardShow cardshow;
 
     public Sprite trueimg;
 
@@ -37,14 +38,14 @@ public class BinaryQuestion : Educational
     int n5;
 
 
-
+   
 
 
     // Start is called before the first frame update
     void Start()
     {
 
-        keycard.SetActive(false);
+        cardshow = Card.GetComponent<CardShow>();
 
     }
 
@@ -60,12 +61,10 @@ public class BinaryQuestion : Educational
             b3.image.sprite = trueimg;
             b4.image.sprite = trueimg;
             b5.image.sprite = trueimg;
-            keycard.SetActive(true);
+            cardshow.showCard = true;
+           
             StartCoroutine(exit());
-
-
-
-
+           
         }
 
     }
