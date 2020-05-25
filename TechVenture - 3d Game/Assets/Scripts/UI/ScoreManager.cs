@@ -26,7 +26,7 @@ public class ScoreManager : MonoBehaviour
         SetCountText();
     }
 
-    public void minScore()
+    public void DecreaseScore()
     {
         Count = Count - 50;
         SetCountText();

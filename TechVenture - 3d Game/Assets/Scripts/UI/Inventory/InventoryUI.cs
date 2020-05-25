@@ -8,7 +8,7 @@ public class InventoryUI : MonoBehaviour {
 
 	public Transform itemsParent;	// The parent object of all the items in the canvas because if we had referance to the parent we will have ref to all th childern(inventory slots)
 
-	//public GameObject inventoryUI;	// The entire UI
+	public GameObject inventoryUI;	// The entire UI
 
 	Inventory inventory;	// Our current inventory
 
@@ -16,9 +16,9 @@ public class InventoryUI : MonoBehaviour {
 
 	void Start () {
 		inventory = Inventory.instance;
-		//inventory.onItemChangedCallback += UpdateUI;	// Subscribe to the onItemChanged callback
+		inventory.onItemChangedCallback += UpdateUI;	// Subscribe to the onItemChanged callback
 
-		// Populate our slots array
+		//Populate our slots array
 		slots = itemsParent.GetComponentsInChildren<InventorySlot>();
 	}
 	

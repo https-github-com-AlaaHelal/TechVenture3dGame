@@ -14,20 +14,6 @@ public class PauseMenu : MonoBehaviour
         PauseMenuUI.SetActive(false);
     }
 
-    void Update()
-    {   //when player press f1 the menu appear
-        if (Input.GetKeyDown(KeyCode.F1))
-
-        {
-            if (GameIsPaused)
-            { Resume(); }
-
-            else
-            { Pause(); }
-
-        }
-    }
-
     public void Resume()
     {
 
@@ -45,15 +31,12 @@ public class PauseMenu : MonoBehaviour
         GameIsPaused = true;
     }
 
-   //function to load the main menu 
-    public void LoadMenu()
+    public void QuitTheGame()
 
-    {     
-      SceneManager.LoadScene("EmptyScene"); }
-
-    public void QuitGame()
-
-    { Application.Quit(); }
+    {
+        Debug.Log("QuitTheGame");
+        Application.Quit(); 
+    }
 
 
 }

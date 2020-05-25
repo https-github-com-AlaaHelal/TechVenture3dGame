@@ -30,7 +30,6 @@ public class InventorySlot : MonoBehaviour
 		icon.enabled = false;
 		//removeButton.interactable = false;
 
-
 	}
 
 	// If the remove button is pressed, this function will be called.
@@ -40,14 +39,14 @@ public class InventorySlot : MonoBehaviour
 
 	}
 
-	//// Use the item
-	//public void UseItem()
-	//{
-	//	if (item != null)
-	//	{
-	//		item.Use();
-	//	}
-	//}
+    ////Use the item
+    //public void UseItem()
+    //{
+    //    if (item != null)
+    //    {
+    //        item.Use();
+    //    }
+    //}
 
 }
 

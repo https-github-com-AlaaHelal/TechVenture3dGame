@@ -7,8 +7,9 @@ public class CollectingItems : MonoBehaviour
     public GameObject Player;
     bool nearToItem = false;
     public Item item;
-
     // Update is called once per frame
+
+
     void Update()
     {
         if (Input.GetMouseButtonDown(0))
@@ -43,17 +44,19 @@ public class CollectingItems : MonoBehaviour
         if (wasPickedUp)
         {
 
-            this.gameObject.SetActive(false);
+            gameObject.SetActive(false);
         }
     }
-        private void OnTriggerStay(Collider other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            if (Input.GetKeyDown(KeyCode.Space)) {  }
-                //this.gameObject.SetActive(false);
-        }
-    }
+
+
+    //    private void OnTriggerStay(Collider other)
+    //{
+    //    if (other.CompareTag("Player"))
+    //    {
+    //        if (Input.GetKeyDown(KeyCode.Space)) {  }
+    //            this.gameObject.SetActive(false);
+    //    }
+    //}
 
 
 }

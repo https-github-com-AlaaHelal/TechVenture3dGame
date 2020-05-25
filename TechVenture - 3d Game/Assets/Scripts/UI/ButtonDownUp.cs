@@ -8,9 +8,9 @@ public class ButtonDownUp : MonoBehaviour , IPointerDownHandler
 {
     // Start is called before the first frame update
     [SerializeField]
-    private ScrollRectScript1 ScrollRectScript;
+    public ScrollRectScript1 ScrollRectScript;
     [SerializeField]
-    private bool IsButtonDown;
+    private bool IsButtonDown=true;
     public void OnPointerDown(PointerEventData eventData)
 
     {

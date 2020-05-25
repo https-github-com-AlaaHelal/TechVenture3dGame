@@ -62,7 +62,7 @@ public class BinaryQuestion : Educational
             b4.image.sprite = trueimg;
             b5.image.sprite = trueimg;
             cardshow.showCard = true;
-           
+            //FindObjectOfType<ScoreManager>().AddScore();
             StartCoroutine(exit());
            
         }

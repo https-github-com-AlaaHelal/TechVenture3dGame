@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: daf0f66ca8a745241b003a2f54f61eab, type: 3}
   m_Name: testitem
   m_EditorClassIdentifier: 
-  name: hey
-  icon: {fileID: 21300000, guid: 4ce5cb70a18cc344e9e42a71467c65cd, type: 3}
+  name: Ball
+  icon: {fileID: 21300000, guid: bd14b135d88aaa64dac2a3819ce1d717, type: 3}
   isDefaultItem: 0
