@@ -36,9 +36,11 @@ public class BinaryQuestion : Educational
     int n4;
     [SerializeField]
     int n5;
+    [SerializeField]
+    int checkscore;
 
 
-   
+
 
 
     // Start is called before the first frame update
@@ -62,8 +64,12 @@ public class BinaryQuestion : Educational
             b4.image.sprite = trueimg;
             b5.image.sprite = trueimg;
             cardshow.showCard = true;
-            //FindObjectOfType<ScoreManager>().AddScore();
             StartCoroutine(exit());
+            checkscore++;
+            if(checkscore ==1)
+            {
+                FindObjectOfType<ScoreManager>().AddScore();
+            }
            
         }
 
@@ -73,7 +79,7 @@ public class BinaryQuestion : Educational
         yield return new WaitForSeconds(1.5f);
         QuestionPanels[0].SetActive(false);
         yield return new WaitForSeconds(.5f);
-      masgg.gameObject.SetActive(true);
+        masgg.gameObject.SetActive(true);
         yield return new WaitForSeconds(2f);
         Destroy(masgg.gameObject);
 
