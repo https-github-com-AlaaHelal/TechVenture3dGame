@@ -9,6 +9,7 @@ public class PauseMenu : MonoBehaviour
     public static bool GameIsPaused = false;
     public GameObject PauseMenuUI;
 
+
     private void Start()
     {
         PauseMenuUI.SetActive(false);
@@ -35,8 +36,19 @@ public class PauseMenu : MonoBehaviour
 
     {
         Debug.Log("QuitTheGame");
-        Application.Quit(); 
+        Application.Quit();
     }
 
 
+
+
+    public void exitcanvas()
+    {
+
+        PauseMenuUI.SetActive(false);
+    }
+
+
+
+  
 }
