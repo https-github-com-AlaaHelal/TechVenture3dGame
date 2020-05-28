@@ -7,7 +7,6 @@ public class CollectingItems : MonoBehaviour
     public GameObject Player;
     bool nearToItem = false;
     public Item item;
-    // Update is called once per frame
 
 
     void Update()
@@ -23,40 +22,43 @@ public class CollectingItems : MonoBehaviour
                 {
                     if (!nearToItem)
                         print("Get Closer");
+
+
                 }
 
             }
+
         }
+
+
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        bool wasPickedUp = Inventory.instance.Add(item);  // Add to inventory
 
         if (other.CompareTag("Player"))
         {
 
             print("press Space");
             nearToItem = true;
+
         }
 
-
-        if (wasPickedUp)
-        {
-
-            gameObject.SetActive(false);
-        }
     }
 
 
-    //    private void OnTriggerStay(Collider other)
-    //{
-    //    if (other.CompareTag("Player"))
-    //    {
-    //        if (Input.GetKeyDown(KeyCode.Space)) {  }
-    //            this.gameObject.SetActive(false);
-    //    }
-    //}
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            if (Input.GetMouseButtonDown(0))
+            {
+                this.gameObject.SetActive(false);
+                bool wasPickedUp = Inventory.instance.Add(item);  // Add to inventory
+
+            }
+        }
+    }
 
 
 }

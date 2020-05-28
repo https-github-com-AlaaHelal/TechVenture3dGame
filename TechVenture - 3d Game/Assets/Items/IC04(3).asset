@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: IC04(3)
   m_EditorClassIdentifier: 
   name: Ic04(3)
-  icon: {fileID: 21300000, guid: 0f0f8601117a01742812532765ee6892, type: 3}
+  icon: {fileID: 21300000, guid: af236905c28b379449fbe4b44bb8bf49, type: 3}
   isDefaultItem: 0
