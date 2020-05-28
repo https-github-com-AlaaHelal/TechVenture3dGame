@@ -10,6 +10,7 @@ TagManager:
   - CollectedItems
   - lockerpuzzle
   - toolboxpuzzle
+  - Robot
   layers:
   - Default
   - TransparentFX
@@ -20,8 +21,8 @@ TagManager:
   - 
   - 
   - PostProcessing
-  - 
-  - 
+  - balls
+  - pazzle
   - 
   - 
   - 

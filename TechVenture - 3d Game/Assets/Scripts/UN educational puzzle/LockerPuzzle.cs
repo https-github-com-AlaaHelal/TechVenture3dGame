@@ -41,8 +41,7 @@ public class LockerPuzzle : UEPuzzleCanvas
     void Start()
     {
 
-            binaryInformationball.GetComponent<SphereCollider>().isTrigger = false;
-
+        binaryInformationball.SetActive(false);
 
     }
 
@@ -70,8 +69,8 @@ public class LockerPuzzle : UEPuzzleCanvas
         yield return new WaitForSeconds(.5f);
         lockeranimator.SetBool("open", true);
         yield return new WaitForSeconds(1.5f);
-        binaryInformationball.GetComponent<SphereCollider>().isTrigger = true;
-
+        //  binaryInformationball.GetComponent<SphereCollider>().isTrigger = true;
+        binaryInformationball.SetActive(true);
 
 
     }

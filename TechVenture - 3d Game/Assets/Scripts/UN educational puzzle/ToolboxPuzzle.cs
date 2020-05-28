@@ -10,6 +10,7 @@ public class ToolboxPuzzle :UEPuzzleCanvas
     // Start is called before the first frame update
     void Start()
     {
+        binaryQuestionball.SetActive(false);
     }
 
     // Update is called once per frame
@@ -30,8 +31,8 @@ public class ToolboxPuzzle :UEPuzzleCanvas
         yield return new WaitForSeconds(0.5f);
         toolboxanimator.SetBool("open", true);
         yield return new WaitForSeconds(2f);
-        binaryQuestionball.GetComponent<SphereCollider>().isTrigger = true;
-
+        // binaryQuestionball.GetComponent<SphereCollider>().isTrigger = true;
+        binaryQuestionball.SetActive(true);
 
     }
 

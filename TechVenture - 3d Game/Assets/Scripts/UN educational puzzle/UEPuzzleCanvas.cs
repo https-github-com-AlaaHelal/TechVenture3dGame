@@ -8,7 +8,7 @@ public class UEPuzzleCanvas : MonoBehaviour
     public GameObject[] PuzzlesPanels = new GameObject[10];
     public Transform PlayerPosition;
     int NumberofPuzzle;
- 
+    int layermask = 1 << 10;
 
 
     // Start is called before the first frame update
@@ -30,28 +30,25 @@ public class UEPuzzleCanvas : MonoBehaviour
         RaycastHit hit;
         if (Input.GetMouseButtonDown(0))
         {
-            if (Physics.Raycast(ray, out hit))
+            if (Physics.Raycast(ray, out hit ,10, layermask))
             {   
                 var selection = hit.transform;
-                float Distance = Vector3.Distance(PlayerPosition.position, selection.position);
-                float Diriction = PlayerPosition.rotation.y - selection.rotation.y;
-
-                if(  Distance <=11 ) 
-                {
+            
+                
                     if (selection.CompareTag("lockerpuzzle"))
                     {
                         NumberofPuzzle = 0; 
                         Display(NumberofPuzzle);
-                        Debug.Log(Distance);
+                     
                     }
                     if (selection.CompareTag("toolboxpuzzle"))
                     {
                         NumberofPuzzle = 1;
                         Display(NumberofPuzzle);
-                        Debug.Log(Distance);
+                  
                     }
                 }
-            }
+            
         }
 
 

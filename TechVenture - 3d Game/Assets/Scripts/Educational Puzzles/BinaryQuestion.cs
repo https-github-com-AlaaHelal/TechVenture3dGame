@@ -26,17 +26,17 @@ public class BinaryQuestion : Educational
 
     public bool istrue;
 
-    [SerializeField]
+  
     int n1;
-    [SerializeField]
+
     int n2;
-    [SerializeField]
+ 
     int n3;
-    [SerializeField]
+ 
     int n4;
-    [SerializeField]
+ 
     int n5;
-    [SerializeField]
+  
     int checkscore;
 
 
