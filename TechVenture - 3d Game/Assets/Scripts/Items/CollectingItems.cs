@@ -8,7 +8,10 @@ public class CollectingItems : MonoBehaviour
     bool nearToItem = false;
     public Item item;
 
-
+    private void Start()
+    {
+        Player = GameObject.FindGameObjectWithTag("Player");
+    }
     void Update()
     {
         if (Input.GetMouseButtonDown(0))

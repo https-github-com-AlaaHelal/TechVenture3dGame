@@ -4,6 +4,24 @@ using UnityEngine;
 
 public class UEPuzzleCanvas : MonoBehaviour
 {
+    private static UEPuzzleCanvas _instance;
+    public static UEPuzzleCanvas Instance
+    {
+        get
+        {
+            if (_instance == null)
+            {
+                GameObject UNEducationalManager = new GameObject("UnEducationManger");
+                UNEducationalManager.GetComponent<UEPuzzleCanvas>();
+            }
+            return _instance;
+        }
+    }
+    private void Awake()
+    {
+        _instance = this;
+    }
+
     public Canvas UEpuzzlesCanvas;
     public GameObject[] PuzzlesPanels = new GameObject[10];
     public Transform PlayerPosition;

@@ -12,17 +12,17 @@ public class InventorySlot : MonoBehaviour
 	public Image greenbar;
 	public Image whitebar;
 	public Image barimage;
-	public bool Isselected;
+	public bool IsSelected;
 
 
 
-	Item item;  // Current item in the slot
+	public Item item;  // Current item in the slot
 
 	// Add item to the slot
 	public void AddItem(Item newItem)
 	{
 		item = newItem;
-
+        
 		icon.sprite = item.icon;
 		icon.enabled = true;
 		//removeButton.interactable = true;
@@ -45,23 +45,27 @@ public class InventorySlot : MonoBehaviour
 	// If the remove button is pressed
 
 	public void RemoveItemFromInventory()
-	{   // execute if the item is ic else remove it as normal
-		if (icon.sprite == ic1image.sprite || icon.sprite == ic2image.sprite || icon.sprite == ic3image.sprite || icon.sprite == ic4image.sprite)
-		{
-			Debug.Log("done");
-			Isselected = true;
-			changebarcolor();
-			PlaceImage.sprite = icon.sprite;
-			icon.enabled = false;
-			//icon.sprite = null;
+    {   // execute if the item is ic else remove it as normal
+        if (icon.sprite == ic1image.sprite || icon.sprite == ic2image.sprite || icon.sprite == ic3image.sprite || icon.sprite == ic4image.sprite)
+        {
+            Debug.Log("done");
+            IsSelected = true;
+            changebarcolor();
+            PlaceImage.sprite = icon.sprite;
+            icon.enabled = false;
+            //icon.sprite = null;
 
 
-		}
+        }
 
-		else
-			Inventory.instance.Remove(item);
+        else
+            Inventory.instance.Remove(item);
 
-	}
+        //else
+        //    Inventory.instance.Remove(item);
+
+    }
+   
 
 	////Use the item
 	//public void UseItem()
@@ -75,17 +79,18 @@ public class InventorySlot : MonoBehaviour
 
 	public void changebarcolor()
 	{
-		if (Isselected == true)
+        if (IsSelected == true)
 
-		{ barimage.sprite = greenbar.sprite; }
-		else if (Isselected == false)
-		{ barimage.sprite = whitebar.sprite; }
+        { barimage.sprite = greenbar.sprite; }
+        else if (IsSelected == false)
+        { barimage.sprite = whitebar.sprite; }
 
-	}
+
+    }
 
 	public void ReturnICSToBar()
 	{
-		Isselected = false;
+		IsSelected = false;
 		changebarcolor();
 		icon.enabled = true;
 		PlaceImage.sprite = null;

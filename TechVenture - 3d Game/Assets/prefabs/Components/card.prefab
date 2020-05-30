@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 5122358147681286329}
   - component: {fileID: 4201087864774181519}
   - component: {fileID: 7598076477721689718}
+  - component: {fileID: 3885214683078749435}
+  - component: {fileID: 6865066323759514566}
   m_Layer: 0
   m_Name: card
   m_TagString: Untagged
@@ -82,3 +84,30 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!114 &3885214683078749435
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8164212762361727658}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a9b1c9f596e5c7345aee515485725be7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Player: {fileID: 0}
+  item: {fileID: 11400000, guid: 1a59089054230f547b0b5685e7422ff3, type: 2}
+--- !u!65 &6865066323759514566
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8164212762361727658}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.026017087, y: 0.097670555, z: 0.046247683}
+  m_Center: {x: 0.00036954583, y: -0.018668652, z: 0.0000027070444}

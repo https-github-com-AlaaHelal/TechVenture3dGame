@@ -13,42 +13,42 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: blinn1
-    second: {fileID: 2100000, guid: f703f28d58d44c5478787ce813cdb170, type: 2}
+    second: {fileID: 2100000, guid: bef39be40ba70384b8dc501393a5f5c6, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: blinn2
-    second: {fileID: 2100000, guid: f9e8aa4822cc41f4198f0991e9aaad0b, type: 2}
+    second: {fileID: 2100000, guid: 3febebe448f89104c99fa403407a90a6, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: mmmm_aiStandardSurface1
-    second: {fileID: 2100000, guid: 918ed41986433b1429a47b63aca99208, type: 2}
+    second: {fileID: 2100000, guid: bef39be40ba70384b8dc501393a5f5c6, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: mmmm_phong1
-    second: {fileID: 2100000, guid: 14eeb3e8857a7f24e82d3c9583a88b32, type: 2}
+    second: {fileID: 2100000, guid: 3febebe448f89104c99fa403407a90a6, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: phong1
-    second: {fileID: 2100000, guid: 71318f384452db3499c0511a8b77c209, type: 2}
+    second: {fileID: 2100000, guid: 3febebe448f89104c99fa403407a90a6, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: phong2
-    second: {fileID: 2100000, guid: 22e7a0bf5a936454389aa627a224f64c, type: 2}
+    second: {fileID: 2100000, guid: bef39be40ba70384b8dc501393a5f5c6, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: phong3
-    second: {fileID: 2100000, guid: f703f28d58d44c5478787ce813cdb170, type: 2}
+    second: {fileID: 2100000, guid: bef39be40ba70384b8dc501393a5f5c6, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: phong4
-    second: {fileID: 2100000, guid: f9e8aa4822cc41f4198f0991e9aaad0b, type: 2}
+    second: {fileID: 2100000, guid: bef39be40ba70384b8dc501393a5f5c6, type: 2}
   materials:
     materialImportMode: 1
     materialName: 0
