@@ -18,7 +18,7 @@ public class Educational : MonoBehaviour
     int Number;
     public GameObject masgg;
 
-    int layer = 1 << 9;
+    int LayerMask = 1 << 11;
     public Transform PlayerPosition;
   
     // Start is called before the first frame update
@@ -42,16 +42,16 @@ public class Educational : MonoBehaviour
 
       
 
-            if (Physics.Raycast(ray, out hit,10, layer))
+            if (Physics.Raycast(ray, out hit,10, LayerMask))
             {
                 var selection = hit.transform;
                 float Distance = Vector3.Distance(PlayerPosition.position, selection.position);
-                Debug.Log("rot"+PlayerPosition.rotation.y);
-                Debug.Log("dis"+Distance);
-           
-                        if (selection.CompareTag("BinaryInformation") & PlayerPosition.rotation.y >= 0.6 & PlayerPosition.rotation.y <= 0.85)
+            //Debug.Log("rot" + PlayerPosition.rotation.y);
+            //Debug.Log("dis" + Distance);
+            //Debug.Log(hit.collider);
+            if (selection.CompareTag("BinaryInformation") & PlayerPosition.rotation.y >= 0.6 & PlayerPosition.rotation.y <= 0.85)
                         {     
-                            if (Input.GetMouseButtonDown(0))
+                            if (Input.GetKeyDown(KeyCode.F) || Input.GetMouseButtonDown(0))
                             {
                                 
                                 character.SetBool("pickup", true);
@@ -59,7 +59,7 @@ public class Educational : MonoBehaviour
                                 Number = 0;
                                 Display();
                             }
-                            if (Input.GetMouseButtonUp(0))
+                            if (Input.GetKeyDown(KeyCode.F) || Input.GetMouseButtonDown(0))
                             {
                                 character.SetBool("pickupmid", false);
                                 character.SetBool("pickup", false);
@@ -70,7 +70,7 @@ public class Educational : MonoBehaviour
                         if (selection.CompareTag("BinaryQuestion") &  PlayerPosition.rotation.y <= 0.5)
                         {
                              
-                             if (Input.GetMouseButtonDown(0))
+                             if (Input.GetKeyDown(KeyCode.F) || Input.GetMouseButtonDown(0))
                              {
 
                                 character.SetBool("pickup", true);
@@ -78,13 +78,13 @@ public class Educational : MonoBehaviour
                                 Number = 10;
                                 Display();
                             }
-                            if (Input.GetMouseButtonUp(0))
+                            if (Input.GetKeyDown(KeyCode.F) || Input.GetMouseButtonDown(0))
                             {
                                character.SetBool("pickuplow", false);
                                character.SetBool("pickup", false);
                             }
 
-
+                            
                         }
         
             }

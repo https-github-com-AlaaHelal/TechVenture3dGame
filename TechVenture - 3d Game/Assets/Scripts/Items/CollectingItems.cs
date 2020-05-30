@@ -6,6 +6,7 @@ public class CollectingItems : MonoBehaviour
 {
     public GameObject Player;
     bool nearToItem = false;
+    public int LayerMask = 1 << 11;
     public Item item;
 
     private void Start()
@@ -19,8 +20,9 @@ public class CollectingItems : MonoBehaviour
             RaycastHit hit;
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
-            if (Physics.Raycast(ray, out hit))
+            if (Physics.Raycast(ray, out hit, 20, LayerMask))
             {
+                Debug.Log(hit.collider.name);
                 if (hit.transform == this.transform)
                 {
                     if (!nearToItem)
@@ -54,11 +56,16 @@ public class CollectingItems : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            if (Input.GetMouseButtonDown(0))
-            {
-                this.gameObject.SetActive(false);
-                bool wasPickedUp = Inventory.instance.Add(item);  // Add to inventory
+            //if (Input.GetMouseButtonDown(0))
+            //{
+            //    gameObject.SetActive(false);
+            //    bool wasPickedUp = Inventory.instance.Add(item);  // Add to inventory
 
+            //}
+            if (Input.GetKeyDown(KeyCode.F))
+            {
+                gameObject.SetActive(false);
+                bool wasPickedUp = Inventory.instance.Add(item);
             }
         }
     }
