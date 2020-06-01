@@ -49,15 +49,9 @@ public class OpenGate : MonoBehaviour
     }
     IEnumerator openGate()
     {
-        PlayerAnim.SetBool("pickup", true);
+        //PlayerAnim.SetBool("pickup", true);
         yield return new WaitForSeconds(1f);
         GateAnim.SetBool("Open", true);
     }
-    //private void OnCollisionEnter(Collision collision)
-    //{
-    //    if(collision.gameObject.tag == "Card" && CardShow.hasKeyCard)
-    //    {
-    //        GateAnim.SetBool("openGate", true);
-    //    }
-    //}
+   
 }

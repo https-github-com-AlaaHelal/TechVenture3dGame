@@ -12,6 +12,10 @@ public class ToolboxPuzzle :UEPuzzleCanvas
     public Button[] ICs = new Button[4];
     public int WinValue = 4;
     public int CurrentWin = 0;
+    public GameObject IC1;
+    public GameObject IC2;
+    public GameObject IC3;
+    public GameObject IC4;
 
     private Inventory inventory;
     // Start is called before the first frame update
@@ -35,17 +39,37 @@ public class ToolboxPuzzle :UEPuzzleCanvas
             if (slot.item.name.ToString() == "IC04(1)" || slot.item.name.ToString() == "IC04(2)" ||
                 slot.item.name.ToString() == "IC04(3)" || slot.item.name.ToString() == "IC04(4)")
             {
-
+                Debug.Log(btn.name);
                 btn.image.enabled = true;
                 CurrentWin++;
                 inventory.Remove(slot.item);
+                CheckIC(btn);
             }
         }
+        
         if (CurrentWin == WinValue)
             StartCoroutine(ExitPuzzle());
     }
 
-   
+    void CheckIC(Button btn)
+    {
+        switch (btn.name)
+        {
+            case "Button":
+                IC1.SetActive(true);
+                break;
+            case "Button(1)":
+                IC2.SetActive(true);
+                break;
+            case "Button(2)":
+                IC3.SetActive(true);
+                break;
+            case "Button(3)":
+                IC4.SetActive(true);
+                break;
+        }
+    }
+
     IEnumerator ExitPuzzle()
     {
         yield return new WaitForSeconds(.5f);
