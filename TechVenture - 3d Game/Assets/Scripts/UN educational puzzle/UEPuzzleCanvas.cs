@@ -47,11 +47,11 @@ public class UEPuzzleCanvas : MonoBehaviour
         var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
         
-        if (Physics.Raycast(ray, out hit, 20, layermask))
+        if (Physics.Raycast(ray, out hit, 10, layermask))
         {
             var selection = hit.transform;
 
-            Debug.Log(selection);
+            //Debug.Log(selection);
             if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.F))
             {
                 if (selection.CompareTag("lockerpuzzle"))

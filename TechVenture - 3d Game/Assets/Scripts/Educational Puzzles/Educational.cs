@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.Video;
 
 public class Educational : MonoBehaviour
 {
@@ -17,8 +18,11 @@ public class Educational : MonoBehaviour
     public Animator character;
     int Number;
     public GameObject masgg;
+    public VideoPlayer binaryvideo;
+    public RawImage binaryimage;
 
-    int LayerMask = 1 << 11;
+
+    int LayerMask = 1 << 9;
     public Transform PlayerPosition;
   
     // Start is called before the first frame update
@@ -58,8 +62,11 @@ public class Educational : MonoBehaviour
                                 character.SetBool("pickupmid", true);
                                 Number = 0;
                                 Display();
+                                StartCoroutine(video());
+                               
+                                
                             }
-                            if (Input.GetKeyDown(KeyCode.F) || Input.GetMouseButtonDown(0))
+                            if (Input.GetKeyUp(KeyCode.F) || Input.GetMouseButtonUp(0))
                             {
                                 character.SetBool("pickupmid", false);
                                 character.SetBool("pickup", false);
@@ -78,7 +85,7 @@ public class Educational : MonoBehaviour
                                 Number = 10;
                                 Display();
                             }
-                            if (Input.GetKeyDown(KeyCode.F) || Input.GetMouseButtonDown(0))
+                            if (Input.GetKeyUp(KeyCode.F) || Input.GetMouseButtonUp(0))
                             {
                                character.SetBool("pickuplow", false);
                                character.SetBool("pickup", false);
@@ -186,9 +193,24 @@ public class Educational : MonoBehaviour
                 QuestionPanels[Number - 10].gameObject.SetActive(false);
             }
         }
+    IEnumerator video()
+    {
+        yield return new WaitForSeconds(1f);
+        binaryvideo.Prepare();
+        while (!binaryvideo.isPrepared)
+        {
+          //  yield return WaitForSeconds;
+            break;
+        }
+
+        binaryimage.texture = binaryvideo.texture;
+        binaryvideo.Play();
+    }
+          
         public void Exit()
         {
             StartCoroutine(TimeToHideScreen(Number));
+            binaryvideo.Stop();
         }
 
 

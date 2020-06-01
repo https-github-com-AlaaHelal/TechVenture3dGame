@@ -11,6 +11,7 @@ TagManager:
   - lockerpuzzle
   - toolboxpuzzle
   - Robot
+  - lockers
   layers:
   - Default
   - TransparentFX
