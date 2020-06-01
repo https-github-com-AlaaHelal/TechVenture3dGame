@@ -4,32 +4,60 @@ using UnityEngine;
 
 public class OpenGate : MonoBehaviour
 {
-    public GameObject keyCard;
     public GameObject gate;
+    public GameObject Player;
 
-
+    private Animator PlayerAnim;
     private Animator GateAnim;
-    private CardShow CardShow;
+    private Ray ray;
+    private RaycastHit hit;
+    private LayerMask mask;
+
+    Inventory Inventory;
     // Start is called before the first frame update
     void Start()
     {
         GateAnim = gate.GetComponent<Animator>();
-        CardShow = keyCard.GetComponent<CardShow>();
+        PlayerAnim = Player.GetComponent<Animator>();
+        Inventory = GameObject.Find("InventoryManager").GetComponent<Inventory>();
+        mask = 1 << 11;
+    }
+
+    // Update is called once per frame
+    float GetDirection()
+    {
+        return Vector3.Dot(Player.transform.forward.normalized, transform.forward.normalized);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Return))
+        ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        if (Physics.Raycast(ray, out hit, 20, mask))
         {
-            GateAnim.SetBool("openGate", true);
+            if (Inventory.SelectedSlot != null && Inventory.SelectedSlot.item != null)
+            {
+                if (Inventory.SelectedSlot != null && Inventory.SelectedSlot.item != null)
+                {
+                    Inventory.Remove(Inventory.SelectedSlot.item);
+                    StartCoroutine(openGate());
+                }
+            }
+            
         }
+
     }
-    private void OnCollisionEnter(Collision collision)
+    IEnumerator openGate()
     {
-        if(collision.gameObject.tag == "Card" && CardShow.hasKeyCard)
-        {
-            GateAnim.SetBool("openGate", true);
-        }
+        PlayerAnim.SetBool("pickup", true);
+        yield return new WaitForSeconds(1f);
+        GateAnim.SetBool("Open", true);
     }
+    //private void OnCollisionEnter(Collision collision)
+    //{
+    //    if(collision.gameObject.tag == "Card" && CardShow.hasKeyCard)
+    //    {
+    //        GateAnim.SetBool("openGate", true);
+    //    }
+    //}
 }

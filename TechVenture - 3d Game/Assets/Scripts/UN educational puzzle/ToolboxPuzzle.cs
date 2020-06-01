@@ -21,6 +21,7 @@ public class ToolboxPuzzle :UEPuzzleCanvas
         foreach (Button btn in ICs)
         {
             btn.image.enabled = false;
+            btn.onClick.AddListener(delegate { OnICClick(btn); });
         }
         binaryQuestionball.SetActive(false);
     }
@@ -37,7 +38,7 @@ public class ToolboxPuzzle :UEPuzzleCanvas
 
                 btn.image.enabled = true;
                 CurrentWin++;
-                InventorySlot.ClearSlot();
+                inventory.Remove(slot.item);
             }
         }
         if (CurrentWin == WinValue)
