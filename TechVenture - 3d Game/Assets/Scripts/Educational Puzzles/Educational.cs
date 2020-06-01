@@ -7,6 +7,9 @@ using TMPro;
 using UnityEngine.Video;
 
 public class Educational : MonoBehaviour
+
+   // Time.timeScale = 0f; to stop the scene
+   //Time.timeScale = 1f; to resume the scene
 {
     public Canvas ScreenCanvas;
     public Animator[] ballAnimatore = new Animator[20];
@@ -133,9 +136,13 @@ public class Educational : MonoBehaviour
         {
             ballAnimatore[Number].SetBool("is interacted", true);
             ScreenCanvas.enabled = true;
-            StartCoroutine(TimeToShowScreen(Number));
+       
 
-        }
+        StartCoroutine(TimeToShowScreen(Number));
+      
+
+
+    }
         IEnumerator TimeToShowScreen(int Number)
         {
 
@@ -145,8 +152,9 @@ public class Educational : MonoBehaviour
             Screen.SetBool("open", true);
             yield return new WaitForSeconds(1.5f);
             DisplayInformationORQuestion(Number);
+         
 
-        }
+    }
         //hide screen when Exit
         IEnumerator TimeToHideScreen(int Number)
         {

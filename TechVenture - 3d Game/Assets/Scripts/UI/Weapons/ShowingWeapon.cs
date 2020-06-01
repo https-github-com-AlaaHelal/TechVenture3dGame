@@ -6,18 +6,22 @@ using UnityEngine.UI;
 public class ShowingWeapon : MonoBehaviour
 {
     public Image WeaponImage;
-    public GameObject Weapon;
-    // Start is called before the first frame update
+    public GameObject WeaponCopy;
+
     void Start()
     {
-        Weapon.SetActive(false);
+        WeaponImage.enabled = false;
+        WeaponCopy.SetActive(false);
 
     }
 
     public void ShowingWeaponWithPlayer()
-    { 
-    Weapon.SetActive(true);
-        WeaponImage.enabled=false;
+    {
+        if (WeaponImage.enabled == true)
 
+        {
+            WeaponCopy.SetActive(true);
+            WeaponImage.enabled = false;
+        }
     }
 }

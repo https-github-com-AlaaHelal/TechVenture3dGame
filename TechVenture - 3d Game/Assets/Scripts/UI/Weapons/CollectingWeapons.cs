@@ -7,17 +7,21 @@ public class CollectingWeapons : MonoBehaviour
 {
 
     public GameObject Player;
-    bool nearToItem = false;
-    public Image image;
-    // Update is called once per frame
+    public GameObject WeaponButton;
+    Image WeaponIcon;
+
+
 
     public void Start()
     {
-        image.enabled=false;
+
+        WeaponIcon = WeaponButton.transform.Find("Image").GetComponent<Image>();
+
     }
 
 
     void Update()
+
     {
         if (Input.GetMouseButtonDown(0))
         {
@@ -28,8 +32,7 @@ public class CollectingWeapons : MonoBehaviour
             {
                 if (hit.transform == this.transform)
                 {
-                    if (!nearToItem)
-                        print("Get Closer");
+
                 }
 
             }
@@ -37,19 +40,19 @@ public class CollectingWeapons : MonoBehaviour
     }
 
 
-    private void OnTriggerEnter(Collider other)
-    {
 
+    private void OnTriggerStay(Collider other)
+    {
         if (other.CompareTag("Player"))
         {
 
-            print("press Space");
-            nearToItem = true;
-
-            gameObject.SetActive(false);
-            image.enabled=true;
-            
+            if (Input.GetKeyDown(KeyCode.F))
+            {
+                gameObject.SetActive(false);
+                WeaponIcon.enabled = true;
+            }
         }
-
     }
+
+
 }

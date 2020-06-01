@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class BinaryQuestion : Educational
 {
+   
     // Start is called before the first frame update
     public TextMeshProUGUI Text1;
     public TextMeshProUGUI Text2;
@@ -152,6 +153,8 @@ public class BinaryQuestion : Educational
         checkscore++;
         if (checkscore == 1)
         {
+            
+
             FindObjectOfType<ScoreManager>().AddScore();
         }
     }
