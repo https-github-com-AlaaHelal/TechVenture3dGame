@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: daf0f66ca8a745241b003a2f54f61eab, type: 3}
   m_Name: IC04(4)
   m_EditorClassIdentifier: 
-  name: Ic04(4)
-  icon: {fileID: 21300000, guid: ed92d5b4342c3ce4fbe06d93fc036c1c, type: 3}
+  name: IC04(4)
+  icon: {fileID: 21300000, guid: 52f49cda40921a74e9c0e16752848cdf, type: 3}
   isDefaultItem: 0

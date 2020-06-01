@@ -13,13 +13,20 @@ public class InventorySlot : MonoBehaviour
 	public Image whitebar;
 	public Image barimage;
 	public bool IsSelected;
+    public InventorySlot inventorySlot;
 
 
+    public Item item;  // Current item in the slot
 
-	public Item item;  // Current item in the slot
 
-	// Add item to the slot
-	public void AddItem(Item newItem)
+    public void Start()
+    {
+        inventorySlot = GetComponent<InventorySlot>();
+    }
+
+
+    // Add item to the slot
+    public void AddItem(Item newItem)
 	{
 		item = newItem;
         
@@ -38,6 +45,7 @@ public class InventorySlot : MonoBehaviour
 
 		icon.sprite = null;
 		icon.enabled = false;
+        DeselectUI();
 		// removeButton.interactable = false;
 
 	}
@@ -46,38 +54,55 @@ public class InventorySlot : MonoBehaviour
 
 	public void RemoveItemFromInventory()
     {   // execute if the item is ic else remove it as normal
-        if (icon.sprite == ic1image.sprite || icon.sprite == ic2image.sprite || icon.sprite == ic3image.sprite || icon.sprite == ic4image.sprite)
-        {
-            Debug.Log("done");
-            IsSelected = true;
-            changebarcolor();
-            PlaceImage.sprite = icon.sprite;
-            icon.enabled = false;
-            //icon.sprite = null;
+    //    if (icon.sprite == ic1image.sprite || icon.sprite == ic2image.sprite || icon.sprite == ic3image.sprite || icon.sprite == ic4image.sprite)
+    //    {
+    //        Debug.Log("done");
+    //        IsSelected = true;
+    //        changebarcolor();
+    //        PlaceImage.sprite = icon.sprite;
+    //        icon.enabled = false;
+    //        //icon.sprite = null;
 
 
-        }
+    //    }
 
-        else
-            Inventory.instance.Remove(item);
+    //    else
+    //        Inventory.instance.Remove(item);
 
-        //else
+    //    //else
         //    Inventory.instance.Remove(item);
 
     }
-   
 
-	////Use the item
-	//public void UseItem()
-	//{
-	//	if (item != null)
-	//	{
-	//		item.Use();
-	//	}
-	//}
+    public void SelectSlot()
+    {
+        Inventory.instance.SelectedSlot = inventorySlot;
+        SelectUI();
+    }
+
+    public void SelectUI()
+    {
+        barimage.sprite = greenbar.sprite;
+        IsSelected = true;
+    }
+
+    public void DeselectUI()
+    {
+        barimage.sprite = whitebar.sprite;
+        IsSelected = false;
+    }
+
+    ////Use the item
+    //public void UseItem()
+    //{
+    //	if (item != null)
+    //	{
+    //		item.Use();
+    //	}
+    //}
 
 
-	public void changebarcolor()
+    public void changebarcolor()
 	{
         if (IsSelected == true)
 

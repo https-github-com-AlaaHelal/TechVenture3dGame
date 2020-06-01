@@ -22,7 +22,7 @@ public class OpenLockers : MonoBehaviour
         {
            var selection = hit.transform;
 
-            Debug.Log(selection);
+            //Debug.Log(selection);
 
             if (selection == this.transform)
             {

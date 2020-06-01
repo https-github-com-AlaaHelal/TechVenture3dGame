@@ -7,35 +7,41 @@ public class ToolboxPuzzle :UEPuzzleCanvas
 {
     public GameObject binaryQuestionball;
     public Animator toolboxanimator;
-    //public TextMeshProUGUI t;
     public GameObject Inventory;
     InventorySlot InventorySlot;
     public Button[] ICs = new Button[4];
     public int WinValue = 4;
     public int CurrentWin = 0;
 
+    private Inventory inventory;
     // Start is called before the first frame update
     void Start()
     {
-        foreach(Button btn in ICs)
+        inventory = GameObject.Find("InventoryManager").GetComponent<Inventory>();
+        foreach (Button btn in ICs)
         {
             btn.image.enabled = false;
-            btn.onClick.AddListener(delegate { OnICClick(btn); });
         }
         binaryQuestionball.SetActive(false);
     }
 
     public void OnICClick(Button btn)
     {
-        btn.image.enabled = true;
-        CurrentWin++;
-        //if (InventorySlot.item.name == "ICO4(1)" || InventorySlot.item.name == "ICO4(2)" || InventorySlot.item.name == "ICO4(3)" || InventorySlot.item.name == "ICO4(4)")
-        //{
-        //    btn.image.enabled = true;
-        //    CurrentWin++;
-        //}
+        InventorySlot slot = inventory.SelectedSlot;
+        Debug.Log(slot);
+        if (slot != null && slot.item != null)
+        {
+            if (slot.item.name.ToString() == "IC04(1)" || slot.item.name.ToString() == "IC04(2)" ||
+                slot.item.name.ToString() == "IC04(3)" || slot.item.name.ToString() == "IC04(4)")
+            {
+
+                btn.image.enabled = true;
+                CurrentWin++;
+                InventorySlot.ClearSlot();
+            }
+        }
         if (CurrentWin == WinValue)
-           StartCoroutine(ExitPuzzle());
+            StartCoroutine(ExitPuzzle());
     }
 
    

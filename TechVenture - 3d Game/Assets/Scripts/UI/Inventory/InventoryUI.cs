@@ -17,9 +17,10 @@ public class InventoryUI : MonoBehaviour {
 	void Start () {
 		inventory = Inventory.instance;
 		inventory.onItemChangedCallback += UpdateUI;	// Subscribe to the onItemChanged callback
+        inventory.ChangeSlot += ChangeSlotSlection;
 
-		//Populate our slots array
-		slots = itemsParent.GetComponentsInChildren<InventorySlot>();
+        //Populate our slots array
+        slots = itemsParent.GetComponentsInChildren<InventorySlot>();
 	}
 	
 	void Update () {
@@ -30,11 +31,20 @@ public class InventoryUI : MonoBehaviour {
 		//}
 	}
 
-	// Update the inventory UI by:
-	//		- Adding items
-	//		- Clearing empty slots
-	// This is called using a delegate on the Inventory.
-	void UpdateUI ()
+    void ChangeSlotSlection()
+    {
+        for (int i = 0; i < slots.Length; i++)
+        {
+            if (slots[i] != inventory.SelectedSlot)
+                slots[i].DeselectUI();
+        }
+    }
+
+    // Update the inventory UI by:
+    //		- Adding items
+    //		- Clearing empty slots
+    // This is called using a delegate on the Inventory.
+    void UpdateUI ()
 	{
 		// Loop through all the slots
 		for (int i = 0; i < slots.Length; i++)
@@ -42,7 +52,7 @@ public class InventoryUI : MonoBehaviour {
 			if (i < inventory.items.Count)	// If there is an item to add
 			{
 				slots[i].AddItem(inventory.items[i]);	// Add it
-                
+                Debug.Log(inventory.items[i]);
 			} else
 			{
 				// Otherwise clear the slot

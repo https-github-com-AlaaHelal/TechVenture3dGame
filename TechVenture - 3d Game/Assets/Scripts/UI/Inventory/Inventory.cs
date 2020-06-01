@@ -26,16 +26,37 @@ public class Inventory : MonoBehaviour {
 	public delegate void OnItemChanged();
 	public OnItemChanged onItemChangedCallback;
 
-	public int space = 11;	// Amount of slots in inventory
+    public delegate void OnSelectedSlotChange();
+    public event OnSelectedSlotChange ChangeSlot;
+
+    public int space = 11;	// Amount of slots in inventory
 
 	// Current list of items in inventory
 	public List<Item> items = new List<Item>();
-    
+
+
+    public InventorySlot selected;
+
+    public InventorySlot SelectedSlot
+    {
+        get
+        {
+            return selected;
+        }
+        set
+        {
+            if (selected == value) return;
+            selected = value;
+            if (ChangeSlot != null)
+                ChangeSlot.Invoke();
+
+        }
+    }
 
     // Add a new item. If there is enough room we
     // return true. Else we return false.
 
-    
+
     public bool Add (Item item)
 	{
 		// Don't do anything if it's a default item
