@@ -8,8 +8,6 @@ using UnityEngine.Video;
 
 public class Educational : MonoBehaviour
 
-   // Time.timeScale = 0f; to stop the scene
-   //Time.timeScale = 1f; to resume the scene
 {
     public Canvas ScreenCanvas;
     public Animator[] ballAnimatore = new Animator[20];
@@ -66,7 +64,7 @@ public class Educational : MonoBehaviour
                                 Number = 0;
                                 Display();
                                 StartCoroutine(video());
-                               
+                                
                                 
                             }
                             if (Input.GetKeyUp(KeyCode.F) || Input.GetMouseButtonUp(0))
@@ -136,14 +134,15 @@ public class Educational : MonoBehaviour
         {
             ballAnimatore[Number].SetBool("is interacted", true);
             ScreenCanvas.enabled = true;
-       
+            StartCoroutine(TimeToShowScreen(Number));
+            Time.timeScale = 0f; 
 
-        StartCoroutine(TimeToShowScreen(Number));
-      
+
+
 
 
     }
-        IEnumerator TimeToShowScreen(int Number)
+    IEnumerator TimeToShowScreen(int Number)
         {
 
             yield return new WaitForSeconds(4f);
@@ -218,6 +217,7 @@ public class Educational : MonoBehaviour
         public void Exit()
         {
             StartCoroutine(TimeToHideScreen(Number));
+            Time.timeScale = 1f;
             binaryvideo.Stop();
         }
 
