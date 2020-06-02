@@ -72,6 +72,8 @@ public class LockerPuzzle : UEPuzzleCanvas
         //  binaryInformationball.GetComponent<SphereCollider>().isTrigger = true;
         binaryInformationball.SetActive(true);
         IC.SetActive(true);
+       // Time.timeScale = 1f;
+
 
     }
     bool Win()

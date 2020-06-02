@@ -54,7 +54,7 @@ public class Educational : MonoBehaviour
             //Debug.Log("rot" + PlayerPosition.rotation.y);
             //Debug.Log("dis" + Distance);
             //Debug.Log(hit.collider);
-            if (selection.CompareTag("BinaryInformation") & PlayerPosition.rotation.y >= 0.6 & PlayerPosition.rotation.y <= 0.85)
+            if (selection.CompareTag("BinaryInformation") )
                         {     
                             if (Input.GetKeyDown(KeyCode.F) || Input.GetMouseButtonDown(0))
                             {
@@ -75,7 +75,7 @@ public class Educational : MonoBehaviour
                   
 
                         }
-                        if (selection.CompareTag("BinaryQuestion") &  PlayerPosition.rotation.y <= 0.5)
+                        if (selection.CompareTag("BinaryQuestion") )
                         {
                              
                              if (Input.GetKeyDown(KeyCode.F) || Input.GetMouseButtonDown(0))
@@ -135,7 +135,7 @@ public class Educational : MonoBehaviour
             ballAnimatore[Number].SetBool("is interacted", true);
             ScreenCanvas.enabled = true;
             StartCoroutine(TimeToShowScreen(Number));
-            Time.timeScale = 0f; 
+        //    Time.timeScale = 0f; 
 
 
 
@@ -217,7 +217,7 @@ public class Educational : MonoBehaviour
         public void Exit()
         {
             StartCoroutine(TimeToHideScreen(Number));
-            Time.timeScale = 1f;
+          //  Time.timeScale = 1f;
             binaryvideo.Stop();
         }
 

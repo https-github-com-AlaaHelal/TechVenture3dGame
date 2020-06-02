@@ -79,7 +79,7 @@ public class UEPuzzleCanvas : MonoBehaviour
 
         UEpuzzlesCanvas.enabled = true;
         PuzzlesPanels[number].SetActive(true);
-        Time.timeScale = 0f;
+     //   Time.timeScale = 0f;
 
 
     }
@@ -92,7 +92,7 @@ public class UEPuzzleCanvas : MonoBehaviour
             PuzzlesPanels[i].SetActive(false);
 
         }
-        Time.timeScale = 1f;
+    //    Time.timeScale = 1f;
 
     }
 }

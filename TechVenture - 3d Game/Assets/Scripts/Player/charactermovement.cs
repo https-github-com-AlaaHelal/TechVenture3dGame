@@ -15,10 +15,12 @@ public class charactermovement : MonoBehaviour
     float currentSpeed;
 
     Animator animator;
+    Transform cameraT;
 
     void Start()
     {
         animator = GetComponent<Animator>();
+        cameraT = Camera.main.transform;
     }
 
     void Update()
@@ -27,14 +29,15 @@ public class charactermovement : MonoBehaviour
         Vector2 input = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
         Vector2 inputDir = input.normalized;
 
-        if (inputDir != Vector2.zero)
-        {
-            float targetRotation = Mathf.Atan2(inputDir.x, inputDir.y) * Mathf.Rad2Deg;
+      //  if (inputDir != Vector2.zero)
+       // {
+            float targetRotation =( Mathf.Atan2(inputDir.x, inputDir.y) * Mathf.Rad2Deg )+ cameraT.eulerAngles.y;
             transform.eulerAngles = Vector3.up * Mathf.SmoothDampAngle(transform.eulerAngles.y, targetRotation, ref turnSmoothVelocity, turnSmoothTime);
-        }
+            Debug.Log("done");
+    //    }
 
        // bool running = Input.GetKey(KeyCode.LeftShift);
-        float targetSpeed = ( walkSpeed) * inputDir.magnitude;
+        float targetSpeed = ( walkSpeed) * inputDir.magnitude ;
         currentSpeed = Mathf.SmoothDamp(currentSpeed, targetSpeed, ref speedSmoothVelocity, speedSmoothTime);
 
         transform.Translate(transform.forward * currentSpeed * Time.deltaTime, Space.World);
