@@ -1,9 +1,44 @@
 fileFormatVersion: 2
-guid: 2647765620bfe7e46bdff1f15228a931
+guid: 86ddf904673683c46a691c3ba05e1e4a
 ModelImporter:
   serializedVersion: 19300
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: blinn7
+    second: {fileID: 2100000, guid: 9a5581f41bc6cab4d9676d50ef4bd338, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: bright_blue
+    second: {fileID: 2100000, guid: 1714ec2491ad27c40913e9cf8c048f11, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: dark_gray
+    second: {fileID: 2100000, guid: 0dd2d82bdc5193c4cad2c772488d5df6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lambert7
+    second: {fileID: 2100000, guid: e4bb3a0df0c969f49a4e086de7174e87, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lambert8
+    second: {fileID: 2100000, guid: debb0caa83891ad479567d9030f44540, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: light_gray
+    second: {fileID: 2100000, guid: ca1c9e2162552a54fae9af483dbb2e20, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: phong1
+    second: {fileID: 2100000, guid: 388ffce7ae1983640abfe993115e6ab3, type: 2}
   materials:
     materialImportMode: 1
     materialName: 0

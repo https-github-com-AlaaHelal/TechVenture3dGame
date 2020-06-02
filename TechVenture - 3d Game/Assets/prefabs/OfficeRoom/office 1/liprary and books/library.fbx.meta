@@ -3,7 +3,52 @@ guid: 09a31a296772dfc4daeadaca40a07448
 ModelImporter:
   serializedVersion: 19300
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lambert2
+    second: {fileID: 2100000, guid: 623500929a3ac0342b534fb9a9c85bbd, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lambert3
+    second: {fileID: 2100000, guid: bddfac2c22e136741ad2adac03ac2a1e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: library1_blinn5
+    second: {fileID: 2100000, guid: f3f851cbcf48a8d479a0f8c99ff52045, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: library2_blinn1
+    second: {fileID: 2100000, guid: 0fa905ad8d2241248832aafc7b28a184, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: library2_blinn2
+    second: {fileID: 2100000, guid: f9523bfea8734864b8f437ecadcfd863, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: library2_blinn4
+    second: {fileID: 2100000, guid: bf956bbd77807a74289c9f785d9753a7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: library2_blinn7
+    second: {fileID: 2100000, guid: a992f2288bc9fde46abf0759c73e2b7f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: library2_lambert2
+    second: {fileID: 2100000, guid: 5ac95ccd5e7e78a4fab0903696f5c652, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: phong6
+    second: {fileID: 2100000, guid: bc71ac283c78ca0449c1623284bac31a, type: 2}
   materials:
     materialImportMode: 1
     materialName: 0

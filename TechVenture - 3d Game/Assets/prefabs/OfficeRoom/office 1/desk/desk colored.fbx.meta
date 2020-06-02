@@ -3,7 +3,22 @@ guid: 28b0510b25ec3bb4ebb43256679718d6
 ModelImporter:
   serializedVersion: 19300
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: deeb_dark_blue
+    second: {fileID: 2100000, guid: 98c67dc1558b51a428203f320e6110a6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: phong5
+    second: {fileID: 2100000, guid: 7b9f565a05b3c1c40bbab39d9d6f9f4d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: phong6
+    second: {fileID: 2100000, guid: 276d0eda5a75ec640a0189c1aea4b1dd, type: 2}
   materials:
     materialImportMode: 1
     materialName: 0
