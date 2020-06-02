@@ -37,7 +37,7 @@ public class OpenGate : MonoBehaviour
         {
             if (Inventory.SelectedSlot != null && Inventory.SelectedSlot.item != null)
             {
-                if (Inventory.SelectedSlot != null && Inventory.SelectedSlot.item != null)
+                if (Inventory.SelectedSlot.item.name == "KeyCard")
                 {
                     Inventory.Remove(Inventory.SelectedSlot.item);
                     StartCoroutine(openGate());

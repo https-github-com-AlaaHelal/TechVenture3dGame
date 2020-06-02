@@ -12,6 +12,7 @@ TagManager:
   - toolboxpuzzle
   - Robot
   - lockers
+  - Floor
   layers:
   - Default
   - TransparentFX

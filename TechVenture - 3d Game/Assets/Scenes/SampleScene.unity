@@ -6720,6 +6720,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wall23
       objectReference: {fileID: 0}
+    - target: {fileID: 2706790727220717145, guid: f7f18ff32cba2e54baa35df33359e041,
+        type: 3}
+      propertyPath: m_TagString
+      value: Floor
+      objectReference: {fileID: 0}
     - target: {fileID: 3480915145865632609, guid: f7f18ff32cba2e54baa35df33359e041,
         type: 3}
       propertyPath: m_Name
@@ -7496,7 +7501,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9b1c9f596e5c7345aee515485725be7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Player: {fileID: 0}
   LayerMask: 2048
   item: {fileID: 11400000, guid: df796a83f17b0e743977291207907219, type: 2}
 --- !u!1001 &696770427
@@ -9345,7 +9349,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9b1c9f596e5c7345aee515485725be7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Player: {fileID: 0}
   LayerMask: 2048
   item: {fileID: 11400000, guid: 9222390063b91db4abb3759b2e3b9de4, type: 2}
 --- !u!1 &914066933
@@ -14764,7 +14767,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9b1c9f596e5c7345aee515485725be7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Player: {fileID: 0}
   LayerMask: 2048
   item: {fileID: 11400000, guid: 8f87107407600aa4a8d68eb56c5c4de1, type: 2}
 --- !u!1 &1333573309
@@ -16940,7 +16942,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9b1c9f596e5c7345aee515485725be7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Player: {fileID: 0}
   LayerMask: 2048
   item: {fileID: 11400000, guid: e3085d750a38e81448a971e2ce7bf8f0, type: 2}
 --- !u!135 &1541144083
@@ -21206,7 +21207,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9b1c9f596e5c7345aee515485725be7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Player: {fileID: 0}
   LayerMask: 2048
   item: {fileID: 11400000, guid: 6d2ff0f35f9eed9428ed3bf4995799f6, type: 2}
 --- !u!1 &2026139357 stripped

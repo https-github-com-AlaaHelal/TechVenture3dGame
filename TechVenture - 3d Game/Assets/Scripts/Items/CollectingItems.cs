@@ -4,14 +4,18 @@ using UnityEngine;
 
 public class CollectingItems : MonoBehaviour
 {
-    public GameObject Player;
     bool nearToItem = false;
     public int LayerMask = 1 << 11;
     public Item item;
 
+    private GameObject floor;
+    private GameObject Player;
+    private Animator PlayerAnim;
     private void Start()
     {
         Player = GameObject.FindGameObjectWithTag("Player");
+        PlayerAnim = Player.GetComponent<Animator>();
+        floor = GameObject.FindGameObjectWithTag("Floor");
     }
     void Update()
     {
@@ -56,20 +60,38 @@ public class CollectingItems : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            //if (Input.GetMouseButtonDown(0))
-            //{
-            //    gameObject.SetActive(false);
-            //    bool wasPickedUp = Inventory.instance.Add(item);  // Add to inventory
-
-            //}
             if (Input.GetKeyDown(KeyCode.F))
             {
-                gameObject.SetActive(false);
-                bool wasPickedUp = Inventory.instance.Add(item);
+                StartCoroutine(PickUp());
             }
         }
     }
-
-
+    float FindDistance()
+    {
+        return Vector3.Distance(new Vector3(0, transform.position.y, 0), new Vector3(0, floor.transform.position.y, 0));
+    }
+    IEnumerator PickUp()
+    {
+        Player.transform.LookAt(transform);
+        Debug.Log(transform.position);
+        Debug.Log(Player.transform.rotation);
+        if (FindDistance() >= 3)
+        {
+            PlayerAnim.SetBool("pickup", true);
+            PlayerAnim.SetBool("pickupmid", true);
+            yield return new WaitForSeconds(1f);
+        }
+        else
+        {
+            PlayerAnim.SetBool("pickup", true);
+            PlayerAnim.SetBool("pickuplow", true);
+            yield return new WaitForSeconds(1f);
+        }
+        gameObject.SetActive(false);
+        bool wasPickedUp = Inventory.instance.Add(item);
+        PlayerAnim.SetBool("pickup", false);
+        PlayerAnim.SetBool("pickupmid", false);
+        PlayerAnim.SetBool("pickuplow", false);
+    }
 }
 
