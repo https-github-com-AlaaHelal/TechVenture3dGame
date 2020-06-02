@@ -3,7 +3,42 @@ guid: 55a6a3e881fa09e4fabf4d55b0bd03d1
 ModelImporter:
   serializedVersion: 19300
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Office_Ceiling_Base
+    second: {fileID: 2100000, guid: ba5165e182f99a24d817569f10f3f5c9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Office_Ceiling_light
+    second: {fileID: 2100000, guid: 9954db9ac12b9d24da874ae92891a0f7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Office_Floor
+    second: {fileID: 2100000, guid: 34df5f1bc1be8e34e807e3c27f4500ba, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Office_Wall_Base
+    second: {fileID: 2100000, guid: da32922efed00034bad6fbb0a149aa56, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Office_Wall_Light
+    second: {fileID: 2100000, guid: 387e25133f630e4439f4726386788b69, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Office_Window_Light
+    second: {fileID: 2100000, guid: 387e25133f630e4439f4726386788b69, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Office_window_Base
+    second: {fileID: 2100000, guid: da32922efed00034bad6fbb0a149aa56, type: 2}
   materials:
     materialImportMode: 1
     materialName: 0
