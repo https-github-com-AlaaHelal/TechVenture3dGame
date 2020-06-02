@@ -31,8 +31,7 @@ public class CollectingItems : MonoBehaviour
                 {
                     if (!nearToItem)
                         print("Get Closer");
-
-
+                    
                 }
 
             }
@@ -72,7 +71,7 @@ public class CollectingItems : MonoBehaviour
     }
     IEnumerator PickUp()
     {
-        Player.transform.LookAt(transform);
+        
         Debug.Log(transform.position);
         Debug.Log(Player.transform.rotation);
         if (FindDistance() >= 3)
