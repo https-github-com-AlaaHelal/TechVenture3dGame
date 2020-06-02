@@ -33,17 +33,21 @@ public class OpenGate : MonoBehaviour
     void Update()
     {
         ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        if (Physics.Raycast(ray, out hit, 20, mask))
+        if (Physics.Raycast(ray, out hit, 10, mask))
         {
-            if (Inventory.SelectedSlot != null && Inventory.SelectedSlot.item != null)
+            if(Input.GetMouseButton(0))
             {
-                if (Inventory.SelectedSlot.item.name == "KeyCard")
+                if (Inventory.SelectedSlot != null && Inventory.SelectedSlot.item != null)
                 {
-                    Inventory.Remove(Inventory.SelectedSlot.item);
-                    StartCoroutine(openGate());
+                    if (Inventory.SelectedSlot.item.name == "KeyCard")
+                    {
+                        Inventory.Remove(Inventory.SelectedSlot.item);
+                        StartCoroutine(openGate());
+                    }
                 }
+
             }
-            
+
         }
 
     }

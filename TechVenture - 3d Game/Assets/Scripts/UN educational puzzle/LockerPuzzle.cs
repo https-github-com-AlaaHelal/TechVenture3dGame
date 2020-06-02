@@ -25,13 +25,13 @@ public class LockerPuzzle : UEPuzzleCanvas
 
 
     [SerializeField ]
-    int n1;
+    int n1 = 0;
     [SerializeField]
-    int n2;
+    int n2 = 0;
     [SerializeField]
-    int n3;
+    int n3 = 0;
     [SerializeField]
-    int n4;
+    int n4 = 0;
     
 
 
@@ -104,7 +104,7 @@ public class LockerPuzzle : UEPuzzleCanvas
             }
             Text1.text = "" + n1;
         }
-        else
+        if(Win())
         {
             b1.image.sprite = trueimg;
             b2.image.sprite = trueimg;
@@ -136,7 +136,7 @@ public class LockerPuzzle : UEPuzzleCanvas
             }
             Text2.text = "" + n2;
         }
-        else
+        if (Win())
         {
             b1.image.sprite = trueimg;
             b2.image.sprite = trueimg;
@@ -168,7 +168,7 @@ public class LockerPuzzle : UEPuzzleCanvas
             }
             Text3.text = "" + n3;
         }
-        else
+        if (Win())
         {
             b1.image.sprite = trueimg;
             b2.image.sprite = trueimg;
@@ -200,7 +200,7 @@ public class LockerPuzzle : UEPuzzleCanvas
             }
             Text4.text = "" + n4;
         }
-        else
+        if (Win())
         {
             b1.image.sprite = trueimg;
             b2.image.sprite = trueimg;
