@@ -13,6 +13,7 @@ TagManager:
   - Robot
   - lockers
   - Floor
+  - Interactable object
   layers:
   - Default
   - TransparentFX
