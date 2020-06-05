@@ -63,13 +63,6 @@ public class CollectingItems : MonoBehaviour
             {
                 StartCoroutine(PickUp());
             }
-            //if (Input.GetKeyUp(KeyCode.F))
-            //{
-            //    PlayerAnim.SetBool("pickupmid", false);
-            //    PlayerAnim.SetBool("pickuplow", false);
-            //    PlayerAnim.SetBool("pickup", false);
-
-            //}
         }
     }
     float FindDistance()
@@ -78,41 +71,27 @@ public class CollectingItems : MonoBehaviour
     }
     IEnumerator PickUp()
     {
-        
-        Debug.Log(transform.position);
-        Debug.Log(Player.transform.rotation);
         if (FindDistance() >= 3)
         {
             PlayerAnim.SetBool("pickup", true);
             PlayerAnim.SetBool("pickupmid", true);
-            yield return new WaitForSeconds(0f);
-            if (Input.GetKeyUp(KeyCode.F))
-            {
-                PlayerAnim.SetBool("pickupmid", false);
-               // PlayerAnim.SetBool("pickuplow", false);
-                PlayerAnim.SetBool("pickup", false);
-
-            }
+            yield return new WaitForSeconds(1f);
+            PlayerAnim.SetBool("pickupmid", false);
+            PlayerAnim.SetBool("pickup", false);
+            
         }
         else
         {
             PlayerAnim.SetBool("pickup", true);
             PlayerAnim.SetBool("pickuplow", true);
-            yield return new WaitForSeconds(0f);
-            if (Input.GetKeyUp(KeyCode.F))
-            {
-               // PlayerAnim.SetBool("pickupmid", false);
-                PlayerAnim.SetBool("pickuplow", false);
-                PlayerAnim.SetBool("pickup", false);
-
-            }
+            yield return new WaitForSeconds(1f);
+            PlayerAnim.SetBool("pickuplow", false);
+            PlayerAnim.SetBool("pickup", false);
+           
         }
-        gameObject.SetActive(false);
         bool wasPickedUp = Inventory.instance.Add(item);
-        //PlayerAnim.SetBool("pickupmid", false);
-        //PlayerAnim.SetBool("pickuplow", false);
-        //PlayerAnim.SetBool("pickup", false);
-
+        Debug.Log(wasPickedUp);
+        gameObject.SetActive(false);
     }
 }
 

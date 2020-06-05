@@ -52,7 +52,7 @@ public class InventoryUI : MonoBehaviour {
 			if (i < inventory.items.Count)	// If there is an item to add
 			{
 				slots[i].AddItem(inventory.items[i]);	// Add it
-                Debug.Log(inventory.items[i]);
+               // Debug.Log(inventory.items[i]);
 			} else
 			{
 				// Otherwise clear the slot
