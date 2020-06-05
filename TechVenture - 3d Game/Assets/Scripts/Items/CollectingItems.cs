@@ -11,11 +11,15 @@ public class CollectingItems : MonoBehaviour
     private GameObject floor;
     private GameObject Player;
     private Animator PlayerAnim;
+    private int Picked;
+
+
     private void Start()
     {
         Player = GameObject.FindGameObjectWithTag("Player");
         PlayerAnim = Player.GetComponent<Animator>();
         floor = GameObject.FindGameObjectWithTag("Floor");
+        Picked = 0;
     }
     void Update()
     {
@@ -51,7 +55,7 @@ public class CollectingItems : MonoBehaviour
             nearToItem = true;
 
         }
-
+        
     }
 
 
@@ -61,8 +65,10 @@ public class CollectingItems : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.F))
             {
-                StartCoroutine(PickUp());
+                Picked++;
             }
+            if (Picked == 1)
+                StartCoroutine(PickUp());
         }
     }
     float FindDistance()
@@ -90,7 +96,7 @@ public class CollectingItems : MonoBehaviour
            
         }
         bool wasPickedUp = Inventory.instance.Add(item);
-        Debug.Log(wasPickedUp);
+       // Debug.Log(wasPickedUp);
         gameObject.SetActive(false);
     }
 }
