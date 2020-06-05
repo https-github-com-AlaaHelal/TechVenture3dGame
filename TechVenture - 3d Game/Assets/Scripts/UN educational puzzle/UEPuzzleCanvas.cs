@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class UEPuzzleCanvas : MonoBehaviour
 {
+    public bool puzzlecanvasState;
     private static UEPuzzleCanvas _instance;
     public static UEPuzzleCanvas Instance
     {
@@ -79,12 +80,14 @@ public class UEPuzzleCanvas : MonoBehaviour
 
         UEpuzzlesCanvas.enabled = true;
         PuzzlesPanels[number].SetActive(true);
-     //   Time.timeScale = 0f;
-
+        //   Time.timeScale = 0f;
+        puzzlecanvasState = true;
 
     }
     public void Exit()
     {
+        puzzlecanvasState = false;
+
         UEpuzzlesCanvas.enabled = false;
 
         for (int i = 0; i < 10; i++)
@@ -92,7 +95,9 @@ public class UEPuzzleCanvas : MonoBehaviour
             PuzzlesPanels[i].SetActive(false);
 
         }
-    //    Time.timeScale = 1f;
+        //    Time.timeScale = 1f;
+        // puzzlecanvasState = false;
+
 
     }
 }

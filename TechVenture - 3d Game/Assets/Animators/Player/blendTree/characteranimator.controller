@@ -36,7 +36,7 @@ AnimatorStateMachine:
   m_ChildStates:
   - serializedVersion: 1
     m_State: {fileID: 2303846919627888919}
-    m_Position: {x: 40, y: 210, z: 0}
+    m_Position: {x: 40, y: 220, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 2267983195339820702}
     m_Position: {x: -300, y: 220, z: 0}
@@ -102,7 +102,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 1827226128182048838, guid: 39f7a3f66fd69cf4b8dc47e89a2fed4e,
+  m_Motion: {fileID: 1827226128182048838, guid: c2cf6443a11ec6e44851e1a93e5f9d16,
     type: 3}
   m_Tag: 
   m_SpeedParameter: 
@@ -118,7 +118,7 @@ BlendTree:
   m_Name: Blend Tree
   m_Childs:
   - serializedVersion: 2
-    m_Motion: {fileID: 1827226128182048838, guid: 72b2601c7f7ab5b4a9fc5fada927f9c2,
+    m_Motion: {fileID: 1827226128182048838, guid: 5c32bb974181a9041a50c385d75cf0d0,
       type: 3}
     m_Threshold: 0
     m_Position: {x: 0, y: 0}
@@ -127,7 +127,7 @@ BlendTree:
     m_DirectBlendParameter: Blend
     m_Mirror: 0
   - serializedVersion: 2
-    m_Motion: {fileID: 1827226128182048838, guid: 139519eebad91394c9715141816db16f,
+    m_Motion: {fileID: 1827226128182048838, guid: da2dfd17c38ca8047ae617fad7f1b682,
       type: 3}
     m_Threshold: 1
     m_Position: {x: 0, y: 0}
@@ -139,7 +139,7 @@ BlendTree:
   m_BlendParameterY: Blend
   m_MinThreshold: 0
   m_MaxThreshold: 1
-  m_UseAutomaticThresholds: 1
+  m_UseAutomaticThresholds: 0
   m_NormalizedBlendValues: 0
   m_BlendType: 0
 --- !u!1101 &-398915822682932473
@@ -181,25 +181,25 @@ AnimatorController:
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: pickup
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: pickuplow
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: pickupmid
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer
@@ -300,7 +300,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Blend Tree
-  m_Speed: 1
+  m_Speed: 1.2
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 1495423937891698435}
@@ -340,7 +340,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 1827226128182048838, guid: 71ac49083a781034dadf68ca85f857ed,
+  m_Motion: {fileID: 1827226128182048838, guid: f91e7148a1848e142abcc22fdda9d3c3,
     type: 3}
   m_Tag: 
   m_SpeedParameter: 

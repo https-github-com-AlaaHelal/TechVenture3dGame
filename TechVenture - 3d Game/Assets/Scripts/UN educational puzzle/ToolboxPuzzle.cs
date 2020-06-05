@@ -16,7 +16,7 @@ public class ToolboxPuzzle :UEPuzzleCanvas
     public GameObject IC2;
     public GameObject IC3;
     public GameObject IC4;
-
+    public GameObject toolboxexit;
     private Inventory inventory;
     // Start is called before the first frame update
     void Start()
@@ -80,6 +80,7 @@ public class ToolboxPuzzle :UEPuzzleCanvas
         yield return new WaitForSeconds(2f);
         binaryQuestionball.SetActive(true);
         //binaryQuestionball.GetComponent<SphereCollider>().isTrigger = true;
+        toolboxexit.GetComponent<UEPuzzleCanvas>().puzzlecanvasState=false;
         
 
     }

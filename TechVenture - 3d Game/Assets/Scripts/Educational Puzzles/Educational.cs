@@ -21,7 +21,7 @@ public class Educational : MonoBehaviour
     public GameObject masgg;
     public VideoPlayer binaryvideo;
     public RawImage binaryimage;
-
+    public bool educationalpuzzleisActive;
 
     int LayerMask = 1 << 9;
     public Transform PlayerPosition;
@@ -56,7 +56,7 @@ public class Educational : MonoBehaviour
             //Debug.Log(hit.collider);
             if (selection.CompareTag("BinaryInformation") )
                         {     
-                            if (Input.GetKeyDown(KeyCode.F) || Input.GetMouseButtonDown(0))
+                            if (Input.GetKeyDown(KeyCode.F))
                             {
                                 
                                 character.SetBool("pickup", true);
@@ -67,7 +67,7 @@ public class Educational : MonoBehaviour
                                 
                                 
                             }
-                            if (Input.GetKeyUp(KeyCode.F) || Input.GetMouseButtonUp(0))
+                            if (Input.GetKeyUp(KeyCode.F) )
                             {
                                 character.SetBool("pickupmid", false);
                                 character.SetBool("pickup", false);
@@ -132,11 +132,11 @@ public class Educational : MonoBehaviour
         //Display screen
         void Display()
         {
-            ballAnimatore[Number].SetBool("is interacted", true);
+          educationalpuzzleisActive = true;
+          ballAnimatore[Number].SetBool("is interacted", true);
             ScreenCanvas.enabled = true;
             StartCoroutine(TimeToShowScreen(Number));
         //    Time.timeScale = 0f; 
-
 
 
 
@@ -157,8 +157,7 @@ public class Educational : MonoBehaviour
         //hide screen when Exit
         IEnumerator TimeToHideScreen(int Number)
         {
-
-            yield return new WaitForSeconds(.5f);
+           yield return new WaitForSeconds(.5f);
             HideInformationORQuestion(Number);
             yield return new WaitForSeconds(1f);
             Screen.SetBool("open", false);
@@ -166,11 +165,13 @@ public class Educational : MonoBehaviour
             baseScreen.SetBool("open", false);
             yield return new WaitForSeconds(1.5f);
             ScreenCanvas.enabled = false;
+            educationalpuzzleisActive = false;
 
-        }
+
+    }
 
 
-        void DisplayInformationORQuestion(int Number)
+    void DisplayInformationORQuestion(int Number)
         {
             if (Number < 10)
             {

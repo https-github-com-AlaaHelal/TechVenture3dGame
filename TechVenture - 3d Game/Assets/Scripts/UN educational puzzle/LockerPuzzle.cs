@@ -22,6 +22,7 @@ public class LockerPuzzle : UEPuzzleCanvas
     public Sprite trueimg;
     public GameObject binaryInformationball;
     public GameObject IC;
+    public GameObject lockerexit;
 
 
     [SerializeField ]
@@ -72,7 +73,8 @@ public class LockerPuzzle : UEPuzzleCanvas
         //  binaryInformationball.GetComponent<SphereCollider>().isTrigger = true;
         binaryInformationball.SetActive(true);
         IC.SetActive(true);
-       // Time.timeScale = 1f;
+        // Time.timeScale = 1f;
+        lockerexit.GetComponent<UEPuzzleCanvas>().puzzlecanvasState = false;
 
 
     }
