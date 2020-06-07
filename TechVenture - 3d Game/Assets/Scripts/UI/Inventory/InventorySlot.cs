@@ -9,9 +9,9 @@ public class InventorySlot : MonoBehaviour
 	//public Button removeButton;
 	public Image ic1image, ic2image, ic3image, ic4image;
 	public Image PlaceImage;
-	public Image greenbar;
-	public Image whitebar;
-	public Image barimage;
+	public Image barImage;
+	public Sprite WhiteSprite;
+	public Sprite GreenSprite;
 	public bool IsSelected;
     public InventorySlot inventorySlot;
 
@@ -82,13 +82,13 @@ public class InventorySlot : MonoBehaviour
 
     public void SelectUI()
     {
-        barimage.sprite = greenbar.sprite;
+       // barImage.sprite = GreenSprite;
         IsSelected = true;
     }
 
     public void DeselectUI()
     {
-        barimage.sprite = whitebar.sprite;
+       // barImage.sprite = WhiteSprite;
         IsSelected = false;
     }
 
@@ -102,25 +102,25 @@ public class InventorySlot : MonoBehaviour
     //}
 
 
-    public void changebarcolor()
-	{
-        if (IsSelected == true)
+ //   public void changebarcolor()
+	//{
+ //       if (IsSelected == true)
 
-        { barimage.sprite = greenbar.sprite; }
-        else if (IsSelected == false)
-        { barimage.sprite = whitebar.sprite; }
+ //       { barimage.sprite = greenbar.sprite; }
+ //       else if (IsSelected == false)
+ //       { barimage.sprite = whitebar.sprite; }
 
 
-    }
+ //   }
 
-	public void ReturnICSToBar()
-	{
-		IsSelected = false;
-		changebarcolor();
-		icon.enabled = true;
-		PlaceImage.sprite = null;
+	//public void ReturnICSToBar()
+	//{
+	//	IsSelected = false;
+	//	changebarcolor();
+	//	icon.enabled = true;
+	//	PlaceImage.sprite = null;
 
-	}
+	//}
 
 }
 

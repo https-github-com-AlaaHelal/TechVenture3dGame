@@ -81,6 +81,9 @@ public class CollectingItems : MonoBehaviour
     }
     IEnumerator PickUp()
     {
+        
+        bool wasPickedUp = Inventory.instance.Add(item);
+        
         if (FindDistance() >= 3)
         {
             PlayerAnim.SetBool("pickup", true);
@@ -103,7 +106,7 @@ public class CollectingItems : MonoBehaviour
 
         {
             gameObject.SetActive(false);
-            bool wasPickedUp = Inventory.instance.Add(item);
+           // bool wasPickedUp = Inventory.instance.Add(item);
         }
         //else if (information)
         //{
