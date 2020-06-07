@@ -12,7 +12,7 @@ public class CollectingItems : MonoBehaviour
     private GameObject Player;
     private Animator PlayerAnim;
     private int Picked;
-
+    public float speed = 3.0f;
 
     private void Start()
     {
@@ -50,10 +50,8 @@ public class CollectingItems : MonoBehaviour
 
         if (other.CompareTag("Player"))
         {
-
-
+            //print("enter f");
             nearToItem = true;
-
         }
         
     }
@@ -68,7 +66,13 @@ public class CollectingItems : MonoBehaviour
                 Picked++;
             }
             if (Picked == 1)
+            {
+                //LookRotation
+               // LookAt();
+                //Lookat
+               // Player.transform.LookAt(this.gameObject.transform, this.gameObject.transform.position);
                 StartCoroutine(PickUp());
+            }
         }
     }
     float FindDistance()
@@ -108,6 +112,16 @@ public class CollectingItems : MonoBehaviour
         //}
         //// Debug.Log(wasPickedUp);
 
+    }
+    void LookAt()
+    {
+        Vector3 target, character;
+        target = this.gameObject.transform.position;
+        character = Player.transform.position;
+
+        Vector3 Direction = target - character;
+        Quaternion rotation = Quaternion.LookRotation(Direction);
+        Player.transform.rotation = Quaternion.Lerp(Player.transform.rotation, rotation, Time.deltaTime * speed);
     }
 }
 
