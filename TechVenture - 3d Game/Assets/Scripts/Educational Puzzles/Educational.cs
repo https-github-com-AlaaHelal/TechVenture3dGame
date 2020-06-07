@@ -10,20 +10,20 @@ public class Educational : MonoBehaviour
 
 {
     public Canvas ScreenCanvas;
-    public Animator[] ballAnimatore = new Animator[20];
+    public Animator[] ballAnimatore = new Animator[24];
     public Animator baseScreen;
     public Animator Screen;
-    public GameObject[] Balls = new GameObject[20];
-    public GameObject[] InformationText = new GameObject[10];
-    public GameObject[] QuestionPanels = new GameObject[10];
+    public GameObject[] Balls = new GameObject[24];
+    public GameObject[] InformationText = new GameObject[12];
+    public GameObject[] QuestionPanels = new GameObject[11];
     public Animator character;
-    int Number;
+    public int Number;
     public GameObject masgg;
     public VideoPlayer binaryvideo;
     public RawImage binaryimage;
     public bool educationalpuzzleisActive;
-
-    int LayerMask = 1 << 9;
+    public Information informations;
+  
     public Transform PlayerPosition;
   
     // Start is called before the first frame update
@@ -32,115 +32,26 @@ public class Educational : MonoBehaviour
         //deactive canvas and texts;
         ScreenCanvas.enabled = false;
 
-        for (int i = 0; i < 10; i++)
+        for (int i = 0; i < 13; i++)
         {
             InformationText[i].SetActive(false);
+        }
+        for (int i = 0; i < 11; i++)
+        {
             QuestionPanels[i].SetActive(false);
+
         }
 
-       
     }
-    private void Update()
-    {
-        var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        RaycastHit hit;
 
-      
-
-            if (Physics.Raycast(ray, out hit,10, LayerMask))
-            {
-                var selection = hit.transform;
-                float Distance = Vector3.Distance(PlayerPosition.position, selection.position);
-            //Debug.Log("rot" + PlayerPosition.rotation.y);
-            //Debug.Log("dis" + Distance);
-            //Debug.Log(hit.collider);
-            if (selection.CompareTag("BinaryInformation") )
-                        {     
-                            if (Input.GetKeyDown(KeyCode.F))
-                            {
-                                
-                                character.SetBool("pickup", true);
-                                character.SetBool("pickupmid", true);
-                                Number = 0;
-                                Display();
-                                StartCoroutine(video());
-                                
-                                
-                            }
-                            if (Input.GetKeyUp(KeyCode.F) )
-                            {
-                                character.SetBool("pickupmid", false);
-                                character.SetBool("pickup", false);
-                            }
-                  
-
-                        }
-                        if (selection.CompareTag("BinaryQuestion") )
-                        {
-                             
-                             if (Input.GetKeyDown(KeyCode.F) || Input.GetMouseButtonDown(0))
-                             {
-
-                                character.SetBool("pickup", true);
-                                character.SetBool("pickuplow", true);
-                                Number = 10;
-                                Display();
-                            }
-                            if (Input.GetKeyUp(KeyCode.F) || Input.GetMouseButtonUp(0))
-                            {
-                               character.SetBool("pickuplow", false);
-                               character.SetBool("pickup", false);
-                            }
-
-                            
-                        }
-        
-            }
-        
-    }
-    
-    //when touch the ball 
-    //void OnTriggerEnter(Collider Ball)
-    //{
-       
-
-    //            if (Ball.gameObject.tag == "BinaryInformation" )
-    //            {
-    //                  if (click == true)
-    //                  {
-    //                    Number = 0;
-    //                    Display();
-    //                  }
-    //            }
-    //            if (Ball.gameObject.tag == "LogicInformation" )
-    //            {
-    //                Number = 1;
-    //                Display();
-
-    //            }
-    //            if (Ball.gameObject.tag == "BinaryQuestion" )
-    //            {
-    //                Number = 10;
-    //                Display();
-
-
-    //            }
-             
-    //}
-        
-        
-        //Display screen
-        void Display()
+    //Display screen
+    public  void Display()
         {
           educationalpuzzleisActive = true;
           ballAnimatore[Number].SetBool("is interacted", true);
             ScreenCanvas.enabled = true;
             StartCoroutine(TimeToShowScreen(Number));
-        //    Time.timeScale = 0f; 
-
-
-
-
+   
     }
     IEnumerator TimeToShowScreen(int Number)
         {
@@ -173,32 +84,34 @@ public class Educational : MonoBehaviour
 
     void DisplayInformationORQuestion(int Number)
         {
-            if (Number < 10)
+            if (Number < 13)
             {
                 InformationText[Number].gameObject.SetActive(true);
+                //.SetActive(false);
+                bool wasPicked = InformationInventory.instance.Add(informations);
                 Destroy(Balls[Number]);
 
 
         }
-        if (Number >= 10)
+        if (Number >= 13)
             {
 
-                QuestionPanels[Number - 10].gameObject.SetActive(true);
+                QuestionPanels[Number - 13].gameObject.SetActive(true);
                 Destroy(Balls[Number]);
 
             }
         }
         void HideInformationORQuestion(int Number)
         {
-            if (Number < 10)
+            if (Number < 13)
             {
                 InformationText[Number].gameObject.SetActive(false);
             }
-            if (Number >= 10)
+            if (Number >= 13)
 
             {
 
-                QuestionPanels[Number - 10].gameObject.SetActive(false);
+                QuestionPanels[Number - 13].gameObject.SetActive(false);
             }
         }
     IEnumerator video()
@@ -207,7 +120,7 @@ public class Educational : MonoBehaviour
         binaryvideo.Prepare();
         while (!binaryvideo.isPrepared)
         {
-          //  yield return WaitForSeconds;
+          
             break;
         }
 
@@ -218,7 +131,7 @@ public class Educational : MonoBehaviour
         public void Exit()
         {
             StartCoroutine(TimeToHideScreen(Number));
-          //  Time.timeScale = 1f;
+        
             binaryvideo.Stop();
         }
 

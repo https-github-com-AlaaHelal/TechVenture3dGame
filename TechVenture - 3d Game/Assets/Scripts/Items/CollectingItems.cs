@@ -30,7 +30,7 @@ public class CollectingItems : MonoBehaviour
 
             if (Physics.Raycast(ray, out hit, 20, LayerMask))
             {
-                Debug.Log(hit.collider.name);
+              //  Debug.Log(hit.collider.name);
                 if (hit.transform == this.transform)
                 {
                     if (!nearToItem)
@@ -101,12 +101,12 @@ public class CollectingItems : MonoBehaviour
             gameObject.SetActive(false);
             bool wasPickedUp = Inventory.instance.Add(item);
         }
-        else if (information)
-        {
-            gameObject.SetActive(false);
-            bool wasPicked = InformationInventory.instance.Add(information);
-        }
-        // Debug.Log(wasPickedUp);
+        //else if (information)
+        //{
+        //    gameObject.SetActive(false);
+        //    bool wasPicked = InformationInventory.instance.Add(information);
+        //}
+        //// Debug.Log(wasPickedUp);
 
     }
 }

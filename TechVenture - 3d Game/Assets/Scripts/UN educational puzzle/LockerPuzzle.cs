@@ -33,7 +33,7 @@ public class LockerPuzzle : UEPuzzleCanvas
     int n3 = 0;
     [SerializeField]
     int n4 = 0;
-    
+    bool open;
 
 
 
@@ -69,6 +69,7 @@ public class LockerPuzzle : UEPuzzleCanvas
         Destroy(PuzzlesPanels[0]);
         yield return new WaitForSeconds(.5f);
         lockeranimator.SetBool("open", true);
+        lockeranimator.SetFloat("speed", 2);
         yield return new WaitForSeconds(1.5f);
         //  binaryInformationball.GetComponent<SphereCollider>().isTrigger = true;
         binaryInformationball.SetActive(true);
@@ -212,4 +213,21 @@ public class LockerPuzzle : UEPuzzleCanvas
         }
 
     }
+    //void openlocker()
+    //{
+    //    if (open == false)
+    //    {
+    //        lockeranimator.SetBool("open", true);
+    //        lockeranimator.SetFloat("speed", 2);
+    //        open = true;
+    //        //  Debug.Log("open");
+    //    }
+    //    else
+    //    {
+    //        lockeranimator.SetBool("open", false);
+    //        lockeranimator.SetBool("open", true);
+    //        lockeranimator.SetFloat("speed", -2);
+    //        open = false;
+    //    }
+    //}
 }

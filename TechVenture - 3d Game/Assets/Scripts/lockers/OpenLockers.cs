@@ -5,33 +5,47 @@ using UnityEngine;
 public class OpenLockers : MonoBehaviour
 {
     // Start is called before the first frame update
-    int layermask = 1 << 11;
+  
     Animator lockeranimator;
+    public Transform player;
+    public float Distance = 7;
+    bool open;
     void Start()
     {
-        lockeranimator = this.GetComponent<Animator>();
+        lockeranimator = this.GetComponentInParent<Animator>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        RaycastHit hit;
 
-        if (Physics.Raycast(ray, out hit, 10, layermask))
+        float direction = Vector3.Dot(player.forward, transform.forward);
+        float distance = Vector3.Distance(player.position, this.transform.position);
+
+
+        if (direction < 0 && Input.GetKeyDown(KeyCode.E) && distance <= Distance)
         {
-           var selection = hit.transform;
-
-            //Debug.Log(selection);
-
-            if (selection == this.transform)
+          //  Debug.Log(distance);
+            if (open == false)
             {
-                if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.F))
-                {
-                    lockeranimator.SetBool("open", true);
-                        
-                }
+                lockeranimator.SetBool("open", true);
+                lockeranimator.SetFloat("speed", 2);
+                open = true;
+              //  Debug.Log("open");
             }
+            else
+            {
+                lockeranimator.SetBool("open", false);
+                lockeranimator.SetBool("open", true);
+                lockeranimator.SetFloat("speed", -2);
+                open = false;
+            }
+                        
         }
+           
     }
+    
+
 }
+    
+

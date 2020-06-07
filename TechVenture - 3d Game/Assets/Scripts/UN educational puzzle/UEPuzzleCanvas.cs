@@ -26,8 +26,8 @@ public class UEPuzzleCanvas : MonoBehaviour
     public Canvas UEpuzzlesCanvas;
     public GameObject[] PuzzlesPanels = new GameObject[10];
     public Transform PlayerPosition;
-    int NumberofPuzzle;
-    int layermask = 1 << 11;
+    public int NumberofPuzzle;
+  
 
 
     // Start is called before the first frame update
@@ -35,52 +35,20 @@ public class UEPuzzleCanvas : MonoBehaviour
     {
         UEpuzzlesCanvas.enabled = false;
 
-        for (int i = 0; i < 10; i++)
+        for (int i = 0; i < 2; i++)
         {
             PuzzlesPanels[i].SetActive(false);
            
         }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        RaycastHit hit;
-        
-        if (Physics.Raycast(ray, out hit, 10, layermask))
-        {
-            var selection = hit.transform;
-
-            //Debug.Log(selection);
-            if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.F))
-            {
-                if (selection.CompareTag("lockerpuzzle"))
-                {
-                    NumberofPuzzle = 0;
-                    Display(NumberofPuzzle);
-
-                }
-                if (selection.CompareTag("toolboxpuzzle"))
-                {
-                    NumberofPuzzle = 1;
-                    Display(NumberofPuzzle);
-
-                }
-
-            }
-            
-            
-        }
-
-
-    }
-    void Display(int number)
+  
+   public void Display(int number)
     {
 
         UEpuzzlesCanvas.enabled = true;
         PuzzlesPanels[number].SetActive(true);
-        //   Time.timeScale = 0f;
+      
         puzzlecanvasState = true;
 
     }
@@ -95,9 +63,7 @@ public class UEPuzzleCanvas : MonoBehaviour
             PuzzlesPanels[i].SetActive(false);
 
         }
-        //    Time.timeScale = 1f;
-        // puzzlecanvasState = false;
-
+       
 
     }
 }

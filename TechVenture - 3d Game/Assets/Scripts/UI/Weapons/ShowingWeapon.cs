@@ -15,6 +15,27 @@ public class ShowingWeapon : MonoBehaviour
         WeaponCopy.SetActive(false);
 
     }
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            if (WeaponImage.enabled == true)
+
+            {
+                WeaponCopy.SetActive(true);
+                WeaponImage.enabled = false;
+
+                IsActive = true;
+            }
+            else if (WeaponImage.enabled == false && IsActive == true)
+            {
+                WeaponCopy.SetActive(false);
+                WeaponImage.enabled = true;
+
+
+            }
+        }
+    }
 
     public void ShowingWeaponWithPlayer()
     {

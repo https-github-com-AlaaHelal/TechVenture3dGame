@@ -4,7 +4,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 
-public class BinaryQuestion : Educational
+public class BinaryQuestion : MonoBehaviour
 {
    
     // Start is called before the first frame update
@@ -40,6 +40,7 @@ public class BinaryQuestion : Educational
     int n5 = 0;
   
     int checkscore;
+    public GameObject Educationalscript;
 
 
 
@@ -161,10 +162,17 @@ public class BinaryQuestion : Educational
     IEnumerator ExitQuestion()
     {
         yield return new WaitForSeconds(1.5f);
-        QuestionPanels[0].SetActive(false);
+        Educationalscript.GetComponent<Educational>().QuestionPanels[0].SetActive(false);
+       // QuestionPanels[0].SetActive(false);
         yield return new WaitForSeconds(.5f);
-        masgg.gameObject.SetActive(true);
+        Educationalscript.GetComponent<Educational>().masgg.SetActive(true);
+
+      //  masgg.gameObject.SetActive(true);
         yield return new WaitForSeconds(2f);
-        Destroy(masgg.gameObject);
+        //  Destroy(masgg.gameObject);
+        Educationalscript.GetComponent<Educational>().masgg.SetActive(false);
+        Educationalscript.GetComponent<Educational>().Exit();
+
+
     }
 }
