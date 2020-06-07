@@ -33,7 +33,7 @@ public class charactermovement : MonoBehaviour
         {
             float targetRotation =( Mathf.Atan2(inputDir.x, inputDir.y) * Mathf.Rad2Deg )+ cameraT.eulerAngles.y;
             transform.eulerAngles = Vector3.up * Mathf.SmoothDampAngle(transform.eulerAngles.y, targetRotation, ref turnSmoothVelocity, turnSmoothTime);
-            Debug.Log("done");
+           
        }
 
        // bool running = Input.GetKey(KeyCode.LeftShift);

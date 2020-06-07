@@ -7,7 +7,7 @@ public class CollectingItems : MonoBehaviour
     bool nearToItem = false;
     public int LayerMask = 1 << 11;
     public Item item;
-
+    public Information information;
     private GameObject floor;
     private GameObject Player;
     private Animator PlayerAnim;
@@ -51,7 +51,7 @@ public class CollectingItems : MonoBehaviour
         if (other.CompareTag("Player"))
         {
 
-            print("press Space");
+
             nearToItem = true;
 
         }
@@ -95,9 +95,19 @@ public class CollectingItems : MonoBehaviour
             PlayerAnim.SetBool("pickup", false);
            
         }
-        bool wasPickedUp = Inventory.instance.Add(item);
-       // Debug.Log(wasPickedUp);
-        gameObject.SetActive(false);
+        if (item)
+
+        {
+            gameObject.SetActive(false);
+            bool wasPickedUp = Inventory.instance.Add(item);
+        }
+        else if (information)
+        {
+            gameObject.SetActive(false);
+            bool wasPicked = InformationInventory.instance.Add(information);
+        }
+        // Debug.Log(wasPickedUp);
+
     }
 }
 
