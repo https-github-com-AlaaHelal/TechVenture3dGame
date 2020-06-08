@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 [System.Serializable]
 public class dialoguesystem : MonoBehaviour
 {
@@ -10,12 +11,12 @@ public class dialoguesystem : MonoBehaviour
     public string namea;
     public List<string> dialoguelines = new List<string>();
     Button continuebutton;
-    Text dialogueText , nameTaxt;
+    TextMeshProUGUI dialogueText , nameTaxt;
     int dialogueindex;
     void Awake()
     {   continuebutton = dialoguepanal.transform.Find("continue").GetComponent<Button>();
-        dialogueText = dialoguepanal.transform.Find("Text").GetComponent<Text>();
-        nameTaxt = dialoguepanal.transform.Find("name").GetChild(0).GetComponent<Text>();
+        dialogueText = dialoguepanal.transform.Find("Text").GetComponent<TextMeshProUGUI>();
+        nameTaxt = dialoguepanal.transform.Find("name").GetChild(0).GetComponent<TextMeshProUGUI>();
         continuebutton.onClick.AddListener(delegate { continuedialogue(); });
         dialoguepanal.SetActive(false);
         if (Instance != null && Instance != this)
