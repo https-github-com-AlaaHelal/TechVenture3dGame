@@ -17,7 +17,7 @@ public class worldInteraction : Interactable
                 GameObject raay = hit.collider.gameObject;
                 if (raay.tag == "Interactable object")
                 {
-                    Debug.Log("Interacting .");
+                   // Debug.Log("Interacting .");
                 }
             }
         }

@@ -8,7 +8,7 @@ public class Interactable : MonoBehaviour
     [HideInInspector]
     public virtual void Interact()
     {
-        Debug.Log("Interacting .");
+        //Debug.Log("Interacting .");
     }
     private void OnTriggerStay(Collider other)
     {
