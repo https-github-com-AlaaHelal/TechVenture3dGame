@@ -8,6 +8,7 @@ public class ShowingWeapon : MonoBehaviour
     public Image WeaponImage;
     public GameObject WeaponCopy;
     public bool IsActive = false;
+    public Animator player;
 
     void Start()
     {
@@ -24,8 +25,10 @@ public class ShowingWeapon : MonoBehaviour
             {
                 WeaponCopy.SetActive(true);
                 WeaponImage.enabled = false;
-
                 IsActive = true;
+                StartCoroutine(gun());
+
+
             }
             else if (WeaponImage.enabled == false && IsActive == true)
             {
@@ -46,6 +49,7 @@ public class ShowingWeapon : MonoBehaviour
             WeaponImage.enabled = false;
 
             IsActive = true;
+            StartCoroutine(gun());
         }
         else if (WeaponImage.enabled == false && IsActive == true)
         {
@@ -56,5 +60,11 @@ public class ShowingWeapon : MonoBehaviour
         }
 
 
+    }
+    IEnumerator gun()
+    {
+        player.SetBool("gun", true);
+        yield return new WaitForSeconds(1.2f);
+        player.SetBool("gun", false);
     }
 }

@@ -37,7 +37,7 @@ public class dialoguesystem : MonoBehaviour
             dialoguelines.Add(line);
         }
         this.namea = name ;
-        Debug.Log(dialoguelines.Count);
+      //  Debug.Log(dialoguelines.Count);
         creatdialogue();
     }
     public void creatdialogue()
