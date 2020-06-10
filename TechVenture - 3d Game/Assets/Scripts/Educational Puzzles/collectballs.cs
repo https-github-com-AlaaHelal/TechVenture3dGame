@@ -10,6 +10,8 @@ public class collectballs : MonoBehaviour
     public Animator playeranimator;
     public GameObject floor;
     public float Distance = 5;
+  //  public Information information;
+
 
     // Start is called before the first frame update
     void Start()
@@ -28,7 +30,7 @@ public class collectballs : MonoBehaviour
         if (direction < 0 && Input.GetKeyDown(KeyCode.F)&& distance<=7)
         {
 
-          StartCoroutine(PickUp());
+             StartCoroutine(PickUp());
             educationalscript.GetComponent<Educational>().Number = ballnumber;
             educationalscript.GetComponent<Educational>().Display();
 
@@ -41,6 +43,8 @@ public class collectballs : MonoBehaviour
     }
     IEnumerator PickUp()
     {
+       // bool wasPicked = InformationInventory.instance.Add(information);
+
         if (FindDistance() >= 3)
         {
             playeranimator.SetBool("pickup", true);

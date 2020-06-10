@@ -7,7 +7,7 @@ public class CollectingItems : MonoBehaviour
     bool nearToItem = false;
     public int LayerMask = 1 << 11;
     public Item item;
-    public Information information;
+ //   public Information information;
     private GameObject floor;
     private GameObject Player;
     private Animator PlayerAnim;
@@ -102,12 +102,10 @@ public class CollectingItems : MonoBehaviour
             PlayerAnim.SetBool("pickup", false);
            
         }
-        if (item)
-
-        {
+  
             gameObject.SetActive(false);
            // bool wasPickedUp = Inventory.instance.Add(item);
-        }
+        
         //else if (information)
         //{
         //    gameObject.SetActive(false);
