@@ -41,7 +41,7 @@ public class LockerPuzzle : UEPuzzleCanvas
     // Start is called before the first frame update
     void Start()
     {
-        IC.SetActive(false);
+       // IC.SetActive(false);
         binaryInformationball.SetActive(false);
 
     }
@@ -73,7 +73,7 @@ public class LockerPuzzle : UEPuzzleCanvas
         yield return new WaitForSeconds(.5f);
         //  binaryInformationball.GetComponent<SphereCollider>().isTrigger = true;
         binaryInformationball.SetActive(true);
-        IC.SetActive(true);
+       // IC.SetActive(true);
         // Time.timeScale = 1f;
         lockerexit.GetComponent<UEPuzzleCanvas>().puzzlecanvasState = false;
 

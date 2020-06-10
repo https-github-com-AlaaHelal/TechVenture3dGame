@@ -51,7 +51,8 @@ public class Educational : MonoBehaviour
           ballAnimatore[Number].SetBool("is interacted", true);
             ScreenCanvas.enabled = true;
             StartCoroutine(TimeToShowScreen(Number));
-   
+     
+
     }
     IEnumerator TimeToShowScreen(int Number)
         {
@@ -65,6 +66,7 @@ public class Educational : MonoBehaviour
          
 
     }
+
         //hide screen when Exit
         IEnumerator TimeToHideScreen(int Number)
         {
@@ -83,24 +85,27 @@ public class Educational : MonoBehaviour
 
 
     void DisplayInformationORQuestion(int Number)
+    {
+        if (Number < 13)
         {
-            if (Number < 13)
-            {
-                InformationText[Number].gameObject.SetActive(true);
-                //.SetActive(false);
-                bool wasPicked = InformationInventory.instance.Add(informations);
-                Destroy(Balls[Number]);
+            InformationText[Number].gameObject.SetActive(true);
+
+            //.SetActive(false);
+            bool wasPicked = InformationInventory.instance.Add(informations);
+            Destroy(Balls[Number]);
 
 
         }
         if (Number >= 13)
-            {
+        {
 
-                QuestionPanels[Number - 13].gameObject.SetActive(true);
-                Destroy(Balls[Number]);
+            QuestionPanels[Number - 13].gameObject.SetActive(true);
+            Destroy(Balls[Number]);
 
-            }
         }
+
+       
+    }
         void HideInformationORQuestion(int Number)
         {
             if (Number < 13)

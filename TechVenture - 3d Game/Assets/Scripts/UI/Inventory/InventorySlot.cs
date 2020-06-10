@@ -7,11 +7,11 @@ public class InventorySlot : MonoBehaviour
 {
 	public Image icon;
 	//public Button removeButton;
-	public Image ic1image, ic2image, ic3image, ic4image;
-	public Image PlaceImage;
-	public Image barImage;
-	public Sprite WhiteSprite;
-	public Sprite GreenSprite;
+	//public Image ic1image, ic2image, ic3image, ic4image;
+	//public Image PlaceImage;
+	//public Image barImage;
+	//public Sprite WhiteSprite;
+	//public Sprite GreenSprite;
 	public bool IsSelected;
     public InventorySlot inventorySlot;
 
@@ -54,23 +54,27 @@ public class InventorySlot : MonoBehaviour
 
 	public void RemoveItemFromInventory()
     {   // execute if the item is ic else remove it as normal
-    //    if (icon.sprite == ic1image.sprite || icon.sprite == ic2image.sprite || icon.sprite == ic3image.sprite || icon.sprite == ic4image.sprite)
-    //    {
-    //        Debug.Log("done");
-    //        IsSelected = true;
-    //        changebarcolor();
-    //        PlaceImage.sprite = icon.sprite;
-    //        icon.enabled = false;
-    //        //icon.sprite = null;
+        //if (icon.sprite == ic1image.sprite || icon.sprite == ic2image.sprite || icon.sprite == ic3image.sprite || icon.sprite == ic4image.sprite)
+        //    Debug.Log("done");
+        //    IsSelected = true;
+        //    changebarcolor();
+        //    PlaceImage.sprite = icon.sprite;
+        //    icon.enabled = false;
+        //    //icon.sprite = null;
+
+        if (item.name== "IC04(1)"|| item.name == "IC04(2)" || item.name == "IC04(3)" || item.name == "IC04(4)")
+        //{
+
+        {
+            SelectSlot();
+        }
+      
 
 
-    //    }
+        else
+            Inventory.instance.Remove(item);
 
-    //    else
-    //        Inventory.instance.Remove(item);
-
-    //    //else
-        //    Inventory.instance.Remove(item);
+     
 
     }
 

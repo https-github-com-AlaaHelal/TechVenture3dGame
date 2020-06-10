@@ -33,7 +33,7 @@ public class ToolboxPuzzle :UEPuzzleCanvas
     public void OnICClick(Button btn)
     {
         InventorySlot slot = inventory.SelectedSlot;
-        Debug.Log(slot);
+       // Debug.Log(slot);
         if (slot != null && slot.item != null)
         {
             if (slot.item.name.ToString() == "IC04(1)" || slot.item.name.ToString() == "IC04(2)" ||

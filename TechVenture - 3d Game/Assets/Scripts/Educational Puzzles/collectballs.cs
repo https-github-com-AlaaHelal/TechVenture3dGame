@@ -10,6 +10,7 @@ public class collectballs : MonoBehaviour
     public Animator playeranimator;
     public GameObject floor;
     public float Distance = 5;
+    public Information information;
   //  public Information information;
 
 
@@ -33,7 +34,7 @@ public class collectballs : MonoBehaviour
              StartCoroutine(PickUp());
             educationalscript.GetComponent<Educational>().Number = ballnumber;
             educationalscript.GetComponent<Educational>().Display();
-
+           
 
         }
     }
@@ -43,7 +44,7 @@ public class collectballs : MonoBehaviour
     }
     IEnumerator PickUp()
     {
-       // bool wasPicked = InformationInventory.instance.Add(information);
+        bool wasPicked = InformationInventory.instance.Add(information);
 
         if (FindDistance() >= 3)
         {
@@ -69,5 +70,6 @@ public class collectballs : MonoBehaviour
 
 
         }
+        gameObject.SetActive(false);
     }
 }

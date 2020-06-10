@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 41df4c16153f8ae4a9e83fa9f5d550c3, type: 3}
-  m_Name: Information
+  m_Name: Function
   m_EditorClassIdentifier: 
-  name: New Item
-  icon: {fileID: 21300000, guid: b4217765b96d65f49a612064d0488e0e, type: 3}
+  name: Function
+  icon: {fileID: 0}
