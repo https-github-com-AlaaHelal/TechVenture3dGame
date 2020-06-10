@@ -24,7 +24,7 @@ public class UEPuzzleCanvas : MonoBehaviour
     }
 
     public Canvas UEpuzzlesCanvas;
-    public GameObject[] PuzzlesPanels = new GameObject[10];
+    public GameObject[] PuzzlesPanels = new GameObject[3];
     public Transform PlayerPosition;
     public int NumberofPuzzle;
   
@@ -35,7 +35,7 @@ public class UEPuzzleCanvas : MonoBehaviour
     {
         UEpuzzlesCanvas.enabled = false;
 
-        for (int i = 0; i < 2; i++)
+        for (int i = 0; i <= 2; i++)
         {
             PuzzlesPanels[i].SetActive(false);
            
@@ -58,7 +58,7 @@ public class UEPuzzleCanvas : MonoBehaviour
 
         UEpuzzlesCanvas.enabled = false;
 
-        for (int i = 0; i < 10; i++)
+        for (int i = 0; i < 3; i++)
         {
             PuzzlesPanels[i].SetActive(false);
 

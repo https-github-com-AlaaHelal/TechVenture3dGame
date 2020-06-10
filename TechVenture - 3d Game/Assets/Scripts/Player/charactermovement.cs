@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class charactermovement : MonoBehaviour
 {
-    public float walkSpeed = 2;
+     float walkSpeed = 10;
   //  public float runSpeed = 6;
 
     public float turnSmoothTime = 0.2f;
@@ -27,16 +27,20 @@ public class charactermovement : MonoBehaviour
     {
 
         Vector2 input = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
-        Vector2 inputDir = input.normalized;
 
-       //if (inputDir != Vector2.zero)
-        //{
-            float targetRotation =( Mathf.Atan2(inputDir.x, inputDir.y) * Mathf.Rad2Deg )+ cameraT.eulerAngles.y;
+          Vector2 inputDir = input.normalized;
+
+      
+
+        if (inputDir != Vector2.zero)
+        {
+            walkSpeed = 10;
+            //  this.GetComponent<Rigidbody>().freezeRotation = false;
+            float targetRotation = (Mathf.Atan2(inputDir.x, inputDir.y) * Mathf.Rad2Deg) + cameraT.eulerAngles.y;
             transform.eulerAngles = Vector3.up * Mathf.SmoothDampAngle(transform.eulerAngles.y, targetRotation, ref turnSmoothVelocity, turnSmoothTime);
-           
-      // }
+        }
 
-       // bool running = Input.GetKey(KeyCode.LeftShift);
+        // bool running = Input.GetKey(KeyCode.LeftShift);
         float targetSpeed = ( walkSpeed) * inputDir.magnitude ;
         currentSpeed = Mathf.SmoothDamp(currentSpeed, targetSpeed, ref speedSmoothVelocity, speedSmoothTime);
 
@@ -78,4 +82,6 @@ public class charactermovement : MonoBehaviour
         }
 
     }
+   
+
 }

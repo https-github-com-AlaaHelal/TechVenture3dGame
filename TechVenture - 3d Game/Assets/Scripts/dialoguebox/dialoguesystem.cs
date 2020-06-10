@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-[System.Serializable]
+
 public class dialoguesystem : MonoBehaviour
 {
     public static dialoguesystem Instance { get; set; }
