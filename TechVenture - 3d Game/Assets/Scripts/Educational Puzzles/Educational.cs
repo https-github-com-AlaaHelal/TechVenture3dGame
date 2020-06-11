@@ -22,7 +22,7 @@ public class Educational : MonoBehaviour
     public VideoPlayer binaryvideo;
     public RawImage binaryimage;
     public bool educationalpuzzleisActive;
-    public Information informations;
+   // public Information informations;
   
     public Transform PlayerPosition;
   
@@ -51,7 +51,7 @@ public class Educational : MonoBehaviour
           ballAnimatore[Number].SetBool("is interacted", true);
             ScreenCanvas.enabled = true;
             StartCoroutine(TimeToShowScreen(Number));
-     
+      
 
     }
     IEnumerator TimeToShowScreen(int Number)
@@ -63,12 +63,14 @@ public class Educational : MonoBehaviour
             Screen.SetBool("open", true);
             yield return new WaitForSeconds(1.5f);
             DisplayInformationORQuestion(Number);
-         
+      
+
+
 
     }
 
-        //hide screen when Exit
-        IEnumerator TimeToHideScreen(int Number)
+    //hide screen when Exit
+    IEnumerator TimeToHideScreen(int Number)
         {
            yield return new WaitForSeconds(.5f);
             HideInformationORQuestion(Number);
@@ -91,11 +93,14 @@ public class Educational : MonoBehaviour
             InformationText[Number].gameObject.SetActive(true);
 
             //.SetActive(false);
-            bool wasPicked = InformationInventory.instance.Add(informations);
-            Destroy(Balls[Number]);
+           // bool wasPicked = InformationInventory.instance.Add(informations);
+            // Destroy(Balls[Number]);
+           //
+          
 
 
         }
+        
         if (Number >= 13)
         {
 
@@ -138,6 +143,8 @@ public class Educational : MonoBehaviour
             StartCoroutine(TimeToHideScreen(Number));
         
             binaryvideo.Stop();
+           //
+          
         }
 
 

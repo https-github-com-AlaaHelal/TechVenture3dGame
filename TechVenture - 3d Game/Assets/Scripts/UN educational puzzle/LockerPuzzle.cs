@@ -64,6 +64,7 @@ public class LockerPuzzle : UEPuzzleCanvas
     }
     IEnumerator exit()
     {
+        Time.timeScale = 1f;
         yield return new WaitForSeconds(1.5f);
       //UEpuzzlesCanvas.enabled = false;
         Destroy(PuzzlesPanels[0]);
@@ -82,6 +83,7 @@ public class LockerPuzzle : UEPuzzleCanvas
     bool Win()
     {
         return n1 == 2 & n2 == 5 & n3 == 8 & n4 == 4;
+     
     }
     public void ChangeButton1()
     {

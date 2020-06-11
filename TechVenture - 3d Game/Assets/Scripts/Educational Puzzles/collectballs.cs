@@ -33,8 +33,10 @@ public class collectballs : MonoBehaviour
 
              StartCoroutine(PickUp());
             educationalscript.GetComponent<Educational>().Number = ballnumber;
+         
             educationalscript.GetComponent<Educational>().Display();
-           
+       
+
 
         }
     }

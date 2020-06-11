@@ -50,6 +50,8 @@ public class UEPuzzleCanvas : MonoBehaviour
         PuzzlesPanels[number].SetActive(true);
       
         puzzlecanvasState = true;
+        Time.timeScale = 0f;
+
 
     }
     public void Exit()
@@ -61,9 +63,10 @@ public class UEPuzzleCanvas : MonoBehaviour
         for (int i = 0; i < 3; i++)
         {
             PuzzlesPanels[i].SetActive(false);
+           
 
         }
-       
+
 
     }
 }
