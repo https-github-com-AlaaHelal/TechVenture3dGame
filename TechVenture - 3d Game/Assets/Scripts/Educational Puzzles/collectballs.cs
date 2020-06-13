@@ -45,8 +45,8 @@ public class collectballs : MonoBehaviour
         return Vector3.Distance(new Vector3(0, transform.position.y, 0), new Vector3(0, floor.transform.position.y, 0));
     }
     IEnumerator PickUp()
-    {
-        bool wasPicked = InformationInventory.instance.Add(information);
+    {  if (ballnumber <=12)
+        { bool wasPicked = InformationInventory.instance.Add(information); }
 
         if (FindDistance() >= 3)
         {

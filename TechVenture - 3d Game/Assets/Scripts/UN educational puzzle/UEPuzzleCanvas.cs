@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class UEPuzzleCanvas : MonoBehaviour
 {
+    public GameObject inventorycanvas;
     public bool puzzlecanvasState;
     private static UEPuzzleCanvas _instance;
     public static UEPuzzleCanvas Instance
@@ -50,7 +51,7 @@ public class UEPuzzleCanvas : MonoBehaviour
         PuzzlesPanels[number].SetActive(true);
       
         puzzlecanvasState = true;
-        Time.timeScale = 0f;
+        //Time.timeScale = 0f;
 
 
     }
