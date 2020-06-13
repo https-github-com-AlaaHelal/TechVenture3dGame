@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class collectballs : MonoBehaviour
+public class collectquestionballs : MonoBehaviour
 {
     public Transform player;
     public GameObject educationalscript;
@@ -10,8 +10,8 @@ public class collectballs : MonoBehaviour
     public Animator playeranimator;
     public GameObject floor;
     public float Distance = 5;
-    public Information information;
-  //  public Information information;
+
+    //  public Information information;
 
 
     // Start is called before the first frame update
@@ -28,13 +28,13 @@ public class collectballs : MonoBehaviour
         float distance = Vector3.Distance(player.position, this.transform.position);
 
 
-        if (direction < 0 && Input.GetKeyDown(KeyCode.F)&& distance<=7)
+        if (direction < 0 && Input.GetKeyDown(KeyCode.F) && distance <= 7)
         {
 
-             StartCoroutine(PickUp());
+            StartCoroutine(PickUp());
             educationalscript.GetComponent<Educational>().Number = ballnumber;
             educationalscript.GetComponent<Educational>().Display();
-       
+
 
 
         }
@@ -44,33 +44,35 @@ public class collectballs : MonoBehaviour
         return Vector3.Distance(new Vector3(0, transform.position.y, 0), new Vector3(0, floor.transform.position.y, 0));
     }
     IEnumerator PickUp()
-    {  if (ballnumber <=12)
-        { bool wasPicked = InformationInventory.instance.Add(information); }
-
-        if (FindDistance() >= 3)
+    {
+        if (ballnumber <= 12)
         {
-            playeranimator.SetBool("pickup", true);
-            playeranimator.SetBool("pickupmid", true);
+
+            if (FindDistance() >= 3)
+            {
+                playeranimator.SetBool("pickup", true);
+                playeranimator.SetBool("pickupmid", true);
 
 
-            yield return new WaitForSeconds(1f);
-            playeranimator.SetBool("pickupmid", false);
-            playeranimator.SetBool("pickup", false);
-          //  Debug.Log("mid");
+                yield return new WaitForSeconds(1f);
+                playeranimator.SetBool("pickupmid", false);
+                playeranimator.SetBool("pickup", false);
+                //  Debug.Log("mid");
 
 
+            }
+            else
+            {
+                playeranimator.SetBool("pickup", true);
+                playeranimator.SetBool("pickuplow", true);
+                yield return new WaitForSeconds(1f);
+                playeranimator.SetBool("pickuplow", false);
+                playeranimator.SetBool("pickup", false);
+                //   Debug.Log("low");
+
+
+            }
+            //   gameObject.SetActive(false);
         }
-        else
-        {
-            playeranimator.SetBool("pickup", true);
-            playeranimator.SetBool("pickuplow", true);
-            yield return new WaitForSeconds(1f);
-            playeranimator.SetBool("pickuplow", false);
-            playeranimator.SetBool("pickup", false);
-         //   Debug.Log("low");
-
-
-        }
-     //   gameObject.SetActive(false);
     }
 }

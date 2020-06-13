@@ -19,8 +19,6 @@ public class Educational : MonoBehaviour
     public Animator character;
     public int Number;
     public GameObject masgg;
-    public VideoPlayer binaryvideo;
-    public RawImage binaryimage;
     public bool educationalpuzzleisActive;
    // public Information informations;
   
@@ -49,8 +47,8 @@ public class Educational : MonoBehaviour
         {
           educationalpuzzleisActive = true;
           ballAnimatore[Number].SetBool("is interacted", true);
-            ScreenCanvas.enabled = true;
-            StartCoroutine(TimeToShowScreen(Number));
+          ScreenCanvas.enabled = true;
+          StartCoroutine(TimeToShowScreen(Number));
       
 
     }
@@ -124,25 +122,25 @@ public class Educational : MonoBehaviour
                 QuestionPanels[Number - 13].gameObject.SetActive(false);
             }
         }
-    IEnumerator video()
-    {
-        yield return new WaitForSeconds(1f);
-        binaryvideo.Prepare();
-        while (!binaryvideo.isPrepared)
-        {
+    //IEnumerator video()
+    //{
+    //    yield return new WaitForSeconds(1f);
+    //    binaryvideo.Prepare();
+    //    while (!binaryvideo.isPrepared)
+    //    {
           
-            break;
-        }
+    //        break;
+    //    }
 
-        binaryimage.texture = binaryvideo.texture;
-        binaryvideo.Play();
-    }
+    //    binaryimage.texture = binaryvideo.texture;
+    //    binaryvideo.Play();
+    //}
           
         public void Exit()
         {
             StartCoroutine(TimeToHideScreen(Number));
         
-            binaryvideo.Stop();
+        //    binaryvideo.Stop();
            //
           
         }
