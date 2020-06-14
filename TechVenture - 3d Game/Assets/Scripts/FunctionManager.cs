@@ -7,7 +7,7 @@ using TMPro;
 //inform unity that class can store informaion
 [System.Serializable]
 public class FunctionManager : MonoBehaviour {
-
+    public GameObject message;
     // the object and its right place
     public GameObject intword, intBox, result, resultBox, AddFunction, AddFunctionBox;
    // public Text message;
@@ -33,7 +33,7 @@ public class FunctionManager : MonoBehaviour {
 
     public void Dropint()
     {
-        Debug.Log("hey");
+        
         if (oneDone == false && twoDone == false && threeDone == false)
         {
             if (inttext.text == "int")
@@ -455,47 +455,35 @@ public class FunctionManager : MonoBehaviour {
         }
     }
 
-    //public void Update()
-    //{ if (oneCorrect==true && twoCorrect==true && threeCorrect==true)
-         
-    //    {
-    //        Debug.Log("WINNER");
-
-    //        //message.color = Color.green;
-    //        //message.text = "Great";
-    //        StartCoroutine(TransitionToNextQuestion());
-    //    }
-    //}
 
 
 
     public void Win()
     {
 
-        //b1.image.sprite = trueimg;
-        //b2.image.sprite = trueimg;
-        //b3.image.sprite = trueimg;
-        //b4.image.sprite = trueimg;
-        //b5.image.sprite = trueimg;
+   
         if (oneCorrect == true && twoCorrect == true && threeCorrect == true)
         {
-            StartCoroutine(ExitQuestion());
             FindObjectOfType<ScoreManager>().AddScore();
+            StartCoroutine(ExitQuestion());
+           
         }
     }
     IEnumerator ExitQuestion()
     {
+       
         yield return new WaitForSeconds(1.5f);
-        Educationalscript.GetComponent<Educational>().QuestionPanels[0].SetActive(false);
-        // QuestionPanels[0].SetActive(false);
+        Educationalscript.GetComponent<Educational>().QuestionPanels[4].SetActive(false);
+     
         yield return new WaitForSeconds(.5f);
-        Educationalscript.GetComponent<Educational>().masgg.SetActive(true);
+        message.SetActive(true);
 
-        //  masgg.gameObject.SetActive(true);
+      
         yield return new WaitForSeconds(2f);
-        //  Destroy(masgg.gameObject);
-        Educationalscript.GetComponent<Educational>().masgg.SetActive(false);
+
+        message.SetActive(false);
         Educationalscript.GetComponent<Educational>().Exit();
+
 
 
     }

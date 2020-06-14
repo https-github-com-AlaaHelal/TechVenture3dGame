@@ -41,7 +41,7 @@ public class InformationInventorySlot : MonoBehaviour
     public void ShowInformationFromInventory()
     {
         // InformationInventory.instance.Remove(information);
-     
+        //Educational.instance.Display();
         educationalscript.GetComponent<Educational>().Display();
 
     }
