@@ -9,15 +9,11 @@ public class dialoguesystem : MonoBehaviour
     public static dialoguesystem Instance { get; set; }
     public GameObject dialoguepanal;
     public string namea;
-    public List<string> dialoguelines = new List<string>();
-    Button continuebutton;
+    public string dialoguelines;
     TextMeshProUGUI dialogueText , nameTaxt;
-    int dialogueindex;
     void Awake()
-    {   continuebutton = dialoguepanal.transform.Find("continue").GetComponent<Button>();
-        dialogueText = dialoguepanal.transform.Find("Text").GetComponent<TextMeshProUGUI>();
+    {   dialogueText = dialoguepanal.transform.Find("Text").GetComponent<TextMeshProUGUI>();
         nameTaxt = dialoguepanal.transform.Find("name").GetChild(0).GetComponent<TextMeshProUGUI>();
-        continuebutton.onClick.AddListener(delegate { continuedialogue(); });
         dialoguepanal.SetActive(false);
         if (Instance != null && Instance != this)
         {
@@ -28,34 +24,20 @@ public class dialoguesystem : MonoBehaviour
             Instance = this;
         }
     }
-    public void AddNewDialogue(string[] lines , string name )
+    public void AddNewDialogue(string lines , string name )
     {
-        dialogueindex = 0;
-        dialoguelines = new List<string>();
-        foreach (string line in lines)
-        {
-            dialoguelines.Add(line);
-        }
+        this.dialoguelines = lines;
         this.namea = name ;
-      //  Debug.Log(dialoguelines.Count);
         creatdialogue();
     }
     public void creatdialogue()
     {
-        dialogueText.text = dialoguelines[dialogueindex];
+        dialogueText.text = dialoguelines;
         nameTaxt.text = namea;
         dialoguepanal.SetActive(true);
     }
-    public void continuedialogue()
+    public void Enddialogue()
     {
-        if (dialogueindex < dialoguelines.Count - 1)
-        {
-            dialogueindex++;
-            dialogueText.text = dialoguelines[dialogueindex];
-        }
-        else
-        {
-            dialoguepanal.SetActive(false);
-        }
+        dialoguepanal.SetActive(false);
     }
 }

@@ -15,21 +15,6 @@ public class worldInteraction : Interactable
             if (Physics.Raycast(ray, out hit))
             {
                 GameObject raay = hit.collider.gameObject;
-                if (raay.tag == "Interactable object")
-                {
-                   // Debug.Log("Interacting .");
-                }
-            }
-        }
-    }
-    private void OnTriggerStay(Collider other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            if (Input.GetKeyDown(KeyCode.F))
-            {
-                //StartCoroutine(PickUp());
-                Interact();
             }
         }
     }
