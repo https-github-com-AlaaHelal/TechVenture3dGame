@@ -14,8 +14,7 @@ public class InventorySlot : MonoBehaviour
 	//public Sprite GreenSprite;
 	public bool IsSelected;
     public InventorySlot inventorySlot;
-
-
+ 
     public Item item;  // Current item in the slot
 
 
@@ -68,6 +67,7 @@ public class InventorySlot : MonoBehaviour
         {
             SelectSlot();
         }
+        
       
 
 
