@@ -15,6 +15,17 @@ TagManager:
   - Floor
   - Interactable object
   - IfQuestion
+  - scorpio
+  - aries
+  - gemini
+  - taurus
+  - cancer
+  - leo
+  - sagitarius
+  - capricorn
+  - hideSquare
+  - border
+  - logicinformation
   layers:
   - Default
   - TransparentFX
