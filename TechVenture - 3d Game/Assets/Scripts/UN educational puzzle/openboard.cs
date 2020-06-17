@@ -2,22 +2,24 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class openlabtop : MonoBehaviour
+public class openboard : MonoBehaviour
 {
+    // Start is called before the first frame update
+    public GameObject outline;
+
     public Transform player;
-    public GameObject flash;
     public float Distance = 5;
     Animator playeranime;
     public int animatiomnumber;
-    public GameObject passimge;
-    public GameObject laptoboutline;
+    public GameObject safescript;
+  
 
     // Start is called before the first frame update
     void Start()
     {
         playeranime = player.gameObject.GetComponent<Animator>();
-        passimge.SetActive(false);
-        laptoboutline.SetActive(false);
+        safescript.GetComponent<OpenSafe>().enabled = false;
+        outline.SetActive(false);
 
     }
 
@@ -28,25 +30,18 @@ public class openlabtop : MonoBehaviour
         float direction = Vector3.Dot(player.forward, transform.forward);
         float distance = Vector3.Distance(player.position, this.transform.position);
         //   Debug.Log(distance);
-        if (direction < 0.9 && distance <= Distance )
+        if (direction < 0.9 && distance <= Distance)
         {
-            laptoboutline.SetActive(true);
+            outline.SetActive(true);
 
-            if (Input.GetKeyDown(KeyCode.E) )
+            if (Input.GetKeyDown(KeyCode.E))
             {
-                if (flash.active == true)
-                {
-                    StartCoroutine(Animation());
-                }
-                else
-                {
-                    Debug.Log("you need a flashmemory");
-                }
+                StartCoroutine(Animation());
             }
         }
         else
         {
-            laptoboutline.SetActive(false);
+            outline.SetActive(false);
 
         }
     }
@@ -58,6 +53,8 @@ public class openlabtop : MonoBehaviour
         playeranime.SetInteger("action", 0);
         playeranime.SetBool("pickup", false);
         yield return new WaitForSeconds(1f);
-        passimge.SetActive(true);
+        safescript.GetComponent<OpenSafe>().enabled = true;
+
+
     }
 }

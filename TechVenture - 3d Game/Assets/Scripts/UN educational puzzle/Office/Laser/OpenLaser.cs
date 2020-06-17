@@ -13,12 +13,13 @@ public class OpenLaser : MonoBehaviour
     public bool LaserPuzzleActive;
     public int Win;
     public GameObject Camera;
-
+    public GameObject deskoutline;
     private Animator DeskAnimator;
     private void Start()
     {
         DeskAnimator = gameObject.GetComponent<Animator>();
-    }
+        deskoutline.SetActive(false);
+            }
     // Update is called once per frame;
     void Update()
     {
@@ -26,11 +27,21 @@ public class OpenLaser : MonoBehaviour
         {
             float direction = Vector3.Dot(player.forward.normalized, transform.forward.normalized);
             float distance = Vector3.Distance(player.position, transform.position);
-            if (direction >= 0.9 && distance <= Distance && Input.GetKeyDown(KeyCode.E))
+            if (direction >= 0.9 && distance <= Distance )
             {
-                Puzzle.GetComponent<ExitPuzzle>().Exit = false;
-                LaserPuzzleActive = true;
-                Camera.GetComponent<camera>().enabled = false;
+                deskoutline.SetActive(true);
+
+                if (Input.GetKeyDown(KeyCode.E))
+                {
+                    Puzzle.GetComponent<ExitPuzzle>().Exit = false;
+                    LaserPuzzleActive = true;
+                    Camera.GetComponent<camera>().enabled = false;
+                }
+            }
+            else
+            {
+                deskoutline.SetActive(false);
+
             }
             if (Camera.GetComponent<camera>().mouseSensitivity >= 0 && LaserPuzzleActive)
             {
