@@ -18,7 +18,6 @@ public class DrawLine : MonoBehaviour
     private Vector3 direction;
     private bool draw;
     private Vector2 currentPosition = Vector2.zero;
-    private int LayerMask;
     private int[] WinArray = new int[3];
     private Animator DeskAnim;
     private Canvas canvas;
@@ -29,7 +28,6 @@ public class DrawLine : MonoBehaviour
     }
     private void Awake()
     {
-        LayerMask = 1 << 8;
         lineRenderer = GetComponent<LineRenderer>();
         draw = true;
         DeskAnim = Desk.GetComponent<Animator>();
@@ -76,7 +74,7 @@ public class DrawLine : MonoBehaviour
         if (Physics.Raycast(ray, out hit, maxLength, 1 << 12))
         {
             CalculateWinValue();
-            if (hit.collider.tag == "border" || hit.collider.name == "Origin")
+            if (hit.collider.tag == "border" || hit.collider.tag == "Origin")
             {
                 draw = false;
             }

@@ -20,7 +20,6 @@ public class MemoryPuzzle : UEPuzzleCanvas
     private int WinVal;
     private MemorySymbol Symbol_1;
     private MemorySymbol Symbol_2;
-    public GameObject script;
   
    
     void Start()
@@ -119,11 +118,8 @@ public class MemoryPuzzle : UEPuzzleCanvas
     IEnumerator ExitPuzzle()
     {
         yield return new WaitForSeconds(0.5f);
-      
         UEpuzzlesCanvas.enabled = false;
         Destroy(PuzzlesPanels[2]);
-       
-
         LibraryAnim.SetBool("Open", true);
         InfoBall.SetActive(true);
         parent.GetComponent<UEPuzzleCanvas>().puzzlecanvasState = false;

@@ -19,7 +19,7 @@ public class books : MonoBehaviour
     GameObject b1, b2, b3;
     public  GameObject  camerascript;
     public Transform cameraview;
-    public GameObject flash, note;
+    public GameObject flash;
 
 
     // Start is called before the first frame update
@@ -123,9 +123,6 @@ public class books : MonoBehaviour
             Lipiraryanimatore.SetBool("open1", false);
             Lipiraryanimatore.SetBool("open2", true);
             flash.SetActive(true);
-            note.SetActive(true);
-
-
         }
     }
 }

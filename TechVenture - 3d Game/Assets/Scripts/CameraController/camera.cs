@@ -5,7 +5,7 @@ using UnityEngine;
 public class camera :MonoBehaviour
 {
     public bool lockCursor;
-     float mouseSensitivity = 4;
+    public float mouseSensitivity = 4;
     public Transform target;
     public float dstFromTarget = 2;
     public Vector2 pitchMinMax = new Vector2(-40, 85);

@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class OpenLaser : MonoBehaviour
 {
     public Transform player;
-    public float Distance = 5;
+    public float Distance = 10;
     public GameObject Puzzle;
     public Canvas canvas;
     public GameObject Line;
@@ -24,7 +24,7 @@ public class OpenLaser : MonoBehaviour
     {
         if(Win == 0)
         {
-            float direction = Vector3.Dot(player.forward.normalized, transform.right.normalized);
+            float direction = Vector3.Dot(player.forward.normalized, transform.forward.normalized);
             float distance = Vector3.Distance(player.position, transform.position);
             if (direction >= 0.9 && distance <= Distance && Input.GetKeyDown(KeyCode.E))
             {
@@ -32,7 +32,7 @@ public class OpenLaser : MonoBehaviour
                 LaserPuzzleActive = true;
                 Camera.GetComponent<camera>().enabled = false;
             }
-         //   if (Camera.GetComponent<camera>().mouseSensitivity >= 0 && LaserPuzzleActive)
+            if (Camera.GetComponent<camera>().mouseSensitivity >= 0 && LaserPuzzleActive)
             {
                 
                 StartCoroutine(Open());
