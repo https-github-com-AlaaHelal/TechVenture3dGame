@@ -61,18 +61,18 @@ public class InventorySlot : MonoBehaviour
         //    icon.enabled = false;
         //    //icon.sprite = null;
 
-        if (item.name== "IC04(1)"|| item.name == "IC04(2)" || item.name == "IC04(3)" || item.name == "IC04(4)")
-        //{
+        //if (item.name== "IC04(1)"|| item.name == "IC04(2)" || item.name == "IC04(3)" || item.name == "IC04(4)")
+        ////{
 
-        {
-            SelectSlot();
-        }
+        //{
+        //    SelectSlot();
+        //}
         
       
 
 
-        else
-            Inventory.instance.Remove(item);
+        //else
+        //    Inventory.instance.Remove(item);
 
      
 

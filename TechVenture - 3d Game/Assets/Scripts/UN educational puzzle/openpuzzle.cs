@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class openpuzzle : MonoBehaviour
 {
@@ -9,6 +10,9 @@ public class openpuzzle : MonoBehaviour
     public int puzzlenumber;
     public float Distance=5;
     public GameObject outline;
+
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -31,8 +35,6 @@ public class openpuzzle : MonoBehaviour
                 puzzlescript.GetComponent<UEPuzzleCanvas>().NumberofPuzzle = puzzlenumber;
                 puzzlescript.GetComponent<UEPuzzleCanvas>().Display(puzzlenumber);
             }
-
-
         }
         else
         {

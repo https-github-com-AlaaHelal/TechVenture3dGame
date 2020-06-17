@@ -13,6 +13,7 @@ public class MemoryPuzzle : UEPuzzleCanvas
     public GameObject Library;
     public GameObject InfoBall;
     public GameObject parent;
+    public GameObject Note;
 
     private Animator LibraryAnim;
     private int CurrentWinValue;
@@ -120,8 +121,10 @@ public class MemoryPuzzle : UEPuzzleCanvas
         yield return new WaitForSeconds(0.5f);
         UEpuzzlesCanvas.enabled = false;
         Destroy(PuzzlesPanels[2]);
-        LibraryAnim.SetBool("Open", true);
+        LibraryAnim.SetBool("Books", false);
+        LibraryAnim.SetBool("Memory", true);
         InfoBall.SetActive(true);
+        Note.SetActive(true);
         parent.GetComponent<UEPuzzleCanvas>().puzzlecanvasState = false;
     }
 }

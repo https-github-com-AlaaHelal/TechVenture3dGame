@@ -14,6 +14,8 @@ public class OpenLaser : MonoBehaviour
     public int Win;
     public GameObject Camera;
     public GameObject deskoutline;
+    public GameObject Book;
+
     private Animator DeskAnimator;
     private void Start()
     {
@@ -60,9 +62,9 @@ public class OpenLaser : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
         canvas.enabled = false;
         LaserPuzzleActive = false;
-
         DeskAnimator.SetBool("Open", true);
         Camera.GetComponent<camera>().enabled = true;
+        Book.SetActive(true);
         Destroy(Puzzle);
     }
     

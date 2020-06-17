@@ -8,7 +8,7 @@ public class books : MonoBehaviour
     public Transform[] booktransform = new Transform[3];
     public GameObject outlines ;
     public bool solved;
-    public Animator Lipiraryanimatore;
+    public Animator LibraryAnimator;
     public Animator playeranimatore;
     public int count1;
     public int count2;
@@ -34,11 +34,7 @@ public class books : MonoBehaviour
         Camera.main.transform.position= cameraview.position;
         Camera.main.transform.rotation = cameraview.rotation;
         playeranimatore.gameObject.SetActive(false);
-
-
-
-
-
+        
     }
 
     // Update is called once per frame
@@ -46,10 +42,7 @@ public class books : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.E))
         {
-           
             select();
-            
-
         }
          selectedbook = book[count1];
          targetbook = book[count2];
@@ -120,8 +113,8 @@ public class books : MonoBehaviour
             solved = true;
             camerascript.GetComponent<camera>().enabled = true;
             playeranimatore.gameObject.SetActive(true);
-            Lipiraryanimatore.SetBool("open1", false);
-            Lipiraryanimatore.SetBool("open2", true);
+            LibraryAnimator.SetBool("Memory", false);
+            LibraryAnimator.SetBool("Books", true);
             flash.SetActive(true);
         }
     }
