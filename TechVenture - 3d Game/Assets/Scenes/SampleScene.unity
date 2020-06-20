@@ -7501,7 +7501,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 770983949b1c84042b6a014dff2d25cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Player: {fileID: 0}
+  Player: {fileID: 1939662415089185621}
   WeaponButton: {fileID: 5280191505736710494}
 --- !u!114 &260741782
 MonoBehaviour:
@@ -78173,7 +78173,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &4362454777527109754
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -78181,7 +78181,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4362454777527109753}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 770983949b1c84042b6a014dff2d25cf, type: 3}
   m_Name: 
@@ -83468,7 +83468,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   WeaponImage: {fileID: 5280191504526047622}
-  WeaponCopy: {fileID: 9128918722937012869}
+  WeaponCopy: {fileID: 4362454777527109753}
   IsActive: 0
   player: {fileID: 4772208848386878524}
 --- !u!114 &5280191505736710464
