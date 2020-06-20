@@ -5,17 +5,18 @@ using UnityEngine.UI;
 public class NewBehaviourScript : MonoBehaviour
 {
 
-    public GameObject flashmemory;
+  
     private Inventory inventory;
     GameObject Inventory;
     InventorySlot InventorySlot;
-    //public Item item;  // Current item in the slot
+    public Item item;  // Current item in the slot
+    public GameObject labtopscript;
 
 
     public void Start()
     {
         inventory = GameObject.Find("InventoryManager").GetComponent<Inventory>();
-        flashmemory.SetActive(false);
+       
 
 
     }
@@ -23,18 +24,22 @@ public class NewBehaviourScript : MonoBehaviour
     public void Update()
     {
         InventorySlot slot = inventory.SelectedSlot;
-       
+
         if (slot != null && slot.item != null)
         {
-            Debug.Log("flash1");
-            if (slot.item.name.ToString()== "flashmemory")
+           
+            if (slot.item.name.ToString() == "flashmemory")
             {
-                flashmemory.SetActive(true);
-                Debug.Log("flash2");
+                labtopscript.GetComponent<openlabtop>().flash.SetActive(true);
+                if (labtopscript.GetComponent<openlabtop>().solved==true)
+                {
+                    inventory.Remove(slot.item);
+                }
+
             }
         }
 
-    
+
     }
 }
 

@@ -13,6 +13,7 @@ public class CollectingItems : MonoBehaviour
     private Animator PlayerAnim;
     private int Picked;
     public float speed = 3.0f;
+    public GameObject outline;
 
     private void Start()
     {
@@ -20,6 +21,7 @@ public class CollectingItems : MonoBehaviour
         PlayerAnim = Player.GetComponent<Animator>();
         floor = GameObject.FindGameObjectWithTag("Floor");
         Picked = 0;
+        outline.SetActive(false);
     }
     void Update()
     {
@@ -61,6 +63,10 @@ public class CollectingItems : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            if (outline != null)
+            {
+                outline.SetActive(true);
+            }
             if (Input.GetKeyDown(KeyCode.F))
             {
                 Picked++;
@@ -72,6 +78,7 @@ public class CollectingItems : MonoBehaviour
                 //Lookat
                // Player.transform.LookAt(this.gameObject.transform, this.gameObject.transform.position);
                 StartCoroutine(PickUp());
+                Destroy(outline);
             }
         }
     }

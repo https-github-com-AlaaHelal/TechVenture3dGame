@@ -41,7 +41,7 @@ public class openboard : MonoBehaviour
 
             if (Input.GetKeyDown(KeyCode.E))
             {
-                Camera.GetComponent<camera>().enabled = false;
+              //  Camera.GetComponent<camera>().enabled = false;
                 StartCoroutine(HoldBoard());
             }
            

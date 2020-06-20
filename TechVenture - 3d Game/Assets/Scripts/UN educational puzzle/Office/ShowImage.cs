@@ -38,6 +38,10 @@ public class ShowImage : MonoBehaviour
         }
         if (exit)
             Canvas.SetActive(false);
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Exit();
+        }
     }
 
     public void Exit()

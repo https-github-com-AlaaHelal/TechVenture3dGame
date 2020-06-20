@@ -21,7 +21,7 @@ public class MemoryPuzzle : UEPuzzleCanvas
     private int WinVal;
     private MemorySymbol Symbol_1;
     private MemorySymbol Symbol_2;
-  
+    public  GameObject openpuzzlescript;
    
     void Start()
     {
@@ -121,10 +121,12 @@ public class MemoryPuzzle : UEPuzzleCanvas
         yield return new WaitForSeconds(0.5f);
         UEpuzzlesCanvas.enabled = false;
         Destroy(PuzzlesPanels[2]);
-        LibraryAnim.SetBool("Books", false);
-        LibraryAnim.SetBool("Memory", true);
+        LibraryAnim.SetBool("memory", true);
         InfoBall.SetActive(true);
         Note.SetActive(true);
         parent.GetComponent<UEPuzzleCanvas>().puzzlecanvasState = false;
+        Destroy( openpuzzlescript.GetComponent<openpuzzle>().outline);
+        openpuzzlescript.GetComponent<openpuzzle>().enabled = false;
+
     }
 }

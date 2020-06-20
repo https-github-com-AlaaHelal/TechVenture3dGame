@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Note
   m_EditorClassIdentifier: 
   name: Note
-  icon: {fileID: 21300000, guid: 282d2848f53a1c84c8a721a289fc53f3, type: 3}
+  icon: {fileID: 21300000, guid: 4e8e2f161713f974181e5f0ab2e55ede, type: 3}
   isDefaultItem: 0

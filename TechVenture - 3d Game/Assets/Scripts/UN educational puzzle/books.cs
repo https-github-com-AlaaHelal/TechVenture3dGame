@@ -20,6 +20,8 @@ public class books : MonoBehaviour
     public  GameObject  camerascript;
     public Transform cameraview;
     public GameObject flash;
+    public GameObject bookobject;
+
 
 
     // Start is called before the first frame update
@@ -31,7 +33,7 @@ public class books : MonoBehaviour
         b2 = book[1];
         b3 = book[0];
         camerascript.GetComponent<camera>().enabled = false;
-        Camera.main.transform.position= cameraview.position;
+        Camera.main.transform.position = cameraview.position;
         Camera.main.transform.rotation = cameraview.rotation;
         playeranimatore.gameObject.SetActive(false);
         
@@ -40,6 +42,8 @@ public class books : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Camera.main.transform.position = cameraview.position;
+        Camera.main.transform.rotation = cameraview.rotation;
         if (Input.GetKeyDown(KeyCode.E))
         {
             select();
@@ -58,6 +62,7 @@ public class books : MonoBehaviour
 
         }
         puzzlesolved();
+      
 
     }
 
@@ -111,11 +116,13 @@ public class books : MonoBehaviour
         if(book[0] == b1 && book[1]== b2 && book[2] == b3)
         {
             solved = true;
+            outlines.SetActive(false);
             camerascript.GetComponent<camera>().enabled = true;
             playeranimatore.gameObject.SetActive(true);
-            LibraryAnimator.SetBool("Memory", false);
             LibraryAnimator.SetBool("Books", true);
             flash.SetActive(true);
+            Destroy(bookobject);
+
         }
     }
 }

@@ -62,10 +62,11 @@ public class OpenLaser : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
         canvas.enabled = false;
         LaserPuzzleActive = false;
-        DeskAnimator.SetBool("Open", true);
         Camera.GetComponent<camera>().enabled = true;
         Book.SetActive(true);
+        StartCoroutine(Animation());
         Destroy(Puzzle);
+        Destroy(deskoutline);
     }
     
     IEnumerator Open()
@@ -73,5 +74,16 @@ public class OpenLaser : MonoBehaviour
         yield return new WaitForSeconds(0.02f);
         Puzzle.SetActive(true);
         canvas.enabled = true;
+    }
+    IEnumerator Animation()
+    {
+
+        player.GetComponent<Animator>().SetBool("pickup", true);
+        player.GetComponent<Animator>().SetInteger("action", 2);
+        DeskAnimator.SetBool("Open", true);
+        yield return new WaitForSeconds(1f);
+        player.GetComponent<Animator>().SetInteger("action", 0);
+        player.GetComponent<Animator>().SetBool("pickup", false);
+
     }
 }

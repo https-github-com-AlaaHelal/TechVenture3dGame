@@ -11,6 +11,7 @@ public class openlabtop : MonoBehaviour
     public int animatiomnumber;
     public GameObject passimge;
     public GameObject laptoboutline;
+    public bool solved;
 
     // Start is called before the first frame update
     void Start()
@@ -18,6 +19,7 @@ public class openlabtop : MonoBehaviour
         playeranime = player.gameObject.GetComponent<Animator>();
         passimge.SetActive(false);
         laptoboutline.SetActive(false);
+        flash.SetActive(false);
 
     }
 
@@ -28,15 +30,18 @@ public class openlabtop : MonoBehaviour
         float direction = Vector3.Dot(player.forward, transform.forward);
         float distance = Vector3.Distance(player.position, this.transform.position);
         //   Debug.Log(distance);
-        if (direction < 0.9 && distance <= Distance )
+        if (direction >= 0.9 && distance <= Distance )
         {
             laptoboutline.SetActive(true);
 
-            if (Input.GetKeyDown(KeyCode.E) )
+            if (Input.GetKeyDown(KeyCode.E))
             {
-                if (flash.active == true)
+                if (flash.activeSelf)
                 {
+                    solved = true;
+
                     StartCoroutine(Animation());
+                    this.GetComponent<openlabtop>().enabled = false;
                 }
                 else
                 {
@@ -52,12 +57,15 @@ public class openlabtop : MonoBehaviour
     }
     IEnumerator Animation()
     {
+        Destroy(laptoboutline);
         playeranime.SetBool("pickup", true);
         playeranime.SetInteger("action", animatiomnumber);
         yield return new WaitForSeconds(1f);
         playeranime.SetInteger("action", 0);
         playeranime.SetBool("pickup", false);
+        flash.SetActive(false);
         yield return new WaitForSeconds(1f);
         passimge.SetActive(true);
+
     }
 }

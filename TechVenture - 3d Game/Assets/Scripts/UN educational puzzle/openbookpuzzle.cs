@@ -26,18 +26,30 @@ public class openbookpuzzle : MonoBehaviour
         if (direction >= 0.9 && distance <= Distance) 
         {
             PuzzleScript.GetComponent<books>().outlines.SetActive(true);
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                PuzzleScript.GetComponent<books>().playeranimatore.gameObject.SetActive(true);
+                PuzzleScript.GetComponent<books>().camerascript.GetComponent<camera>().enabled = true;
+                PuzzleScript.SetActive(false);
+
+            }
 
             if (Input.GetKeyDown(KeyCode.E)) 
             {
                 if (PuzzleScript.GetComponent<books>().solved == false)
                 {
+                    PuzzleScript.GetComponent<books>().camerascript.GetComponent<camera>().enabled = false;
+                    Camera.main.transform.position = PuzzleScript.GetComponent<books>().cameraview.position;
+                    Camera.main.transform.rotation = PuzzleScript.GetComponent<books>().cameraview.rotation;
                     PuzzleScript.SetActive(true);
+                 
                 }
                 if (PuzzleScript.GetComponent<books>().solved == true)
                 {
                     PuzzleScript.SetActive(false);
                 }
             }
+
            
         }
         else

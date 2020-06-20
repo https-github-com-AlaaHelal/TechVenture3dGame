@@ -24,7 +24,7 @@ public class SafeController : MonoBehaviour
     Quaternion FactorE;
     Quaternion FactorF;
     Quaternion FactorW;
-
+    public GameObject openboardscript;
     int E = 0;
     int B = 0;
     int F = 0;
@@ -101,6 +101,8 @@ public class SafeController : MonoBehaviour
             Win = true;
             Debug.Log("Win");
             StartCoroutine(ClosePuzzle());
+            Destroy(openboardscript.GetComponent<openboard>().outline);
+
         }
         if (Input.GetKeyDown(KeyCode.Escape))
         {
