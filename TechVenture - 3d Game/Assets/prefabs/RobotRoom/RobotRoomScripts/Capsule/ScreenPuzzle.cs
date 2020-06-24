@@ -8,27 +8,27 @@ public class ScreenPuzzle : MonoBehaviour
 
     Animator Standanimator;
     public GameObject Stand;
-   bool openStand;
+    bool openStand;
     public GameObject Screenpuzzle;
     public bool[] Correct;
     int Count;
     public  Button FirstButton;
     bool FinalCorrect;
+    public GameObject Flash;
     public GameObject Paper;
-    public GameObject flashmemory;
-    public GameObject f;
-    // public Button[] buttons = new Button[17];
+    public float Distance = 7;
+    public GameObject camerascript;
+    public Transform cameraview;
+    public Animator playeranimatore;
+    public Transform player;
 
     public void Start()
     {
 
-
-
-
         Standanimator = Stand.GetComponentInParent<Animator>();
-        flashmemory.SetActive(false);
-        Paper.SetActive(false);
-       f.SetActive(false);
+
+       Flash.SetActive(false);
+        //Paper.SetActive(false);
     }
 
 
@@ -37,23 +37,35 @@ public class ScreenPuzzle : MonoBehaviour
     {
         if (openStand == true)
         {
-           flashmemory.SetActive(true);
+           
 
-            StartCoroutine(Open());
-            f.SetActive(true);
+            StartCoroutine(ActiveItemsOnStand());
+         
+            Debug.Log("STAND OPEN");
+
+        }
+        float direction = Vector3.Dot(player.forward,Screenpuzzle.transform.forward);
+        float distance = Vector3.Distance(player.position, Screenpuzzle.transform.position);
+        if (direction >0.9 && distance <= Distance)
+        {
+            Debug.Log(distance);
+            camerascript.GetComponent<camera>().enabled = false;
+            Camera.main.transform.position = cameraview.position;
+            Camera.main.transform.rotation = cameraview.rotation;
+            playeranimatore.gameObject.SetActive(false);
 
         }
 
 
-
-        if (FinalCorrect==true &&Count != 18)
+        if (FinalCorrect == true && Count != 18)
         {
             Screenpuzzle.SetActive(false);
-            Screenpuzzle.SetActive(true);
+
             Count = 0;
             Debug.Log(Count);
             Debug.Log("Wrong Play again");
-         
+            Screenpuzzle.SetActive(true);
+
 
         }
     }
@@ -179,8 +191,12 @@ public class ScreenPuzzle : MonoBehaviour
         Debug.Log(Count);
         if (Count == 18)
         {
-           // StartCoroutine(ExitCanvas());
-            Screenpuzzle.SetActive(false);
+
+          
+            camerascript.GetComponent<camera>().enabled = true;
+
+            playeranimatore.gameObject.SetActive(true);
+          //  Destroy(Screenpuzzle);
             Standanimator.SetBool("open", true);
             Standanimator.SetFloat("speed", 1);
             openStand = true;
@@ -193,15 +209,18 @@ public class ScreenPuzzle : MonoBehaviour
 
 
     }
-    IEnumerator Open()
+
+
+    IEnumerator ActiveItemsOnStand()
     {
-        
-        yield return new WaitForSeconds(1f);
-        Paper.SetActive(true);
        
+        yield return new WaitForSeconds(1.5f);
+
+        Flash.SetActive(true);
+        Paper.SetActive(true);
+
+
     }
-
-
 
 
 
