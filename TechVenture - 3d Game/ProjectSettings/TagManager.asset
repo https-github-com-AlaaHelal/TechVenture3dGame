@@ -27,6 +27,11 @@ TagManager:
   - border
   - logicinformation
   - Origin
+  - Stand
+  - Capsule
+  - Box
+  - SAFE
+  - Board
   layers:
   - Default
   - TransparentFX
