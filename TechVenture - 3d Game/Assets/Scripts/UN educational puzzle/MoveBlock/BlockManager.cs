@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class BlockManager : MonoBehaviour
 {
+    
+
 
     public GameObject[] empty;
     RectTransform EmptyTransform;

@@ -32,6 +32,11 @@ TagManager:
   - Box
   - SAFE
   - Board
+  - BrokenCapsule
+  - UnBlock
+  - empty
+  - LaserArm
+  - BlockBoard
   layers:
   - Default
   - TransparentFX

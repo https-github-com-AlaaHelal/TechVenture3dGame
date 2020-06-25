@@ -25,22 +25,22 @@ public class OpenBox : MonoBehaviour
         float direction = Vector3.Dot(player.forward, transform.forward);
         float distance = Vector3.Distance(player.position, transform.position);
 
-     
-        if (Input.GetKeyDown(KeyCode.E) && distance <= Distance)
-        {
-            
-            if (openbox == false)
-            {
-                Boxanimator.SetBool("open", true);
-                Boxanimator.SetFloat("speed", 1);
-                openbox = true;
-                LasrInBox.SetActive(true);
+
+        //if (Input.GetKeyDown(KeyCode.E) && distance <= Distance)
+        //{
+        //    //MovBlockCanvas.SetActive();
+        //    //if (openbox == false)
+        //    //{
+        //    //    Boxanimator.SetBool("open", true);
+        //    //    Boxanimator.SetFloat("speed", 1);
+        //    //    openbox = true;
+        //    //    LasrInBox.SetActive(true);
 
 
-            }
+        //    //}
 
 
-        }
+        //}
 
         if (distance > 15 && openbox == true)
         {

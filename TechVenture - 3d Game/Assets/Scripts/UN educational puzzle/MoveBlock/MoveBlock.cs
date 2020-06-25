@@ -5,6 +5,13 @@ using UnityEngine.EventSystems;
 
 public class MoveBlock : EventTrigger
 {
+    Animator Boxanimator;
+    GameObject Box;
+    GameObject LasrInBox;
+    GameObject BoardGame;
+    public float Distance = 7;
+   public  Transform player;
+
     public bool Selected = false;
     public bool CanMove = false;
     public UnBlock.Orientation b_orientation;
@@ -25,7 +32,19 @@ public class MoveBlock : EventTrigger
     public float Height;
     // Start is called before the first frame update
     void Start()
+
     {
+        Box = GameObject.FindGameObjectWithTag("Box");
+        Boxanimator = Box.GetComponentInParent<Animator>();
+
+        LasrInBox = GameObject.FindGameObjectWithTag("LaserArm");
+        LasrInBox.SetActive(false);
+        BoardGame = GameObject.FindGameObjectWithTag("BlockBoard");
+        BoardGame.SetActive(false);
+
+
+       // player = GameObject.FindGameObjectWithTag("Player");
+
         UnBlockScript = GetComponent<UnBlock>();
         InitialPositionCheck = Vector3.zero;
         b_orientation = UnBlockScript.orientation;
@@ -49,6 +68,25 @@ public class MoveBlock : EventTrigger
     //    }
     //}
 
+
+
+    public void Update()
+    {
+
+
+        float direction = Vector3.Dot(player.forward, transform.forward);
+        float distance = Vector3.Distance(player.position, transform.position);
+
+
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+
+
+            BoardGame.SetActive(true);
+
+
+        }
+    }
 
     public override void OnPointerDown(PointerEventData eventData)
     {
@@ -205,6 +243,13 @@ public class MoveBlock : EventTrigger
         if(b_type == UnBlock.Type.RED && transform.position.x == WinPosition)
         {
             Debug.Log("Win!");
+            BoardGame.SetActive(false);
+            Boxanimator.SetBool("open", true);
+            Boxanimator.SetFloat("speed", 1);
+            //openbox = true;
+            LasrInBox.SetActive(true);
+
+
             return true;
         }
         return false;
