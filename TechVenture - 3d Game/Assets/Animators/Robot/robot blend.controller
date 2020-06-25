@@ -9,7 +9,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 2
-    m_ConditionEvent: hit
+    m_ConditionEvent: Hit
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 2267983195339820702}
@@ -79,7 +79,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 1827226128182048838, guid: 162257b8a344f9d4e9960c5f3ce52c2f,
+  m_Motion: {fileID: 1827226128182048838, guid: de515b268a058af4e98412071aeba6ea,
     type: 3}
   m_Tag: 
   m_SpeedParameter: 
@@ -95,7 +95,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 2
-    m_ConditionEvent: shoot
+    m_ConditionEvent: Shoot
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 2267983195339820702}
@@ -120,7 +120,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: death
+    m_ConditionEvent: Death
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -5748286569303327356}
@@ -157,7 +157,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 1827226128182048838, guid: 512340b75ae35a4408d51ea23300c707,
+  m_Motion: {fileID: 1827226128182048838, guid: 08e61c990ea3e58469aae312cfc95e16,
     type: 3}
   m_Tag: 
   m_SpeedParameter: 
@@ -181,7 +181,7 @@ BlendTree:
     m_DirectBlendParameter: Blend
     m_Mirror: 0
   - serializedVersion: 2
-    m_Motion: {fileID: 1827226128182048838, guid: 62d079855c07dfa4285d26d01ef83789,
+    m_Motion: {fileID: 1827226128182048838, guid: 9ba12bac5689a7d43bd0e81339849f52,
       type: 3}
     m_Threshold: 1
     m_Position: {x: 0, y: 0}
@@ -190,7 +190,7 @@ BlendTree:
     m_DirectBlendParameter: Blend
     m_Mirror: 0
   - serializedVersion: 2
-    m_Motion: {fileID: 1827226128182048838, guid: 6c4ae3924897dc04282e222add3b809f,
+    m_Motion: {fileID: 1827226128182048838, guid: 55fbd87a24e9b9b4f9a21b580ef6e2ef,
       type: 3}
     m_Threshold: 2
     m_Position: {x: 0, y: 0}
@@ -198,7 +198,7 @@ BlendTree:
     m_CycleOffset: 0
     m_DirectBlendParameter: speed
     m_Mirror: 0
-  m_BlendParameter: speed
+  m_BlendParameter: Speed
   m_BlendParameterY: Blend
   m_MinThreshold: 0
   m_MaxThreshold: 2
@@ -214,7 +214,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: shoot
+    m_ConditionEvent: Shoot
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -1573127238875595745}
@@ -239,36 +239,36 @@ AnimatorController:
   m_Name: robot blend
   serializedVersion: 5
   m_AnimatorParameters:
-  - m_Name: speed
+  - m_Name: Speed
     m_Type: 1
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
-  - m_Name: action
+    m_Controller: {fileID: 9100000}
+  - m_Name: Action
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
-  - m_Name: shoot
+    m_Controller: {fileID: 9100000}
+  - m_Name: Shoot
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
-  - m_Name: hit
+    m_Controller: {fileID: 9100000}
+  - m_Name: Hit
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
-  - m_Name: death
+    m_Controller: {fileID: 9100000}
+  - m_Name: Death
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer
@@ -291,7 +291,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 2
-    m_ConditionEvent: action
+    m_ConditionEvent: Action
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 2303846919627888919}
@@ -316,7 +316,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: action
+    m_ConditionEvent: Action
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 2267983195339820702}
@@ -339,7 +339,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: New State
+  m_Name: Idle
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -355,7 +355,8 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 0}
+  m_Motion: {fileID: 1827226128182048838, guid: a9cd5195baf77bd4cab0b4071b61305f,
+    type: 3}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -410,7 +411,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 1827226128182048838, guid: af345e173026d184fa277fd216ab5f26,
+  m_Motion: {fileID: 1827226128182048838, guid: d31d27bdab881a444800aaaab0ac81a7,
     type: 3}
   m_Tag: 
   m_SpeedParameter: 
@@ -426,7 +427,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: hit
+    m_ConditionEvent: Hit
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 4454658567980128124}
