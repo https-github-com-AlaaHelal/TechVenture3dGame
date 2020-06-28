@@ -22,9 +22,12 @@ public class MemoryPuzzle : UEPuzzleCanvas
     private MemorySymbol Symbol_1;
     private MemorySymbol Symbol_2;
     public  GameObject openpuzzlescript;
+    public Animator imageanime;
+    public GameObject images;
    
     void Start()
     {
+        images.SetActive(false);
         ShufflePieces();
         SelectedSymbols = new List<GameObject>();
         Clickable = true;
@@ -35,7 +38,15 @@ public class MemoryPuzzle : UEPuzzleCanvas
     }
     private void Update()
     {
-        if(SelectedSymbols.Count == 1)
+
+        if (this.GetComponent<MemoryPuzzle>().enabled)
+        {
+
+          StartCoroutine(imageanimation());
+
+        }
+
+        if (SelectedSymbols.Count == 1)
             Symbol_1 = SelectedSymbols[0].GetComponent<MemorySymbol>();
         if (SelectedSymbols.Count == 2)
         {
@@ -127,6 +138,15 @@ public class MemoryPuzzle : UEPuzzleCanvas
         parent.GetComponent<UEPuzzleCanvas>().puzzlecanvasState = false;
         Destroy( openpuzzlescript.GetComponent<openpuzzle>().outline);
         openpuzzlescript.GetComponent<openpuzzle>().enabled = false;
+
+    }
+    IEnumerator imageanimation()
+    {
+        imageanime.SetBool("show", true);
+        yield return new WaitForSeconds(6f);
+        images.SetActive(true);
+        images.GetComponent<Animator>().SetBool("show", true);
+        imageanime.gameObject.SetActive(false);
 
     }
 }
