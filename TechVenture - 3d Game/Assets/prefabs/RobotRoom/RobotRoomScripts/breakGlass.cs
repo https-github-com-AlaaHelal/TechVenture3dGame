@@ -7,10 +7,7 @@ public class breakGlass : MonoBehaviour
     public GameObject DestoryedGlass;
   
 
-    void Update()
-    {
-        
-    }
+    
 
 
 

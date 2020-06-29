@@ -20,10 +20,13 @@ public class AddLaserToArm : MonoBehaviour
     public Light Glow;
     public Light FirePoinGlow;
     public GameObject ScreenPuzzle;
-    bool neartoscreen;
+    public GameObject breakableGalss;
+
     public Animator playeranimatore;
-    public GameObject Screen;
-  
+    public GameObject Stand;
+    bool StartNextPuzzle;
+
+
     public GameObject RestGlass;
     public GameObject FunctionInfoBall;
 
@@ -46,7 +49,6 @@ public class AddLaserToArm : MonoBehaviour
         OnPanel.SetActive(false);
         ScreenPuzzle.SetActive(false);
         RestGlass.SetActive(false);
-        ScreenPuzzle.SetActive(false);
         FunctionInfoBall.SetActive(false);
 
 
@@ -74,26 +76,19 @@ public class AddLaserToArm : MonoBehaviour
             }
         }
 
-
-        //float distancefromScreen = Vector3.Distance(player.position, Screen.transform.position);
-        //Debug.Log(distancefromScreen);
-
-        //if (neartoscreen == true && distancefromScreen < Distance)
-        //{
-        //    //playeranimatore.gameObject.SetActive(false);
-        //  //  Camera.main.transform.rotation = cameraview.rotation;
-
-        //}
+    }
 
 
-        //if (neartoscreen == true && distancefromScreen > Distance)
-        //{
-        //  //  playeranimatore.gameObject.SetActive(true);
+        public void TurnOnScreenPuzzle()
 
-        //}
+        {
+           if( StartNextPuzzle == true)
+
+            ScreenPuzzle.SetActive(true);
 
 
-
+        StartNextPuzzle = false;
+        }
 
 
 
@@ -121,17 +116,16 @@ public class AddLaserToArm : MonoBehaviour
             particle.Stop();
             OFFPanel.SetActive(false);
             OnPanel.SetActive(true);
-           
 
-            FindObjectOfType<breakGlass>().Explode();
+
+        // FindObjectOfType<breakGlass>().Explode();
+            breakableGalss.SetActive(true);
             RestGlass.SetActive(true);
-             ScreenPuzzle.SetActive(true);
             FunctionInfoBall.SetActive(true);
-
+            StartNextPuzzle = true;
 
 
 
         }
 
     }
-}

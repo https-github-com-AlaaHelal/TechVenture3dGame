@@ -6,18 +6,17 @@ public class OpenBox : MonoBehaviour
 {
     Animator Boxanimator;
     public GameObject Box;
-    public GameObject LasrInBox;
-
+    public GameObject BoxOutLine;
     bool openbox;
     public Transform player;
     public float Distance = 7;
- 
+    public GameObject MoveBlockCanvas;
 
     public void Start()
     {
         Box= GameObject.FindGameObjectWithTag("Box");
         Boxanimator = Box.GetComponentInParent<Animator>();
-        LasrInBox.SetActive(false);
+        BoxOutLine.SetActive(false);
     }
     public void Update()
     {
@@ -26,21 +25,20 @@ public class OpenBox : MonoBehaviour
         float distance = Vector3.Distance(player.position, transform.position);
 
 
-        //if (Input.GetKeyDown(KeyCode.E) && distance <= Distance)
+        //if ( distance <= Distance)
         //{
-        //    //MovBlockCanvas.SetActive();
-        //    //if (openbox == false)
-        //    //{
-        //    //    Boxanimator.SetBool("open", true);
-        //    //    Boxanimator.SetFloat("speed", 1);
-        //    //    openbox = true;
-        //    //    LasrInBox.SetActive(true);
-
-
-        //    //}
-
-
+        //    BoxOutLine.SetActive(true);
+    
         //}
+        //else   BoxOutLine.SetActive(false);
+
+        if (distance <= Distance && Input.GetKeyDown(KeyCode.E)) 
+        { 
+            MoveBlockCanvas.SetActive(true);
+        
+
+
+        }
 
         if (distance > 15 && openbox == true)
         {
@@ -49,10 +47,14 @@ public class OpenBox : MonoBehaviour
             Boxanimator.SetFloat("speed", 1);
             openbox = false;
 
-
-
         }
 
 
     }
+
+    public void exit()
+    {
+        MoveBlockCanvas.SetActive(false);
+    }
+
 }

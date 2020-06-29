@@ -9,12 +9,12 @@ public class OpenStand : MonoBehaviour
     public GameObject FlashMemoryOnStand;
     public GameObject ArrowHintScreen;
     public GameObject Screen;
-   // bool openStand;
     public Transform player;
     public float Distance = 7;
     public GameObject Inventory;
     private Inventory inventory;
-    public GameObject PuzzleScreen;
+   // public GameObject PuzzleScreen;
+    
 
 
     public void Start()
@@ -33,9 +33,18 @@ public class OpenStand : MonoBehaviour
 
         float distance = Vector3.Distance(player.position, transform.position);
 
+        float direction = Vector3.Dot(player.forward, transform.forward);
+        if ( distance <= Distance)
+        {
 
-  
-        
+            Debug.Log("Open The Screen");
+        }
+         if (direction < 0 && distance <= Distance && Input.GetKeyDown(KeyCode.E))
+        {
+
+            FindObjectOfType<AddLaserToArm>().TurnOnScreenPuzzle();
+
+        }
 
 
         if (distance >= 20)

@@ -12,9 +12,10 @@ public class SafePuzzle : MonoBehaviour
     public GameObject SafeCanvas;
     public GameObject camerascript;
     public Transform cameraview;
- 
-   public GameObject Safe;
-     Animator SafeAnimator;
+    public GameObject FunctionQuestionBall;
+   // bool CanvasIsActive;
+    GameObject Safe;
+    Animator SafeAnimator;
 
 
 
@@ -32,7 +33,7 @@ public class SafePuzzle : MonoBehaviour
     public Button b4;
     public Button b5;
     public Button b6;
-  
+
     public GameObject Safeexit;
 
 
@@ -52,7 +53,7 @@ public class SafePuzzle : MonoBehaviour
 
     private void Start()
     {
-       // Safe = GameObject.FindGameObjectWithTag("SAFE");
+        Safe = GameObject.FindGameObjectWithTag("SAFE");
         SafeAnimator = Safe.GetComponentInParent<Animator>();
 
         SafeCanvas.SetActive(false);
@@ -64,13 +65,14 @@ public class SafePuzzle : MonoBehaviour
         float distance = Vector3.Distance(player.position, transform.position);
 
 
-       //Debug.Log(distance);
-        if (direction < 0  && Input.GetKeyDown(KeyCode. E) && distance <= Distance)
-        {      SafeCanvas.SetActive(true);
+        if (direction < 0 && Input.GetKeyDown(KeyCode.E) && distance <= Distance)
+        { SafeCanvas.SetActive(true);
             camerascript.GetComponent<camera>().enabled = false;
             Camera.main.transform.position = cameraview.position;
             Camera.main.transform.rotation = cameraview.rotation;
             playeranimatore.gameObject.SetActive(false);
+            //CanvasIsActive = true;
+            Safe.SetActive(false);
 
         }
 
@@ -81,29 +83,55 @@ public class SafePuzzle : MonoBehaviour
             SafeAnimator.SetFloat("speed", 2);
 
         }
+
+
+
+        //if(CanvasIsActive==true && Input.GetKeyDown(KeyCode.Escape))
+        //{
+        //    Safe.SetActive(true);
+        //    SafeCanvas.SetActive(false);
+        //    camerascript.GetComponent<camera>().enabled = true;
+        //    playeranimatore.gameObject.SetActive(true);
+
+
+
+        //}
+
+
+
+
+
     }
 
+  
 
-    IEnumerator exit()
+
+
+IEnumerator exit()
     {
-        Time.timeScale = 1f;
-        yield return new WaitForSeconds(1.5f);
-
+       
         Destroy(SafeCanvas);
+        yield return new WaitForSeconds(1.5f);
         camerascript.GetComponent<camera>().enabled = true;
         playeranimatore.gameObject.SetActive(true);
         yield return new WaitForSeconds(.5f);
         SafeAnimator.SetBool("open", true);
         SafeAnimator.SetFloat("speed", 2);
+        FunctionQuestionBall.SetActive(true);
+
         open = true;
-      //  yield return new WaitForSeconds(.5f);
-       // Safeexit.GetComponent<UEPuzzleCanvas>().puzzlecanvasState = false;
+
+       
+       
+
+
 
 
     }
     bool Win()
     {
-        return n1 == 7 & n2 == 8 & n3 == 1 & n4 == 4 & n5== 6 & n6 == 0;
+        return n1 == 7 & n2 == 8 & n3 == 1 & n4 == 4 & n5== 0 & n6 == 6;
+
 
     }
     public void ChangeButton1()
@@ -120,13 +148,13 @@ public class SafePuzzle : MonoBehaviour
         }
         if (Win())
         {
-            b1.enabled = false;
-            b2.enabled = false;
-            b3.enabled = false;
-            b4.enabled = false;
-            b5.enabled = false;
-            b6.enabled = false;
-
+            Text1.enabled = false;
+            Text2.enabled = false;
+            Text3.enabled = false;
+            Text4.enabled = false;
+            Text5.enabled = false;
+            Text6.enabled = false;
+            Safe.SetActive(true);
             StartCoroutine(exit());
         }
 
@@ -153,6 +181,7 @@ public class SafePuzzle : MonoBehaviour
             b4.enabled = false;
             b5.enabled = false;
             b6.enabled = false;
+            Safe.SetActive(true);
             StartCoroutine(exit());
         }
 
@@ -178,6 +207,7 @@ public class SafePuzzle : MonoBehaviour
             b4.enabled = false;
             b5.enabled = false;
             b6.enabled = false;
+            Safe.SetActive(true);
             StartCoroutine(exit());
         }
 
@@ -202,6 +232,7 @@ public class SafePuzzle : MonoBehaviour
             b4.enabled = false;
             b5.enabled = false;
             b6.enabled = false;
+            Safe.SetActive(true);
             StartCoroutine(exit());
         }
     }
@@ -226,6 +257,7 @@ public class SafePuzzle : MonoBehaviour
             b4.enabled = false;
             b5.enabled = false;
             b6.enabled = false;
+            Safe.SetActive(true);
             StartCoroutine(exit());
         }
 
@@ -250,6 +282,7 @@ public class SafePuzzle : MonoBehaviour
             b4.enabled = false;
             b5.enabled = false;
             b6.enabled = false;
+            Safe.SetActive(true);
             StartCoroutine(exit());
         }
 

@@ -5,12 +5,11 @@ using UnityEngine.EventSystems;
 
 public class MoveBlock : EventTrigger
 {
-    Animator Boxanimator;
-    GameObject Box;
-    GameObject LasrInBox;
     GameObject BoardGame;
-    public float Distance = 7;
-   public  Transform player;
+    GameObject LaserInBox;
+    GameObject Box;
+    Animator Boxanimator;
+
 
     public bool Selected = false;
     public bool CanMove = false;
@@ -34,17 +33,7 @@ public class MoveBlock : EventTrigger
     void Start()
 
     {
-        Box = GameObject.FindGameObjectWithTag("Box");
-        Boxanimator = Box.GetComponentInParent<Animator>();
-
-        LasrInBox = GameObject.FindGameObjectWithTag("LaserArm");
-        LasrInBox.SetActive(false);
-        BoardGame = GameObject.FindGameObjectWithTag("BlockBoard");
-        BoardGame.SetActive(false);
-
-
-       // player = GameObject.FindGameObjectWithTag("Player");
-
+       
         UnBlockScript = GetComponent<UnBlock>();
         InitialPositionCheck = Vector3.zero;
         b_orientation = UnBlockScript.orientation;
@@ -70,23 +59,7 @@ public class MoveBlock : EventTrigger
 
 
 
-    public void Update()
-    {
-
-
-        float direction = Vector3.Dot(player.forward, transform.forward);
-        float distance = Vector3.Distance(player.position, transform.position);
-
-
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-
-
-            BoardGame.SetActive(true);
-
-
-        }
-    }
+ 
 
     public override void OnPointerDown(PointerEventData eventData)
     {
@@ -242,12 +215,20 @@ public class MoveBlock : EventTrigger
     {
         if(b_type == UnBlock.Type.RED && transform.position.x == WinPosition)
         {
+
             Debug.Log("Win!");
-            BoardGame.SetActive(false);
+            Time.timeScale = 1f;
+            BoardGame = GameObject.FindGameObjectWithTag("BlockBoard");
+            Destroy(BoardGame);
+            Box = GameObject.FindGameObjectWithTag("Box");
+            Boxanimator = Box.GetComponentInParent<Animator>();
             Boxanimator.SetBool("open", true);
             Boxanimator.SetFloat("speed", 1);
-            //openbox = true;
-            LasrInBox.SetActive(true);
+            LaserInBox = GameObject.FindGameObjectWithTag("LaserArm");
+            LaserInBox.SetActive(true);
+
+
+        
 
 
             return true;
