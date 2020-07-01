@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: bda6820cc89c0004fa141549d5a7cf2d
+guid: 6bd7a1724923c314d82e985c306183c4
 ModelImporter:
   serializedVersion: 19300
   internalIDToNameTable: []
@@ -14,6 +14,11 @@ ModelImporter:
       assembly: UnityEngine.CoreModule
       name: Box_Details
     second: {fileID: 2100000, guid: 08acf301dc517244bbcf2e1385160c5d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: blinn1
+    second: {fileID: 2100000, guid: b81c663d0593afc458f2bf418c0fc63f, type: 2}
   materials:
     materialImportMode: 1
     materialName: 0
