@@ -17,7 +17,6 @@ public class Inventory : MonoBehaviour {
 		}
 
 		instance = this;
-        SaveLoad.SaveInitiated += Save;
     }
 
 	#endregion
@@ -58,7 +57,7 @@ public class Inventory : MonoBehaviour {
     // return true. Else we return false.
 
 
-    public bool Add(Item item, string ItemID)
+    public bool Add(Item item)
     {
         // Don't do anything if it's a default item
 
@@ -74,30 +73,18 @@ public class Inventory : MonoBehaviour {
         // Trigger callback
         if (onItemChangedCallback != null)
             onItemChangedCallback.Invoke();
-        SaveLoadManager.instance.CollectableItemIDs.Add(ItemID);
-        Save();
 
         return true;
     }
 
 	// Remove an item
-	public void Remove (Item item, string ItemID)
+	public void Remove (Item item)
 	{
 		items.Remove(item);		// Remove item from list
-
-        items.Remove(item);		// Remove item from list
-
-        SaveLoadManager.instance.CollectableItemIDs.Remove(ItemID);
-
-        Save();
         // Trigger callback
         if (onItemChangedCallback != null)
 			onItemChangedCallback.Invoke();
 	}
 
-
-    void Save()
-    {
-        SaveLoad.Save<HashSet<string>>(SaveLoadManager.instance.CollectableItemIDs, "InventoryIDs");
-    }
+    
 }

@@ -17,10 +17,10 @@ public class ToolboxPuzzle :UEPuzzleCanvas
     public GameObject IC3;
     public GameObject IC4;
 
-    public GameObject removedIC1;
-    public GameObject removedIC2;
-    public GameObject removedIC3;
-    public GameObject removedIC4;
+    //public GameObject removedIC1;
+    //public GameObject removedIC2;
+    //public GameObject removedIC3;
+    //public GameObject removedIC4;
 
 
     public GameObject toolboxexit;
@@ -53,7 +53,7 @@ public class ToolboxPuzzle :UEPuzzleCanvas
                 Debug.Log(btn.name);
                 btn.image.enabled = true;
                 CurrentWin++;
-                inventory.Remove(slot.item, RemoveICSave(slot.name));
+                inventory.Remove(slot.item);
                 CheckIC(btn);
             }
         }
@@ -61,26 +61,26 @@ public class ToolboxPuzzle :UEPuzzleCanvas
         if (CurrentWin == WinValue)
             StartCoroutine(ExitPuzzle());
     }
-    string RemoveICSave(string name)
-    {
-        ItemID itemID;
-        switch (name)
-        {
-            case "IC04(1)":
-                itemID = removedIC1.GetComponent<ItemID>();
-                return itemID.ID;
-            case "IC04(2)":
-                itemID = removedIC2.GetComponent<ItemID>();
-                return itemID.ID;
-            case "IC04(3)":
-                itemID = removedIC3.GetComponent<ItemID>();
-                return itemID.ID;
-            case "IC04(4)":
-                itemID = removedIC4.GetComponent<ItemID>();
-                return itemID.ID;
-        }
-        return null;
-    }
+    //string RemoveICSave(string name)
+    //{
+    //    ItemID itemID;
+    //    switch (name)
+    //    {
+    //        case "IC04(1)":
+    //            itemID = removedIC1.GetComponent<ItemID>();
+    //            return itemID.ID;
+    //        case "IC04(2)":
+    //            itemID = removedIC2.GetComponent<ItemID>();
+    //            return itemID.ID;
+    //        case "IC04(3)":
+    //            itemID = removedIC3.GetComponent<ItemID>();
+    //            return itemID.ID;
+    //        case "IC04(4)":
+    //            itemID = removedIC4.GetComponent<ItemID>();
+    //            return itemID.ID;
+    //    }
+    //    return null;
+    //}
     void CheckIC(Button btn)
     {
         switch (btn.name)

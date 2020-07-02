@@ -66,7 +66,7 @@ public class LockerPuzzle : UEPuzzleCanvas
     }
     IEnumerator exit()
     {
-        SaveLoadManager.instance.SolvedPuzzlesID.Add(ItemID.ID);
+        //SaveLoadManager.instance.SolvedPuzzlesID.Add(ItemID.ID);
         Time.timeScale = 1f;
         yield return new WaitForSeconds(1.5f);
       //UEpuzzlesCanvas.enabled = false;

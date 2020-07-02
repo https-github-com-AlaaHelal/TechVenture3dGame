@@ -33,7 +33,7 @@ public class NewBehaviourScript : MonoBehaviour
                 labtopscript.GetComponent<openlabtop>().flash.SetActive(true);
                 if (labtopscript.GetComponent<openlabtop>().solved==true)
                 {
-                    inventory.Remove(slot.item, removedFlash.GetComponent<ItemID>().ID);
+                    inventory.Remove(slot.item);
                 }
 
             }

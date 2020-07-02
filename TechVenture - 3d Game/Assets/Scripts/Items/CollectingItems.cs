@@ -15,19 +15,9 @@ public class CollectingItems : MonoBehaviour
     public float speed = 3.0f;
     public GameObject outline;
 
-    ItemID ItemID;
-
 
     private void Start()
     {
-        ItemID = GetComponent<ItemID>();
-        if (SaveLoadManager.instance.CollectableItemIDs.Contains(ItemID.ID))
-        {
-            SaveLoadManager.instance.CollectableItemIDs.Remove(ItemID.ID);
-            Inventory.instance.Add(item, ItemID.ID);
-        }
-        if (SaveLoadManager.instance.DeactiveObjectsIDs.Contains(ItemID.ID))
-            gameObject.SetActive(false);
         Player = GameObject.FindGameObjectWithTag("Player");
         PlayerAnim = Player.GetComponent<Animator>();
         floor = GameObject.FindGameObjectWithTag("Floor");
@@ -100,7 +90,7 @@ public class CollectingItems : MonoBehaviour
     IEnumerator PickUp()
     {
 
-        bool wasPickedUp = Inventory.instance.Add(item, ItemID.ID);
+        bool wasPickedUp = Inventory.instance.Add(item);
 
         if (FindDistance() >= 3)
         {
@@ -120,8 +110,6 @@ public class CollectingItems : MonoBehaviour
             PlayerAnim.SetBool("pickup", false);
 
         }
-        SaveLoadManager.instance.DeactiveObjectsIDs.Add(ItemID.ID);
-        Save();
         gameObject.SetActive(false);
         // bool wasPickedUp = Inventory.instance.Add(item);
 
@@ -142,10 +130,6 @@ public class CollectingItems : MonoBehaviour
         Vector3 Direction = target - character;
         Quaternion rotation = Quaternion.LookRotation(Direction);
         Player.transform.rotation = Quaternion.Lerp(Player.transform.rotation, rotation, Time.deltaTime * speed);
-    }
-    void Save()
-    {
-        SaveLoad.Save<HashSet<string>>(SaveLoadManager.instance.DeactiveObjectsIDs, "DeactivedObjects");
     }
 }
 

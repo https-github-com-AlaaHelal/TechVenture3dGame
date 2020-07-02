@@ -25,7 +25,7 @@ public class ShowingPaper : MonoBehaviour
 
             {
 
-                //inventory.Remove(slot.item);
+                inventory.Remove(slot.item);
                 paperCanvas.SetActive(true);
 
 
