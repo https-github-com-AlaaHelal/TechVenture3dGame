@@ -11,7 +11,7 @@ public class NewBehaviourScript : MonoBehaviour
     InventorySlot InventorySlot;
     public Item item;  // Current item in the slot
     public GameObject labtopscript;
-
+    public GameObject removedFlash;
 
     public void Start()
     {
@@ -33,7 +33,7 @@ public class NewBehaviourScript : MonoBehaviour
                 labtopscript.GetComponent<openlabtop>().flash.SetActive(true);
                 if (labtopscript.GetComponent<openlabtop>().solved==true)
                 {
-                    inventory.Remove(slot.item);
+                    inventory.Remove(slot.item, removedFlash.GetComponent<ItemID>().ID);
                 }
 
             }

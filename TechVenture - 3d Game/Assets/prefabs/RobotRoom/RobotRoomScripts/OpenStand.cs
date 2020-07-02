@@ -63,7 +63,7 @@ public class OpenStand : MonoBehaviour
 
             {
              
-                inventory.Remove(slot.item);
+                //inventory.Remove(slot.item);
                 StartCoroutine (OpenScreenHint());
               
 

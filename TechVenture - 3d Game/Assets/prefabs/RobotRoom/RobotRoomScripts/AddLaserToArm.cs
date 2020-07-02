@@ -70,7 +70,7 @@ public class AddLaserToArm : MonoBehaviour
             {
                 // Debug.Log(distance);
                 LaserArm.SetActive(true);
-                inventory.Remove(slot.item);
+               // inventory.Remove(slot.item);
                 StartCoroutine(UseLaser());
 
             }

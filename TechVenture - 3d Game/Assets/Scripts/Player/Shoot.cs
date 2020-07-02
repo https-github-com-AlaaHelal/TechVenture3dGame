@@ -34,17 +34,17 @@ public class Shoot : MonoBehaviour
             
             ShootPlayer();
         }
-        if (Input.GetMouseButtonUp(0))
-        {
-            if (RobotAI != null)
-            {
-                RobotAI.BeingShot = false;
-            }
-            Laser.positionCount = 0;
-            Source.Stop();
-            PlayerAnim.SetBool("shoot", false);
+        //if (Input.GetMouseButtonUp(0))
+        //{
+        //    if (RobotAI != null)
+        //    {
+        //        RobotAI.BeingShot = false;
+        //    }
+        //    Laser.positionCount = 0;
+        //    Source.Stop();
+        //    PlayerAnim.SetBool("shoot", false);
            
-        }
+        //}
         //if (Input.GetKeyDown(KeyCode.Q))
         //{
         //    Crouch();
@@ -68,11 +68,11 @@ public class Shoot : MonoBehaviour
                 RobotAI = hit.transform.GetComponent<AI>();
                 RobotAI.TakeDamage(Damage);
                 //RobotAI.BeingShot = true;
-                if (Robot != null && Robot != hit.collider.gameObject)
-                {
-                    ShootDifferentRobot(Robot);
-                }
-                Robot = hit.collider.gameObject;
+                //if (Robot != null && Robot != hit.collider.gameObject)
+                //{
+                //    ShootDifferentRobot(Robot);
+                //}
+                //Robot = hit.collider.gameObject;
                 
             }
         }
@@ -126,8 +126,8 @@ public class Shoot : MonoBehaviour
     //        return Direction.RIGHT;
     //    return Direction.LEFT;
     //}
-    void ShootDifferentRobot(GameObject PreviousRobot)
-    {
-        PreviousRobot.GetComponent<AI>().BeingShot = false;
-    }
+    //void ShootDifferentRobot(GameObject PreviousRobot)
+    //{
+    //    PreviousRobot.GetComponent<AI>().BeingShot = false;
+    //}
 }

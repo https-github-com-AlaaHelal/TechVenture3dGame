@@ -8,6 +8,7 @@ using TMPro;
 
 public class LockerPuzzle : UEPuzzleCanvas
 {
+
     public TextMeshProUGUI Text1;
     public TextMeshProUGUI Text2;
     public TextMeshProUGUI Text3;
@@ -23,7 +24,7 @@ public class LockerPuzzle : UEPuzzleCanvas
     public GameObject binaryInformationball;
     public GameObject IC;
     public GameObject lockerexit;
-
+    public GameObject PasswordPuzze;
 
     [SerializeField ]
     int n1 = 0;
@@ -36,6 +37,7 @@ public class LockerPuzzle : UEPuzzleCanvas
     bool open;
 
 
+    ItemID ItemID;
 
 
     // Start is called before the first frame update
@@ -43,7 +45,7 @@ public class LockerPuzzle : UEPuzzleCanvas
     {
         IC.SetActive(false);
         binaryInformationball.SetActive(false);
-
+        ItemID = PasswordPuzze.GetComponent<ItemID>();
     }
 
     // Update is called once per frame
@@ -64,6 +66,7 @@ public class LockerPuzzle : UEPuzzleCanvas
     }
     IEnumerator exit()
     {
+        SaveLoadManager.instance.SolvedPuzzlesID.Add(ItemID.ID);
         Time.timeScale = 1f;
         yield return new WaitForSeconds(1.5f);
       //UEpuzzlesCanvas.enabled = false;

@@ -27,7 +27,7 @@ public class ButtonAppear : MonoBehaviour
                 ScreenClueScript.GetComponent<ScreenClueAppeared>().buttonHand.SetActive(true);
                 if (ScreenClueScript.GetComponent<ScreenClueAppeared>().solved == true)
                 {
-                    inventory.Remove(slot.item);
+                    //inventory.Remove(slot.item);
                 }
 
             }

@@ -6,6 +6,7 @@ public class OpenGate : MonoBehaviour
 {
     public GameObject gate;
     public GameObject Player;
+    public GameObject Key;
 
     private Animator PlayerAnim;
     private Animator GateAnim;
@@ -14,9 +15,11 @@ public class OpenGate : MonoBehaviour
     private LayerMask mask;
 
     Inventory Inventory;
+    ItemID ItemID;
     // Start is called before the first frame update
     void Start()
     {
+        ItemID = Key.GetComponent<ItemID>();
         GateAnim = gate.GetComponent<Animator>();
         PlayerAnim = Player.GetComponent<Animator>();
         Inventory = GameObject.Find("InventoryManager").GetComponent<Inventory>();
@@ -38,10 +41,10 @@ public class OpenGate : MonoBehaviour
             if(Input.GetMouseButton(0))
             {
                 if (Inventory.SelectedSlot != null && Inventory.SelectedSlot.item != null)
-                {
+                { 
                     if (Inventory.SelectedSlot.item.name == "KeyCard")
                     {
-                        Inventory.Remove(Inventory.SelectedSlot.item);
+                        Inventory.Remove(Inventory.SelectedSlot.item, ItemID.ID);
                         StartCoroutine(openGate());
                     }
                 }

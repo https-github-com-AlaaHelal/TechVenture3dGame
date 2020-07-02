@@ -1,4 +1,4 @@
-﻿using System.Collections;
+﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -25,7 +25,6 @@ public class MoveBlock : EventTrigger
     Vector3 InitialPositionAdjust;
     UnBlock UnBlockScript;
     float MovedDistance;
-    //float MaxDistance;
     float EmptyWidth;
     float WinPosition;
     public float Height;
@@ -45,18 +44,7 @@ public class MoveBlock : EventTrigger
         m_directions = new List<UnBlock.Direction>();
         EmptyWidth = UnBlockScript.EmptyWidth;
         WinPosition = transform.position.x + EmptyWidth * 4;
-        //Debug.Log(EmptyWidth);
-        //Debug.Log(transform.position);
     }
-    //private void Update()
-    //{
-    //    if (m_directions.Count > 0)
-    //    {
-    //        foreach (UnBlock.Direction dir in m_directions)
-    //            Debug.Log(gameObject + " " + dir);
-    //    }
-    //}
-
 
 
  
@@ -76,23 +64,13 @@ public class MoveBlock : EventTrigger
     public override void OnPointerUp(PointerEventData eventData)
     {
         Selected = false;
-        //Debug.Log("Up");
         AdjustPosition();
         Win();
     }
     public override void OnDrag(PointerEventData eventData)
     {
         Vector3 drag = eventData.delta;
-        //float Speed = MovedDistance / Time.deltaTime;
         float Speed = 0.6f;
-        //Debug.Log(drag.x);
-        //if (MovedDistance <= 0)
-        //{
-        //    m_directions = ManagerScript.GetAvailableDirections(gameObject);
-        //    //Debug.Log(MovedDistance);
-        //}
-
-        //Debug.Log(MovedDistance);
         switch (b_orientation)
         {
             case UnBlock.Orientation.HORIZONTAL:
@@ -100,7 +78,6 @@ public class MoveBlock : EventTrigger
                 if (CanMove)
                 {
                     transform.position += new Vector3(drag.x * Speed, 0, 0);
-                   // Debug.Log("MoveX");
                 }
                 break;
             case UnBlock.Orientation.VERTICAL:
@@ -114,7 +91,6 @@ public class MoveBlock : EventTrigger
         if (Check())
         {
             Debug.Log(transform.position + " Check");
-            //Debug.Log(transform.position);
             CanMove = false;
             m_directions.Clear();
             m_directions = ManagerScript.GetAvailableDirections(gameObject);
@@ -123,13 +99,6 @@ public class MoveBlock : EventTrigger
         }
         
     }
-    //Vector3 ClampXPosition(Vector3 position)
-    //{
-    //    float Distance = EmptyWidth / 2 + Height / 2;
-    //    if (movement == UnBlock.Direction.LEFT)
-    //        return new Vector3(InitialPosition.x - Distance, InitialPosition.y, InitialPosition.z);
-
-    //}
     void Move(float drag)
     {
         CanMove = false;
@@ -151,7 +120,6 @@ public class MoveBlock : EventTrigger
 
     bool Check()
     {
-        //float Distance = EmptyWidth / 2 + Height / 2;
         switch (b_orientation)
         {
             case UnBlock.Orientation.HORIZONTAL:
@@ -213,7 +181,7 @@ public class MoveBlock : EventTrigger
     }
     bool Win()
     {
-        if(b_type == UnBlock.Type.RED && transform.position.x == WinPosition)
+        if(b_type == UnBlock.Type.RED && Math.Round(transform.position.x, 3) == Math.Round(WinPosition, 3))
         {
 
             Debug.Log("Win!");

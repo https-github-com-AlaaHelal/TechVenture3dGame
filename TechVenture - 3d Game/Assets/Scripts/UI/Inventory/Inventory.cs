@@ -17,7 +17,8 @@ public class Inventory : MonoBehaviour {
 		}
 
 		instance = this;
-	}
+        SaveLoad.SaveInitiated += Save;
+    }
 
 	#endregion
 
@@ -57,34 +58,46 @@ public class Inventory : MonoBehaviour {
     // return true. Else we return false.
 
 
-    public bool Add (Item item)
-	{
-		// Don't do anything if it's a default item
-		
-			// Check if out of space
-			if (items.Count >= space)
-			{
-				Debug.Log("Not enough room.");
-				return false;
-			}
+    public bool Add(Item item, string ItemID)
+    {
+        // Don't do anything if it's a default item
 
-			items.Add(item);	// Add item to list
+        // Check if out of space
+        if (items.Count >= space)
+        {
+            Debug.Log("Not enough room.");
+            return false;
+        }
 
-			// Trigger callback
-			if (onItemChangedCallback != null)
-				onItemChangedCallback.Invoke();
-		
+        items.Add(item);    // Add item to list
 
-		return true;
-	}
+        // Trigger callback
+        if (onItemChangedCallback != null)
+            onItemChangedCallback.Invoke();
+        SaveLoadManager.instance.CollectableItemIDs.Add(ItemID);
+        Save();
+
+        return true;
+    }
 
 	// Remove an item
-	public void Remove (Item item)
+	public void Remove (Item item, string ItemID)
 	{
 		items.Remove(item);		// Remove item from list
 
-		// Trigger callback
-		if (onItemChangedCallback != null)
+        items.Remove(item);		// Remove item from list
+
+        SaveLoadManager.instance.CollectableItemIDs.Remove(ItemID);
+
+        Save();
+        // Trigger callback
+        if (onItemChangedCallback != null)
 			onItemChangedCallback.Invoke();
 	}
+
+
+    void Save()
+    {
+        SaveLoad.Save<HashSet<string>>(SaveLoadManager.instance.CollectableItemIDs, "InventoryIDs");
+    }
 }
