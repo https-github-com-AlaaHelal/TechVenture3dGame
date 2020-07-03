@@ -24,10 +24,15 @@ public class PlayerRobotCollision : MonoBehaviour
         Health -= amount;
         if(Health % 10 == 0)
             FindObjectOfType<LifeBar>().DecreaseLife();
-        if (Health <= 0)
-        {
-            Die();
-        }
+        //if (Health <= 0)
+        //{
+        //    Die();
+        //}
+    }
+    public void IncrementHealth()
+    {
+        Health += 20;
+        FindObjectOfType<LifeBar>().IncreaseLife();
     }
     void Die()
     {

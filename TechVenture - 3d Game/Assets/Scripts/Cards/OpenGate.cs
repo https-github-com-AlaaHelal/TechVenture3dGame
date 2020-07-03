@@ -32,27 +32,42 @@ public class OpenGate : MonoBehaviour
         return Vector3.Dot(Player.transform.forward.normalized, transform.forward.normalized);
     }
 
-    // Update is called once per frame
-    void Update()
+    //// Update is called once per frame
+    //void Update()
+    //{
+    //    ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+    //    if (Physics.Raycast(ray, out hit, 10, mask))
+    //    {
+    //        if(Input.GetMouseButton(0))
+    //        {
+    //            if (Inventory.SelectedSlot != null && Inventory.SelectedSlot.item != null)
+    //            { 
+    //                if (Inventory.SelectedSlot.item.name == "KeyCard")
+    //                {
+    //                    Inventory.Remove(Inventory.SelectedSlot.item);
+    //                    StartCoroutine(openGate());
+    //                }
+    //            }
+
+    //        }
+
+    //    }
+
+    //}
+    private void OnTriggerStay(Collider other)
     {
-        ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        if (Physics.Raycast(ray, out hit, 10, mask))
+        if (other.CompareTag("Player"))
         {
-            if(Input.GetMouseButton(0))
+            if (Inventory.SelectedSlot != null && Inventory.SelectedSlot.item != null)
             {
-                if (Inventory.SelectedSlot != null && Inventory.SelectedSlot.item != null)
-                { 
-                    if (Inventory.SelectedSlot.item.name == "KeyCard")
-                    {
-                        Inventory.Remove(Inventory.SelectedSlot.item);
-                        StartCoroutine(openGate());
-                    }
+                if (Inventory.SelectedSlot.item.name == "KeyCard")
+                {
+                    //other.gameObject.GetComponent<Animator>()
+                    Inventory.Remove(Inventory.SelectedSlot.item);
+                    StartCoroutine(openGate());
                 }
-
             }
-
         }
-
     }
     IEnumerator openGate()
     {

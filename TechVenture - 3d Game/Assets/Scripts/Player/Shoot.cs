@@ -78,6 +78,7 @@ public class Shoot : MonoBehaviour
         }
        
     }
+   
     //void Crouch()
     //{
     //    float Sight = 10;

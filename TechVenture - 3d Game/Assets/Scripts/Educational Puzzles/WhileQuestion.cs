@@ -284,6 +284,7 @@ public class WhileQuestion : MonoBehaviour
 
         if (oneCorrect == true && twoCorrect == true)
         {
+            RobotManager.instance.InstantiateRobots(3);
             FindObjectOfType<ScoreManager>().AddScore();
             StartCoroutine(ExitQuestion());
 

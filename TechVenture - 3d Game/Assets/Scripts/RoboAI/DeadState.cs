@@ -14,6 +14,7 @@ public class DeadState : State
         //anim.SetBool("Action", true);
         anim.SetBool("Death", true);
         agent.isStopped = true;
+        player.GetComponent<PlayerRobotCollision>().IncrementHealth();
         base.Enter();
         stage = EVENT.EXIT;
     }

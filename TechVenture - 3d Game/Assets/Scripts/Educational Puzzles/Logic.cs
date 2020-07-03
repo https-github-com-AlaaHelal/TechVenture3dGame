@@ -18,18 +18,18 @@ public class Logic : MonoBehaviour
 
     }
 
-    // Update is called once per frame
-    void Update()
+    //// Update is called once per frame
+    //void Update()
+    //{
+
+    //}
+    public void True()
     {
 
+        FindObjectOfType<ScoreManager>().AddScore();
+        StartCoroutine(ExitQuestion());
     }
-   public void True()
-        {
-            
-            FindObjectOfType<ScoreManager>().AddScore();
-            StartCoroutine(ExitQuestion());
-        }
-  public  void False()
+    public void False()
     {
         StartCoroutine(ExitQuestionfalse());
     }
@@ -46,7 +46,7 @@ public class Logic : MonoBehaviour
         //  Destroy(masgg.gameObject);
         winningmassg.SetActive(false);
         Educationalscript.GetComponent<Educational>().Exit();
-
+        RobotManager.instance.InstantiateRobots(3);
 
     }
     IEnumerator ExitQuestionfalse()

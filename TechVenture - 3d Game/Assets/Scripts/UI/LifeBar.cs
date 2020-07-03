@@ -47,33 +47,37 @@ public class LifeBar : MonoBehaviour
         health = health - 1;
 
     }
+    public void IncreaseLife()
+    {
+        health = health + 1;
+    }
 
-    //public void isdead()
-    //{
-    //    if (health == 0)
-    //    {
-    //        EndGame();
-    //    }
-    //}
+    public void isdead()
+    {
+        if (health == 0)
+        {
+            EndGame();
+        }
+    }
 
 
-    //public void EndGame()
-    //{
-    //    if (gameHasEnded == false)
-    //    {
-    //        gameHasEnded = true;
-    //        Debug.Log("GAME OVER");
+    public void EndGame()
+    {
+        if (gameHasEnded == false)
+        {
+            gameHasEnded = true;
+            Debug.Log("GAME OVER");
 
-    //        Invoke("Restart", restartDelay);
-    //    }
-    //}
+            Invoke("Restart", restartDelay);
+        }
+    }
 
-    //void Restart()
-    //{
-    //    SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-    //}
+    void Restart()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
 
- 
+
 
 
 
