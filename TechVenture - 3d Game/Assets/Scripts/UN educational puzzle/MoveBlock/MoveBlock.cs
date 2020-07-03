@@ -5,10 +5,10 @@ using UnityEngine.EventSystems;
 
 public class MoveBlock : EventTrigger
 {
-    GameObject BoardGame;
-    GameObject LaserInBox;
-    GameObject Box;
-    Animator Boxanimator;
+    //GameObject BoardGame;
+    //GameObject LaserInBox;
+    //GameObject Box;
+    //Animator Boxanimator;
 
 
     public bool Selected = false;
@@ -185,18 +185,19 @@ public class MoveBlock : EventTrigger
         {
 
             Debug.Log("Win!");
-            Time.timeScale = 1f;
-            BoardGame = GameObject.FindGameObjectWithTag("BlockBoard");
-            Destroy(BoardGame);
-            Box = GameObject.FindGameObjectWithTag("Box");
-            Boxanimator = Box.GetComponentInParent<Animator>();
-            Boxanimator.SetBool("open", true);
-            Boxanimator.SetFloat("speed", 1);
-            LaserInBox = GameObject.FindGameObjectWithTag("LaserArm");
-            LaserInBox.SetActive(true);
+            FindObjectOfType<BoxManager>().Manager();
+            //Time.timeScale = 1f;
+            //BoardGame = GameObject.FindGameObjectWithTag("BlockBoard");
+            //Destroy(BoardGame);
+            //Box = GameObject.FindGameObjectWithTag("Box");
+            //Boxanimator = Box.GetComponentInParent<Animator>();
+            //Boxanimator.SetBool("open", true);
+            //Boxanimator.SetFloat("speed", 1);
+            //LaserInBox = GameObject.FindGameObjectWithTag("LaserArm");
+            //LaserInBox.SetActive(true);
 
 
-        
+
 
 
             return true;
