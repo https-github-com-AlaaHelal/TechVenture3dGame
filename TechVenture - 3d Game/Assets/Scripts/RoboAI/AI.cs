@@ -23,6 +23,7 @@ public class AI : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        player = GameObject.FindGameObjectWithTag("Player").transform;
         agent = GetComponent<NavMeshAgent>();
         anim = GetComponent<Animator>();
         currentState = new IdleState(gameObject, anim, agent, player);

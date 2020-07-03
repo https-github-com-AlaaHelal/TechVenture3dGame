@@ -22,7 +22,8 @@ public class PlayerRobotCollision : MonoBehaviour
     public void TakeDamage(float amount)
     {
         Health -= amount;
-        //sFindObjectOfType<LifeBar>().DecreaseLife();
+        if(Health % 10 == 0)
+            FindObjectOfType<LifeBar>().DecreaseLife();
         if (Health <= 0)
         {
             Die();

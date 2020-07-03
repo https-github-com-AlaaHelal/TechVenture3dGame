@@ -37,7 +37,7 @@ public class LockerPuzzle : UEPuzzleCanvas
     bool open;
 
 
-    ItemID ItemID;
+    
 
 
     // Start is called before the first frame update
@@ -45,7 +45,11 @@ public class LockerPuzzle : UEPuzzleCanvas
     {
         IC.SetActive(false);
         binaryInformationball.SetActive(false);
-        ItemID = PasswordPuzze.GetComponent<ItemID>();
+        Debug.Log(Text1.text);
+        Debug.Log(Text2.text);
+        Debug.Log(Text3.text);
+        Debug.Log(Text4.text);
+
     }
 
     // Update is called once per frame

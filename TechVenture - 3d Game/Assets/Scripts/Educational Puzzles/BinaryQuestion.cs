@@ -150,7 +150,9 @@ public class BinaryQuestion : MonoBehaviour
         b4.image.sprite = trueimg;
         b5.image.sprite = trueimg;
         cardshow.showCard = true;
+        RobotManager.instance.InstantiateRobots(3);
         StartCoroutine(ExitQuestion());
+        
         checkscore++;
         if (checkscore == 1)
         {

@@ -4,32 +4,52 @@ using UnityEngine;
 
 public class RobotManager : MonoBehaviour
 {
-    public GameObject[] Robots;
-    public AI[] RobotAI;
+    //public GameObject[] Robots;
+    //public AI[] RobotAI;
 
-    bool RobotAlert = false;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    //bool RobotAlert = false;
+    //// Start is called before the first frame update
+    //void Start()
+    //{
 
-    // Update is called once per frame
-    void Update()
+    //}
+
+    //// Update is called once per frame
+    //void Update()
+    //{
+    //    foreach(AI AIScript in RobotAI)
+    //    {
+    //        if (AIScript.BeingShot)
+    //        {
+    //            RobotAlert = true;
+    //        }
+    //    }
+    //    if (RobotAlert)
+    //    {
+    //        foreach(AI AIScript in RobotAI)
+    //        {
+    //            AIScript.BeingShot = true;
+    //        }
+    //    }
+    //}
+
+    public static RobotManager instance;
+    public GameObject RobotPrefab;
+    void Awake()
     {
-        foreach(AI AIScript in RobotAI)
+        if (instance != null)
         {
-            if (AIScript.BeingShot)
-            {
-                RobotAlert = true;
-            }
+            Debug.LogWarning("More than one instance of Inventory found!");
+            return;
         }
-        if (RobotAlert)
+
+        instance = this;
+    }
+    public void InstantiateRobots(int RobotNumber)
+    {
+        for (int i = 0; i < RobotNumber; i++)
         {
-            foreach(AI AIScript in RobotAI)
-            {
-                AIScript.BeingShot = true;
-            }
+            Instantiate(RobotPrefab);
         }
     }
 }
