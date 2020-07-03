@@ -5,7 +5,7 @@ using UnityEngine;
 public class BoxManager : MonoBehaviour
 {
     GameObject BoardGame;
-    GameObject LaserInBox;
+    public GameObject LaserInBox;
     GameObject Box;
     Animator Boxanimator;
     public GameObject Camera;
@@ -20,7 +20,7 @@ public class BoxManager : MonoBehaviour
         Boxanimator = Box.GetComponentInParent<Animator>();
         Boxanimator.SetBool("open", true);
         Boxanimator.SetFloat("speed", 1);
-        LaserInBox = GameObject.FindGameObjectWithTag("LaserArm");
+     
         LaserInBox.SetActive(true);
 
 

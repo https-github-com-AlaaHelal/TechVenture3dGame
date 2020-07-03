@@ -32,19 +32,19 @@ public class ScreenPuzzle : MonoBehaviour
 
     {
 
-        if (openStand == true)
-        {
+        //if (openStand == true)
+        //{
 
 
-            StartCoroutine(ActiveItemsOnStand());
+        //    StartCoroutine(ActiveItemsOnStand());
 
-           // Debug.Log("STAND OPEN");
+        //    // Debug.Log("STAND OPEN");
 
-        }
-    
+        //}
 
 
-    
+
+
     }
 
     public void Win()
@@ -53,12 +53,12 @@ public class ScreenPuzzle : MonoBehaviour
         {
             Standanimator.SetBool("open", true);
             Standanimator.SetFloat("speed", 1);
-
+            Destroy(Screenpuzzle);
             openStand = true;
             StartCoroutine(ActiveItemsOnStand());
-            Destroy(Screenpuzzle);
-            //Done = true;
            
+            //Done = true;
+
         }
     }
 
@@ -178,8 +178,8 @@ public class ScreenPuzzle : MonoBehaviour
 
     IEnumerator ActiveItemsOnStand()
     {
-       
-        yield return new WaitForSeconds(5f);
+
+        yield return new WaitForSeconds(5.5f);
 
         Flash.SetActive(true);
         Paper.SetActive(true);
