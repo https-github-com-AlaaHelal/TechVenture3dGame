@@ -21,8 +21,8 @@ public class BinaryQuestion : MonoBehaviour
     public Button b4;
     public Button b5;
 
-    public GameObject Card;
-    private CardShow cardshow;
+    //public GameObject Card;
+    //private CardShow cardshow;
 
     public Sprite trueimg;
 
@@ -49,8 +49,6 @@ public class BinaryQuestion : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
-        cardshow = Card.GetComponent<CardShow>();
 
     }
 
@@ -149,7 +147,8 @@ public class BinaryQuestion : MonoBehaviour
         b3.image.sprite = trueimg;
         b4.image.sprite = trueimg;
         b5.image.sprite = trueimg;
-        cardshow.showCard = true;
+        // cardshow.showCard = true;
+        CardShow.instance.ShowCard("Binary");
         RobotManager.instance.InstantiateRobots(3);
         StartCoroutine(ExitQuestion());
         

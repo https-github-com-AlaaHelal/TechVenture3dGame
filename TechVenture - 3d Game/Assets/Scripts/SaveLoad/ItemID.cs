@@ -9,7 +9,7 @@ public class ItemID : MonoBehaviour
     void Awake()
     {
         ID = transform.position.sqrMagnitude + "-" + name + "+" + transform.GetSiblingIndex();
-        Debug.Log("ID for" + name + " is " + ID);
+        //Debug.Log("ID for" + name + " is " + ID);
     }
 
 }

@@ -45,10 +45,10 @@ public class LockerPuzzle : UEPuzzleCanvas
     {
         IC.SetActive(false);
         binaryInformationball.SetActive(false);
-        Debug.Log(Text1.text);
-        Debug.Log(Text2.text);
-        Debug.Log(Text3.text);
-        Debug.Log(Text4.text);
+        //Debug.Log(Text1.text);
+        //Debug.Log(Text2.text);
+        //Debug.Log(Text3.text);
+        //Debug.Log(Text4.text);
 
     }
 
@@ -115,6 +115,7 @@ public class LockerPuzzle : UEPuzzleCanvas
                 n1 = 0;
             }
             Text1.text = "" + n1;
+            Debug.Log(Text1.text);
         }
         if(Win())
         {
@@ -147,6 +148,7 @@ public class LockerPuzzle : UEPuzzleCanvas
                 n2 = 0;
             }
             Text2.text = "" + n2;
+            Debug.Log(Text1.text);
         }
         if (Win())
         {
@@ -179,6 +181,7 @@ public class LockerPuzzle : UEPuzzleCanvas
                 n3 = 0;
             }
             Text3.text = "" + n3;
+            Debug.Log(Text1.text);
         }
         if (Win())
         {
@@ -211,6 +214,7 @@ public class LockerPuzzle : UEPuzzleCanvas
                 n4 = 0;
             }
             Text4.text = "" + n4;
+            Debug.Log(Text1.text);
         }
         if (Win())
         {

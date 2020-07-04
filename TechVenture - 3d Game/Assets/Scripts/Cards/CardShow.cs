@@ -5,43 +5,59 @@ using UnityEngine;
 public class CardShow : MonoBehaviour
 {
     public GameObject KeyCard;
-    [HideInInspector]
-    public bool hasKeyCard = false;
-    public bool showCard = false;
-    public int instantiate = 0;
     public float upValue = 2f;
-    public float forwardValue = 3f;
+    public float forwardValue = 20f;
     public float rightValue = -2f;
-    public float xRotation = -13f;
-    public float yRotation = -32f;
-    public float zRotation = 42f;
-
+    public float UpValue = 3;
     private Transform Character;
     
-    private GameObject card;
-  
+    private GameObject Card1;
+    public GameObject Card2;
+
+    public static CardShow instance;
+    void Awake()
+    {
+        if (instance != null)
+        {
+            Debug.LogWarning("More than one instance of Inventory found!");
+            return;
+        }
+
+        instance = this;
+    }
     // Start is called before the first frame update
     void Start()
     {
+        Debug.Log(gameObject);
         Character = GameObject.FindGameObjectWithTag("Player").transform;
+       
     }
 
+    public void ShowCard(string QuestionBall)
+    {
+        if(QuestionBall.Equals("Binary"))
+        {
+            Vector3 position = new Vector3(Character.position.x + rightValue, Character.position.y + upValue, Character.position.z - forwardValue);
+            Quaternion rotation = Quaternion.Euler(14, 16, 10);
+            Card1 = Instantiate(KeyCard, position, rotation) as GameObject;
+            Card2 = Instantiate(KeyCard) as GameObject;
+        }
+        else
+        {
+            Card2 = Instantiate(KeyCard);
+        }
+        Card2.GetComponent<BoxCollider>().isTrigger = false;
+    }
     // Update is called once per frame
     void Update()
     {
-        
-        if (showCard)
+        if(Card1!= null)
         {
-            Vector3 position = new Vector3(Character.position.x + rightValue, Character.position.y + upValue, Character.position.z + forwardValue);
-            Quaternion rotation = Quaternion.Euler(27f, 0, -68f);
-            card = Instantiate(KeyCard, position, rotation) as GameObject;
-            Debug.Log(showCard);
-            showCard = false;
+            Card1.transform.Rotate(new Vector3(50, 0, 0f) * Time.deltaTime);
         }
-        if(card != null)
+        if(Card2 != null)
         {
-            card.transform.Rotate(new Vector3(100f, 0f, 0f) * Time.deltaTime);
+            Card2.transform.Rotate(new Vector3(50,0, 0) * Time.deltaTime);
         }
-        
     }
 }

@@ -22,7 +22,8 @@ public class CollectingItems : MonoBehaviour
         PlayerAnim = Player.GetComponent<Animator>();
         floor = GameObject.FindGameObjectWithTag("Floor");
         Picked = 0;
-        outline.SetActive(false);
+        if(outline != null)
+         outline.SetActive(false);
     }
     void Update()
     {

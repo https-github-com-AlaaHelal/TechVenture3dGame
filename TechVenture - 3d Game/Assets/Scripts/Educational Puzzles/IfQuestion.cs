@@ -30,8 +30,6 @@ public class IfQuestion : MonoBehaviour
         checkscore++;
         if (checkscore == 1)
         {
-
-
             FindObjectOfType<ScoreManager>().AddScore();
         }
 
@@ -40,6 +38,7 @@ public class IfQuestion : MonoBehaviour
     IEnumerator ExitQuestion()
     {
         RobotManager.instance.InstantiateRobots(3);
+        CardShow.instance.ShowCard("If");
         yield return new WaitForSeconds(1.5f);
         Educationalscript.GetComponent<Educational>().QuestionPanels[2].SetActive(false);
         // QuestionPanels[0].SetActive(false);

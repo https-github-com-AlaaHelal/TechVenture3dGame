@@ -35,6 +35,8 @@ public class Logic : MonoBehaviour
     }
     IEnumerator ExitQuestion()
     {
+        RobotManager.instance.InstantiateRobots(3);
+        CardShow.instance.ShowCard("Logic");
         yield return new WaitForSeconds(1.5f);
         Educationalscript.GetComponent<Educational>().QuestionPanels[1].SetActive(false);
         // QuestionPanels[0].SetActive(false);
@@ -46,7 +48,6 @@ public class Logic : MonoBehaviour
         //  Destroy(masgg.gameObject);
         winningmassg.SetActive(false);
         Educationalscript.GetComponent<Educational>().Exit();
-        RobotManager.instance.InstantiateRobots(3);
 
     }
     IEnumerator ExitQuestionfalse()
