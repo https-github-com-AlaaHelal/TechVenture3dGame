@@ -32,6 +32,7 @@ public class PlayerRobotCollision : MonoBehaviour
     public void IncrementHealth()
     {
         Health += 20;
+        Debug.Log(Health);
         FindObjectOfType<LifeBar>().IncreaseLife();
     }
     void Die()

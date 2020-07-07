@@ -7,6 +7,7 @@ public class OpenGate : MonoBehaviour
     public GameObject gate;
     public GameObject Player;
     public GameObject PlayerCard;
+    public int GateIndex;
     //public GameObject Key;
 
     private Animator PlayerAnim;
@@ -20,11 +21,13 @@ public class OpenGate : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        
         //ItemID = Key.GetComponent<ItemID>();
         GateAnim = gate.GetComponent<Animator>();
         PlayerAnim = Player.GetComponent<Animator>();
         Inventory = GameObject.Find("InventoryManager").GetComponent<Inventory>();
         //mask = 1 << 11;
+        
     }
 
     // Update is called once per frame
@@ -57,13 +60,14 @@ public class OpenGate : MonoBehaviour
     //}
     private void OnTriggerStay(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (CardShow.instance.Index == GateIndex && other.CompareTag("Player"))
         {
             if (Inventory.instance.SelectedSlot != null && Inventory.instance.SelectedSlot.item != null)
             {
                 if (Inventory.instance.SelectedSlot.item.name == "KeyCard" && Input.GetKeyDown(KeyCode.E))
                 {
                     Inventory.Remove(Inventory.SelectedSlot.item);
+                    Debug.Log("open");
                     StartCoroutine(openGate());
                 }
             }
@@ -71,13 +75,15 @@ public class OpenGate : MonoBehaviour
     }
     IEnumerator openGate()
     {
-        PlayerCard.SetActive(true);
-        yield return new WaitForSeconds(0.3f);
         PlayerAnim.SetBool("pickup", true);
         PlayerAnim.SetBool("Card", true);
+        PlayerCard.SetActive(true);
+        yield return new WaitForSeconds(0.3f);
+        //PlayerAnim.SetBool("pickup", true);
+        //PlayerAnim.SetBool("Card", true);
         //PlayerAnim.SetBool("pickup", true);
         yield return new WaitForSeconds(1f);
-        GateAnim.SetBool("Open", true);
+        //GateAnim.SetBool("Open", true);
         yield return new WaitForSeconds(1f);
         PlayerAnim.SetBool("Card", false);
         PlayerAnim.SetBool("pickup", false);

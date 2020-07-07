@@ -36,7 +36,7 @@ public class Logic : MonoBehaviour
     IEnumerator ExitQuestion()
     {
         RobotManager.instance.InstantiateRobots(3);
-        CardShow.instance.ShowCard("Logic");
+        CardShow.instance.ShowCard(1);
         yield return new WaitForSeconds(1.5f);
         Educationalscript.GetComponent<Educational>().QuestionPanels[1].SetActive(false);
         // QuestionPanels[0].SetActive(false);

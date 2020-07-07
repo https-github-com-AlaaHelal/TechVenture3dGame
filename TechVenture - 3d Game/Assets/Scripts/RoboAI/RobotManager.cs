@@ -50,6 +50,7 @@ public class RobotManager : MonoBehaviour
         for (int i = 0; i < RobotNumber; i++)
         {
             Instantiate(RobotPrefab);
+            Debug.Log("Robot");
         }
     }
 }

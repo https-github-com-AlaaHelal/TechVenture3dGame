@@ -283,7 +283,7 @@ public class WhileQuestion : MonoBehaviour
         if (oneCorrect == true && twoCorrect == true)
         {
             RobotManager.instance.InstantiateRobots(3);
-            CardShow.instance.ShowCard("While");
+            CardShow.instance.ShowCard(2);
             FindObjectOfType<ScoreManager>().AddScore();
             StartCoroutine(ExitQuestion());
 

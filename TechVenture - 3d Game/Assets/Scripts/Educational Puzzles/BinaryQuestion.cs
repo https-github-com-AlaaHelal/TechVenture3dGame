@@ -148,7 +148,7 @@ public class BinaryQuestion : MonoBehaviour
         b4.image.sprite = trueimg;
         b5.image.sprite = trueimg;
         // cardshow.showCard = true;
-        CardShow.instance.ShowCard("Binary");
+        CardShow.instance.ShowCard(0);
         RobotManager.instance.InstantiateRobots(3);
         StartCoroutine(ExitQuestion());
         

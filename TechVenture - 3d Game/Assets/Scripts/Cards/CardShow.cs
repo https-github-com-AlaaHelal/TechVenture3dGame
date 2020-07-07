@@ -9,6 +9,8 @@ public class CardShow : MonoBehaviour
     public float forwardValue = 20f;
     public float rightValue = -2f;
     public float UpValue = 3;
+    public int Index = -1;
+
     private Transform Character;
     
     private GameObject Card1;
@@ -33,9 +35,9 @@ public class CardShow : MonoBehaviour
        
     }
 
-    public void ShowCard(string QuestionBall)
+    public void ShowCard(int RoomIndex)
     {
-        if(QuestionBall.Equals("Binary"))
+        if(RoomIndex == 0)
         {
             Vector3 position = new Vector3(Character.position.x + rightValue, Character.position.y + upValue, Character.position.z - forwardValue);
             Quaternion rotation = Quaternion.Euler(14, 16, 10);
@@ -46,6 +48,8 @@ public class CardShow : MonoBehaviour
         {
             Card2 = Instantiate(KeyCard);
         }
+        Index = RoomIndex;
+        //triggers with the base
         Card2.GetComponent<BoxCollider>().isTrigger = false;
     }
     // Update is called once per frame

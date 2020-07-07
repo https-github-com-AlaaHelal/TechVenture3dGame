@@ -394,13 +394,12 @@ public class FunctionManager : MonoBehaviour {
 
     public void Win()
     {
-
-
         if (oneCorrect == true && twoCorrect == true && threeCorrect == true)
         {
+            //RobotManager.instance.InstantiateRobots(3);
+            //CardShow.instance.ShowCard(3);
             FindObjectOfType<ScoreManager>().AddScore();
             StartCoroutine(ExitQuestion());
-
         }
         //else if (oneDone == true && twoDone == true && threeDone == true && oneCorrect==false||twoDone==false|| threeCorrect==false)
         //{

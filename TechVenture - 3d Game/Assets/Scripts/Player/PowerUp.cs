@@ -4,9 +4,17 @@ using UnityEngine;
 
 public class PowerUp : MonoBehaviour
 {
+    //public GameObject Power;
+    private bool PoweredUp = false;
+
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (! PoweredUp && other.CompareTag("Player"))
+        {
             other.GetComponent<PlayerRobotCollision>().IncrementHealth();
+            PoweredUp = true;
+            Destroy(gameObject);
+        }
+           
     }
 }

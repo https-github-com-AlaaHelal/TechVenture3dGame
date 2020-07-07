@@ -92,7 +92,7 @@ public class CollectingItems : MonoBehaviour
     {
 
         bool wasPickedUp = Inventory.instance.Add(item);
-
+        Debug.Log("Items");
         if (FindDistance() >= 3)
         {
             PlayerAnim.SetBool("pickup", true);
