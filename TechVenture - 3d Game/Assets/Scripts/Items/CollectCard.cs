@@ -14,7 +14,7 @@ public class CollectCard : MonoBehaviour
     {
         PlayerAnim = Player.GetComponent<Animator>();
     }
-    private void OnTriggerStay(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
         if (!PickedUp && other.CompareTag("Player") && Input.GetKeyDown(KeyCode.F))
         {
