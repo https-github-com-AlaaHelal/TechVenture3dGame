@@ -7,9 +7,11 @@ public class Shoot : MonoBehaviour
     public LineRenderer Laser;
     public ParticleSystem Source;
     public float ShootingHeight;
+    public GameObject WeaponManager;
     //public GameObject Floor;
     //public GameObject Barrier;
 
+    ShowingWeapon ShowingWeapon;
     GameObject Robot;
     AI RobotAI;
     Animator PlayerAnim;
@@ -24,15 +26,24 @@ public class Shoot : MonoBehaviour
     void Start()
     {
         PlayerAnim = GetComponent<Animator>();
+        ShowingWeapon = WeaponManager.GetComponent<ShowingWeapon>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButton(0))
+        //if (Input.GetMouseButton(0))
+        //{
+
+        //    ShootPlayer();
+        //}
+        if (ShowingWeapon.IsActive && Input.GetKey(KeyCode.E))
         {
-            
-            ShootPlayer();
+            ShootingPlayer();
+        }
+        if (Input.GetKeyUp(KeyCode.E))
+        {
+            StopShooting();
         }
         //if (Input.GetMouseButtonUp(0))
         //{
@@ -50,15 +61,18 @@ public class Shoot : MonoBehaviour
         //    Crouch();
         //}
     }
-    void ShootPlayer()
+    void ShootingPlayer()
     {
-        PlayerAnim.SetBool("shoot", true);
         RaycastHit hit;
-        
         Laser.positionCount = 1;
         Laser.SetPosition(0, Laser.transform.position);
-       
-        if(Physics.Raycast(transform.position + transform.up * ShootingHeight, transform.forward, out hit, Range))
+        PlayerAnim.SetBool("shoot", true);
+        //if (Input.GetKey(KeyCode.W))
+        //    PlayerAnim.SetBool("walk&shoot", true);
+        //if (Input.GetKeyUp(KeyCode.W))
+        //    PlayerAnim.SetBool("walk&shoot", false);
+
+        if (Physics.Raycast(transform.position + transform.up * ShootingHeight, transform.forward, out hit, Range))
         {
             Source.Play();
             Laser.positionCount++;
@@ -67,6 +81,7 @@ public class Shoot : MonoBehaviour
             {
                 RobotAI = hit.transform.GetComponent<AI>();
                 RobotAI.TakeDamage(Damage);
+                Debug.Log(RobotAI.Health);
                 //RobotAI.BeingShot = true;
                 //if (Robot != null && Robot != hit.collider.gameObject)
                 //{
@@ -78,7 +93,13 @@ public class Shoot : MonoBehaviour
         }
        
     }
-   
+    void StopShooting()
+    {
+        Source.Stop();
+        Laser.positionCount = 0;
+        PlayerAnim.SetBool("walk&shoot", false);
+        PlayerAnim.SetBool("shoot", false);
+    }   
     //void Crouch()
     //{
     //    float Sight = 10;

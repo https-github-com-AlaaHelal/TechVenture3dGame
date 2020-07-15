@@ -14,16 +14,12 @@ public class CollectCard : MonoBehaviour
     {
         PlayerAnim = Player.GetComponent<Animator>();
     }
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
     {
         if (!PickedUp && other.CompareTag("Player") && Input.GetKeyDown(KeyCode.F))
         {
-            Debug.Log("Collect");
-            //other.GetComponent<Animator>().SetBool("pickup", true);
-            //other.GetComponent<Animator>().SetBool("pickupmid", true);
             StartCoroutine(TakeKey(Player));
-            PickedUp = true;
-            Inventory.instance.Add(KeyCard);
+            PickedUp = Inventory.instance.Add(KeyCard);
         }
     }
     IEnumerator TakeKey(GameObject player)
@@ -38,7 +34,7 @@ public class CollectCard : MonoBehaviour
         PlayerAnim.SetBool("pickupmid", false);
         PlayerAnim.SetBool("pickup", false);
 
-        Debug.Log(CardShow.instance.Card2);
         Destroy(CardShow.instance.Card2);
+        PickedUp = false;
     }
 }

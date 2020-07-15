@@ -78,11 +78,11 @@ public class OpenGate : MonoBehaviour
         PlayerAnim.SetBool("pickup", true);
         PlayerAnim.SetBool("Card", true);
         PlayerCard.SetActive(true);
-        yield return new WaitForSeconds(0.3f);
+       // yield return new WaitForSeconds(0.3f);
         //PlayerAnim.SetBool("pickup", true);
         //PlayerAnim.SetBool("Card", true);
         //PlayerAnim.SetBool("pickup", true);
-        yield return new WaitForSeconds(1f);
+        //yield return new WaitForSeconds(1f);
         //GateAnim.SetBool("Open", true);
         yield return new WaitForSeconds(1f);
         PlayerAnim.SetBool("Card", false);

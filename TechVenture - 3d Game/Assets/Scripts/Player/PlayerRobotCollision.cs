@@ -17,13 +17,15 @@ public class PlayerRobotCollision : MonoBehaviour
 
 
     //}
-    float Health = 50f;
+    float Health = 110f;
 
     public void TakeDamage(float amount)
     {
         Health -= amount;
         if(Health % 10 == 0)
             FindObjectOfType<LifeBar>().DecreaseLife();
+        Debug.Log(Health);
+        Debug.Log(FindObjectOfType<LifeBar>().health);
         //if (Health <= 0)
         //{
         //    Die();

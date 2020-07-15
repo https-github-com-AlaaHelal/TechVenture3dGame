@@ -37,7 +37,12 @@ public class AttackState : State
             nextState = new DeadState(npc, anim, agent, player);
             stage = EVENT.EXIT;
         }
-
+        //if (npc.GetComponent<AI>().Health < 10)
+        //{
+        //    anim.SetBool("Shoot", false);
+        //    anim.SetBool("Hit", true);
+        //}
+            
         if (!PlayerInRange())
         {
             nextState = new PatrolState(npc, anim, agent, player);

@@ -12,8 +12,8 @@ public class DeadState : State
     public override void Enter()
     {
         //anim.SetBool("Action", true);
-        anim.SetBool("Death", true);
         agent.isStopped = true;
+        anim.SetBool("Death", true);
         player.GetComponent<PlayerRobotCollision>().IncrementHealth();
         base.Enter();
         stage = EVENT.EXIT;

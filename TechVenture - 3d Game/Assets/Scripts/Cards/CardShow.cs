@@ -30,7 +30,6 @@ public class CardShow : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Debug.Log(gameObject);
         Character = GameObject.FindGameObjectWithTag("Player").transform;
        
     }
