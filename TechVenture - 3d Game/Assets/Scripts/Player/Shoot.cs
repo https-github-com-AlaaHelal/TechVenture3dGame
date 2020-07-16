@@ -45,6 +45,7 @@ public class Shoot : MonoBehaviour
         {
             StopShooting();
         }
+        Debug.Log(PlayerAnim.GetCurrentAnimatorStateInfo(0).IsName("Death"));
         //if (Input.GetMouseButtonUp(0))
         //{
         //    if (RobotAI != null)
@@ -54,7 +55,7 @@ public class Shoot : MonoBehaviour
         //    Laser.positionCount = 0;
         //    Source.Stop();
         //    PlayerAnim.SetBool("shoot", false);
-           
+
         //}
         //if (Input.GetKeyDown(KeyCode.Q))
         //{
@@ -77,7 +78,7 @@ public class Shoot : MonoBehaviour
             Source.Play();
             Laser.positionCount++;
             Laser.SetPosition(1, hit.point);
-            if(hit.collider.tag == "Robot")
+            if (hit.collider.tag == "Robot")
             {
                 RobotAI = hit.transform.GetComponent<AI>();
                 RobotAI.TakeDamage(Damage);
@@ -88,8 +89,9 @@ public class Shoot : MonoBehaviour
                 //    ShootDifferentRobot(Robot);
                 //}
                 //Robot = hit.collider.gameObject;
-                
+
             }
+            
         }
        
     }

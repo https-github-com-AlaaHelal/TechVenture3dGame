@@ -5,7 +5,7 @@ using UnityEngine.AI;
 
 public class AttackState : State
 {
-    float Damage = 10f;
+    float Damage = 1f;
     float Range = 70f;
     GameObject Origin;
     LineRenderer Laser;

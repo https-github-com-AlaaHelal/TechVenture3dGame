@@ -18,18 +18,31 @@ public class PlayerRobotCollision : MonoBehaviour
 
     //}
     float Health = 110f;
+    Animator animator;
+    bool Dying;
+    private void Start()
+    {
+        animator = gameObject.GetComponent<Animator>();
+        Dying = false;
+        Debug.Log("Die");
+        animator.SetTrigger("Die");
+    }
 
     public void TakeDamage(float amount)
     {
-        Health -= amount;
-        if(Health % 10 == 0)
-            FindObjectOfType<LifeBar>().DecreaseLife();
-        Debug.Log(Health);
-        Debug.Log(FindObjectOfType<LifeBar>().health);
-        //if (Health <= 0)
-        //{
-        //    Die();
-        //}
+        animator.SetTrigger("Die");
+        if (Health == 0 && !Dying)
+        {
+            Die();
+        }
+        else if(!Dying)
+        {
+            Health -= amount;
+            if (Health % 10 == 0)
+                FindObjectOfType<LifeBar>().DecreaseLife();
+            Debug.Log(Health);
+            Debug.Log(FindObjectOfType<LifeBar>().health);
+        }
     }
     public void IncrementHealth()
     {
@@ -39,6 +52,8 @@ public class PlayerRobotCollision : MonoBehaviour
     }
     void Die()
     {
+        Dying = true;
         Debug.Log("Die");
+        animator.SetTrigger("Die");
     }
 }
