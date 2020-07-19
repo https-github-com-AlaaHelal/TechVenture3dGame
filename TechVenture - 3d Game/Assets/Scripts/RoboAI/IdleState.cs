@@ -17,25 +17,33 @@ public class IdleState : State
     public override void Update()
     {
         Debug.Log(name);
-        if (npc.GetComponent<AI>().Health <= 0)
+        if (player.GetComponent<PlayerRobotCollision>().Dying)
         {
-            nextState = new DeadState(npc, anim, agent, player);
-            stage = EVENT.EXIT;
+            agent.isStopped = true;
+            anim.SetBool("Action", true);
         }
-        if(npc.GetComponent<AI>().BeingShot)
+        else
         {
-            nextState = new PursueState(npc, anim, agent, player);
-            stage = EVENT.EXIT;
-        }
-        if (PlayerInRange())
-        {
-            nextState = new PursueState(npc, anim, agent, player);
-            stage = EVENT.EXIT;
-        }
-        else if (Random.Range(1, 100) < 10)
-        {
-            nextState = new PatrolState(npc, anim, agent, player);
-            stage = EVENT.EXIT;
+            if (npc.GetComponent<AI>().Health <= 0)
+            {
+                nextState = new DeadState(npc, anim, agent, player);
+                stage = EVENT.EXIT;
+            }
+            if (npc.GetComponent<AI>().BeingShot)
+            {
+                nextState = new PursueState(npc, anim, agent, player);
+                stage = EVENT.EXIT;
+            }
+            if (PlayerInRange())
+            {
+                nextState = new PursueState(npc, anim, agent, player);
+                stage = EVENT.EXIT;
+            }
+            else if (Random.Range(1, 100) < 10)
+            {
+                nextState = new PatrolState(npc, anim, agent, player);
+                stage = EVENT.EXIT;
+            }
         }
     }
     public override void Exit()

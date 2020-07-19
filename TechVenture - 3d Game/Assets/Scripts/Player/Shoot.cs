@@ -45,7 +45,7 @@ public class Shoot : MonoBehaviour
         {
             StopShooting();
         }
-        Debug.Log(PlayerAnim.GetCurrentAnimatorStateInfo(0).IsName("Death"));
+        
         //if (Input.GetMouseButtonUp(0))
         //{
         //    if (RobotAI != null)

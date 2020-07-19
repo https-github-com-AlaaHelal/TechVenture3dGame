@@ -17,20 +17,21 @@ public class PlayerRobotCollision : MonoBehaviour
 
 
     //}
+    public bool Dying;
     float Health = 110f;
     Animator animator;
-    bool Dying;
+    
     private void Start()
     {
         animator = gameObject.GetComponent<Animator>();
         Dying = false;
         Debug.Log("Die");
-        animator.SetTrigger("Die");
+        //animator.SetTrigger("Die");
     }
 
     public void TakeDamage(float amount)
     {
-        animator.SetTrigger("Die");
+        //animator.SetTrigger("Die");
         if (Health == 0 && !Dying)
         {
             Die();
@@ -53,7 +54,15 @@ public class PlayerRobotCollision : MonoBehaviour
     void Die()
     {
         Dying = true;
-        Debug.Log("Die");
-        animator.SetTrigger("Die");
+        // Debug.Log("Die");
+        //animator.ResetTrigger("Die");
+        //animator.SetTrigger("Die");
+        //animator.SetTrigger()
+        animator.SetBool("Dead", true);
+        Debug.Log(animator.GetCurrentAnimatorClipInfo(0)[0].clip.name);
+        Debug.Log(animator.GetCurrentAnimatorStateInfo(0).IsName("Death"));
+
+        //animator.SetBool("Dead", false);
+        Debug.Log(animator.GetCurrentAnimatorStateInfo(0).IsName("Death"));
     }
 }

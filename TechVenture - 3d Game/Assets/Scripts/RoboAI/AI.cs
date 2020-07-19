@@ -38,6 +38,7 @@ public class AI : MonoBehaviour
         if (!Dead)
         {
            currentState = currentState.Process();
+            Debug.Log(currentState);
         }
         else if(!Dying)
         {

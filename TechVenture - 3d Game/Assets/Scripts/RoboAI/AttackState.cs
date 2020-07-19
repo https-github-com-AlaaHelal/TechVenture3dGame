@@ -53,7 +53,11 @@ public class AttackState : State
             nextState = new PursueState(npc, anim, agent, player);
             stage = EVENT.EXIT;
         }
-
+        if(player.GetComponent<PlayerRobotCollision>().Dying)
+        {
+            nextState = new IdleState(npc, anim, agent, player);
+            stage = EVENT.EXIT;
+        }
         Vector3 direction = player.position - npc.transform.position;
         float Angle = Vector3.Angle(npc.transform.forward, direction);
         direction.y = 0;
