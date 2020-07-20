@@ -10,6 +10,7 @@ public class IfQuestion : MonoBehaviour
     public Button RightAnswerButton;
     public GameObject Educationalscript;
     public GameObject WinningMessage;
+    public GameObject losemassg;
     public Sprite trueimg;
     int checkscore=0;
 
@@ -35,6 +36,19 @@ public class IfQuestion : MonoBehaviour
 
 
     }
+
+    public void UserSelectFalse()
+    {
+        WrongAnswerButton.image.sprite = trueimg;
+        RightAnswerButton.image.sprite = trueimg;
+        WrongAnswerButton.enabled = false;
+        RightAnswerButton.enabled = false;
+
+        FindObjectOfType<ScoreManager>().DecreaseScore();
+        StartCoroutine(ExitQuestionfalse());
+
+
+    }
     IEnumerator ExitQuestion()
     {
         yield return new WaitForSeconds(1.5f);
@@ -51,4 +65,22 @@ public class IfQuestion : MonoBehaviour
 
 
     }
-    } 
+
+    IEnumerator ExitQuestionfalse()
+    {
+        yield return new WaitForSeconds(1.5f);
+        Educationalscript.GetComponent<Educational>().QuestionPanels[2].SetActive(false);
+        // QuestionPanels[0].SetActive(false);
+        yield return new WaitForSeconds(.5f);
+        losemassg.SetActive(true);
+
+        //  masgg.gameObject.SetActive(true);
+        yield return new WaitForSeconds(2f);
+        //  Destroy(masgg.gameObject);
+        losemassg.SetActive(false);
+        Educationalscript.GetComponent<Educational>().Exit();
+
+
+    }
+
+} 
