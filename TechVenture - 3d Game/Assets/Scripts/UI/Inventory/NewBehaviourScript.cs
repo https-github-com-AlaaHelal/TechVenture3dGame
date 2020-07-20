@@ -30,10 +30,12 @@ public class NewBehaviourScript : MonoBehaviour
            
             if (slot.item.name.ToString() == "flashmemory")
             {
+                Debug.Log("1");
                 labtopscript.GetComponent<openlabtop>().flash.SetActive(true);
                 if (labtopscript.GetComponent<openlabtop>().solved==true)
                 {
                     inventory.Remove(slot.item);
+                    Debug.Log("2");
                 }
 
             }

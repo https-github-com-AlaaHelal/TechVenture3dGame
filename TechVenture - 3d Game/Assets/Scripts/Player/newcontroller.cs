@@ -43,6 +43,12 @@ public class newcontroller : MonoBehaviour
                 Maxspeed = 12;
                 character.SetFloat("speed", 3);
             }
+            else if (Input.GetKey(KeyCode.E))
+            {
+
+                Maxspeed = 7;
+                character.SetFloat("speed", 4);
+            }
             else
             {
                 Maxspeed = 7;

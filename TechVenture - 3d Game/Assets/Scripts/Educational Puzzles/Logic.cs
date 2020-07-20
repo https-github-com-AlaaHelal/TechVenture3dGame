@@ -31,6 +31,7 @@ public class Logic : MonoBehaviour
     }
     public void False()
     {
+        FindObjectOfType<ScoreManager>().DecreaseScore();
         StartCoroutine(ExitQuestionfalse());
     }
     IEnumerator ExitQuestion()

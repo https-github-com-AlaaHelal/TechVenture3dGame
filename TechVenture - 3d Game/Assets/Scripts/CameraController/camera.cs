@@ -20,6 +20,7 @@ public class camera :MonoBehaviour
     public GameObject inventoryisActive;
     public GameObject EducationalcanvasisActive;
     public GameObject puzzlecanvasisActive;
+    public GameObject player;
     //public GameObject ToolBoxisActive;
     //public GameObject lockerisActive;
 
@@ -68,11 +69,14 @@ public class camera :MonoBehaviour
             puzzlecanvasisActive.GetComponent<UEPuzzleCanvas>().puzzlecanvasState == true   )
         {
             mouseSensitivity = 0;
+            player.GetComponent<newcontroller>().mouseSensitivity = 0;
 
         }
        else
         {
             mouseSensitivity = 4;
+            player.GetComponent<newcontroller>().mouseSensitivity = 4;
+
 
         }
         yaw += Input.GetAxis("Mouse X") * mouseSensitivity;
