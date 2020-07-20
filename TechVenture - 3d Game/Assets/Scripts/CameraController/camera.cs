@@ -12,7 +12,7 @@ public class camera :MonoBehaviour
 
     public float rotationSmoothTime = .12f;
     Vector3 rotationSmoothVelocity;
-    Vector3 currentRotation;
+   public Vector3 currentRotation;
             
     float yaw;
     float pitch;

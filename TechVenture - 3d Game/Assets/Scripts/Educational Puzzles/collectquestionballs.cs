@@ -24,11 +24,11 @@ public class collectquestionballs : MonoBehaviour
     void Update()
     {
         // Vector3 dir = (this.transform.position - player.position).normalized;
-        float direction = Vector3.Dot(player.forward, transform.forward);
+       // float direction = Vector3.Dot(player.forward, transform.forward);
         float distance = Vector3.Distance(player.position, this.transform.position);
 
 
-        if (direction < 0 && Input.GetKeyDown(KeyCode.F) && distance <= 7)
+        if ( Input.GetKeyDown(KeyCode.F) && distance <= 7)
         {
 
             StartCoroutine(PickUp());

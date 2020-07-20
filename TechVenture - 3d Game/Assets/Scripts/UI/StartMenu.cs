@@ -6,12 +6,15 @@ public class StartMenu : MonoBehaviour
 {
    
     public GameObject StartMenuUI;
+    public GameObject UI;
+
 
 
     private void Start()
     {
         Time.timeScale = 0f;
         StartMenuUI.SetActive(true);
+    
      
     }
 
@@ -21,7 +24,8 @@ public class StartMenu : MonoBehaviour
         StartMenuUI.SetActive(false);
         // to play the game back
         Time.timeScale = 1f;
-  
+        UI.SetActive(true);
+
     }
 
     public void QuitTheGame()

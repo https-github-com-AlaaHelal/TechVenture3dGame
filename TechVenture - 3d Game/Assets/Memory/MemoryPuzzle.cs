@@ -27,7 +27,7 @@ public class MemoryPuzzle : UEPuzzleCanvas
    
     void Start()
     {
-        images.SetActive(false);
+        //images.SetActive(false);
         ShufflePieces();
         SelectedSymbols = new List<GameObject>();
         Clickable = true;
@@ -35,16 +35,17 @@ public class MemoryPuzzle : UEPuzzleCanvas
         GridSize= new Vector2Int(4, 4);
         WinVal = GetWinValue();
         LibraryAnim = Library.GetComponent<Animator>();
+       
     }
     private void Update()
     {
 
-        if (this.GetComponent<MemoryPuzzle>().enabled)
-        {
+        //if (this.GetComponent<MemoryPuzzle>().isActiveAndEnabled)
+        //{
 
-          StartCoroutine(imageanimation());
+        //    StartCoroutine(imageanimation());
 
-        }
+        //}
 
         if (SelectedSymbols.Count == 1)
             Symbol_1 = SelectedSymbols[0].GetComponent<MemorySymbol>();
@@ -143,10 +144,11 @@ public class MemoryPuzzle : UEPuzzleCanvas
     IEnumerator imageanimation()
     {
         imageanime.SetBool("show", true);
-        yield return new WaitForSeconds(6f);
+        yield return new WaitForSeconds(5f);
         images.SetActive(true);
+        yield return new WaitForSeconds(1f);
         images.GetComponent<Animator>().SetBool("show", true);
-        imageanime.gameObject.SetActive(false);
+       // imageanime.gameObject.SetActive(false);
 
     }
 }
