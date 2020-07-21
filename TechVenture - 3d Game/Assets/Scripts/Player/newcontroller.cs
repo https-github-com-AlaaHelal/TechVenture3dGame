@@ -31,50 +31,54 @@ public class newcontroller : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        float walkforward = Input.GetAxis("Vertical") * Maxspeed * Time.deltaTime;
-        transform.Translate(0, 0, walkforward);
-       // float rotation = Input.GetAxis("Horizontal") * RotatSpeed * Time.deltaTime;
-        yaw += Input.GetAxis("Mouse X") * mouseSensitivity;
-       // pitch -= Input.GetAxis("Mouse Y") * mouseSensitivity;
-   //    pitch = Mathf.Clamp(pitch, pitchMinMax.x, pitchMinMax.y);
-
-        currentRotation = Vector3.SmoothDamp(currentRotation, new Vector3(pitch, yaw), ref rotationSmoothVelocity, rotationSmoothTime);
-        transform.eulerAngles = currentRotation;
-        if (walkforward > 0)
+        bool Die = gameObject.GetComponent<PlayerRobotCollision>().Dying;
+        if (!Die)
         {
-            if (Input.GetKey(KeyCode.LeftShift))
-            {
-                Maxspeed = 12;
-                character.SetFloat("speed", 3);
-            }
-            else if (Input.GetKey(KeyCode.E) && Input.GetKey(KeyCode.E) && ShowingWeapon.IsActive)
-            {
+            float walkforward = Input.GetAxis("Vertical") * Maxspeed * Time.deltaTime;
+            transform.Translate(0, 0, walkforward);
+            // float rotation = Input.GetAxis("Horizontal") * RotatSpeed * Time.deltaTime;
+            yaw += Input.GetAxis("Mouse X") * mouseSensitivity;
+            // pitch -= Input.GetAxis("Mouse Y") * mouseSensitivity;
+            //    pitch = Mathf.Clamp(pitch, pitchMinMax.x, pitchMinMax.y);
 
-                Maxspeed = 7;
-                character.SetFloat("speed", 4);
+            currentRotation = Vector3.SmoothDamp(currentRotation, new Vector3(pitch, yaw), ref rotationSmoothVelocity, rotationSmoothTime);
+            transform.eulerAngles = currentRotation;
+            if (walkforward > 0)
+            {
+                if (Input.GetKey(KeyCode.LeftShift))
+                {
+                    Maxspeed = 12;
+                    character.SetFloat("speed", 3);
+                }
+                else if (Input.GetKey(KeyCode.E) && Input.GetKey(KeyCode.E) && ShowingWeapon.IsActive)
+                {
+
+                    Maxspeed = 7;
+                    character.SetFloat("speed", 4);
+                }
+                else
+                {
+                    Maxspeed = 7;
+                    character.SetFloat("speed", 1);
+                }
+
+
+            }
+
+            else if (walkforward < 0)
+            {
+                character.SetFloat("speed", 2);
+
             }
             else
             {
-                Maxspeed = 7;
-                character.SetFloat("speed", 1);
+                character.SetFloat("speed", 0);
+
             }
-            
+
+            // transform.Rotate(script.GetComponent<camera>().currentRotation);
 
         }
-       
-        else if (walkforward < 0)
-        {
-            character.SetFloat("speed",2);
-
-        }
-        else
-        {
-            character.SetFloat("speed",0);
-
-        }
-
-       // transform.Rotate(script.GetComponent<camera>().currentRotation);
 
     }
 }

@@ -18,6 +18,7 @@ public class PlayerRobotCollision : MonoBehaviour
 
     //}
     public bool Dying;
+    public bool transition;
     float Health = 110f;
     Animator animator;
     
@@ -34,7 +35,7 @@ public class PlayerRobotCollision : MonoBehaviour
         //animator.SetTrigger("Die");
         if (Health == 0 && !Dying)
         {
-            Die();
+            StartCoroutine(Die());
         }
         else if(!Dying)
         {
@@ -51,18 +52,11 @@ public class PlayerRobotCollision : MonoBehaviour
         Debug.Log(Health);
         FindObjectOfType<LifeBar>().IncreaseLife();
     }
-    void Die()
+    IEnumerator Die()
     {
         Dying = true;
-        // Debug.Log("Die");
-        //animator.ResetTrigger("Die");
-        //animator.SetTrigger("Die");
-        //animator.SetTrigger()
-        animator.SetBool("Dead", true);
-        Debug.Log(animator.GetCurrentAnimatorClipInfo(0)[0].clip.name);
-        Debug.Log(animator.GetCurrentAnimatorStateInfo(0).IsName("Death"));
-
-        //animator.SetBool("Dead", false);
-        Debug.Log(animator.GetCurrentAnimatorStateInfo(0).IsName("Death"));
+        animator.SetBool("Die", true);
+        yield return new WaitForSeconds(1);
+        transition = true;
     }
 }
