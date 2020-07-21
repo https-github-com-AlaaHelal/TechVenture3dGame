@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class BoxPuzzle : MonoBehaviour
+public class BoxPuzzle : UEPuzzleCanvas
 {
     public TextMeshProUGUI Text1;
     public TextMeshProUGUI Text2;
@@ -19,10 +19,11 @@ public class BoxPuzzle : MonoBehaviour
     public Animator boxAnimator;
     public bool istrue;
 
-    public Canvas puzzle;
+    public GameObject puzzle;
     public GameObject ifInformationball;
     public GameObject screwdriver;
     public GameObject canvasExit;
+    public GameObject Outline;
     public Sprite trueimg;
 
     [SerializeField]
@@ -38,25 +39,23 @@ public class BoxPuzzle : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        istrue = false;
         screwdriver.SetActive(false);
         ifInformationball.SetActive(false);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     IEnumerator exit()
     {
+        istrue = true;
         Time.timeScale = 1f;
         yield return new WaitForSeconds(1.5f);
+        Destroy(Outline);
         //UEpuzzlesCanvas.enabled = false;
-        //Destroy(PuzzlesPanels[0]);
+        //Debug.Log(PuzzlesPanels.Length);
+        Destroy(puzzle);
         yield return new WaitForSeconds(.5f);
-        boxAnimator.SetBool("open", true);
-        boxAnimator.SetFloat("speed", 2);
+        boxAnimator.SetBool("Open", true);
         yield return new WaitForSeconds(.5f);
         //  binaryInformationball.GetComponent<SphereCollider>().isTrigger = true;
         ifInformationball.SetActive(true);
@@ -68,23 +67,11 @@ public class BoxPuzzle : MonoBehaviour
     }
     bool Win()
     {
-        return n1 == 2 & n2 == 5 & n3 == 8 & n4 == 4;
+        return n1 == 4 & n2 == 7 & n3 == 9 & n4 == 5;
 
     }
     public void ChangeButton1()
     {
-
-        //if (istrue == false)
-        //{
-        //    n1++;
-
-        //    if (n1 > 9)
-        //    {
-        //        n1 = 0;
-        //    }
-        //    Text1.text = "" + n1;
-        //}
-
         if (!Win())
         {
             n1++;
@@ -107,16 +94,6 @@ public class BoxPuzzle : MonoBehaviour
     }
     public void ChangeButton2()
     {
-        //if (istrue == false)
-        //    {
-        //        n2++;
-
-        //        if (n2 > 9)
-        //        {
-        //            n2 = 0;
-        //        }
-        //        Text2.text = "" + n2;
-        //    }
         if (!Win())
         {
             n2++;
@@ -139,16 +116,6 @@ public class BoxPuzzle : MonoBehaviour
     }
     public void ChangeButton3()
     {
-        //if (istrue == false)
-        //{
-        //    n3++;
-
-        //    if (n3 > 9)
-        //    {
-        //        n3 = 0;
-        //    }
-        //    Text3.text = "" + n3;
-        //}
         if (!Win())
         {
             n3++;
@@ -171,16 +138,6 @@ public class BoxPuzzle : MonoBehaviour
     }
     public void ChangeButton4()
     {
-        //if (istrue == false)
-        //{
-        //    n4++;
-
-        //    if (n4 > 9)
-        //    {
-        //        n4 = 0;
-        //    }
-        //    Text4.text = "" + n4;
-        //}
         if (!Win())
         {
             n4++;

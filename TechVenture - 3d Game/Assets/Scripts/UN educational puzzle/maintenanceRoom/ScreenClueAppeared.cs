@@ -7,7 +7,7 @@ public class ScreenClueAppeared : MonoBehaviour
     public Transform player;
     public GameObject buttonHand;
     public GameObject buttonOnTable;
-    public float Distance = 5;
+    public float Distance = 7;
     Animator playeranime;
     public int animatiomnumber;
     public GameObject screenClue;
@@ -21,12 +21,26 @@ public class ScreenClueAppeared : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float direction = Vector3.Dot(player.forward, transform.forward);
+        float direction = Vector3.Dot(player.forward, transform.right);
         float distance = Vector3.Distance(player.position, this.transform.position);
-
-        if (direction >= 0.9 && distance <= Distance)
+        //Debug.Log(direction);
+        //Debug.Log(distance);
+        //if(direction < 0.1)
+        //{
+        //    Debug.Log("direction");
+        //}
+        //if (distance < 7)
+        //{
+        //    Debug.Log("distance");
+        //}
+        if (Input.GetKeyDown(KeyCode.F))
         {
-            print("Press 'E'");
+            if (direction < 0.1 && distance < Distance)
+                Debug.Log(true);
+        }
+        if (direction < 0.1 && distance < Distance)
+        {
+            Debug.Log("true");
             if (Input.GetKeyDown(KeyCode.E))
             {
                 if (buttonHand.activeSelf)

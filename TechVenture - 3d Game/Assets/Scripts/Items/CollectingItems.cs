@@ -80,7 +80,8 @@ public class CollectingItems : MonoBehaviour
                 //Lookat
                // Player.transform.LookAt(this.gameObject.transform, this.gameObject.transform.position);
                 StartCoroutine(PickUp());
-                Destroy(outline);
+                if(outline != null)
+                     Destroy(outline);
             }
         }
     }

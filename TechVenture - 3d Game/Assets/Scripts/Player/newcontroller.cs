@@ -7,20 +7,25 @@ public class newcontroller : MonoBehaviour
     public float Maxspeed;
     public float RotatSpeed;
     public Animator character;
-
+    public GameObject WeaponManager;
     public float mouseSensitivity = 4;
+   
+    public float rotationSmoothTime = .12f;
+    public Vector3 currentRotation;
+
+
     float yaw;
     float pitch;
-    public float rotationSmoothTime = .12f;
     Vector3 rotationSmoothVelocity;
-    public Vector3 currentRotation;
- //   public Vector2 pitchMinMax = new Vector2(-40, 85);
+    ShowingWeapon ShowingWeapon;
+    //   public Vector2 pitchMinMax = new Vector2(-40, 85);
 
 
     // Start is called before the first frame update
     void Start()
     {
         character = this.GetComponent<Animator>();
+        ShowingWeapon = WeaponManager.GetComponent<ShowingWeapon>();
     }
 
     // Update is called once per frame
@@ -43,7 +48,7 @@ public class newcontroller : MonoBehaviour
                 Maxspeed = 12;
                 character.SetFloat("speed", 3);
             }
-            else if (Input.GetKey(KeyCode.E))
+            else if (Input.GetKey(KeyCode.E) && Input.GetKey(KeyCode.E) && ShowingWeapon.IsActive)
             {
 
                 Maxspeed = 7;
