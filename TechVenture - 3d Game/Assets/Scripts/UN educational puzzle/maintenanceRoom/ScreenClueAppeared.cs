@@ -23,21 +23,8 @@ public class ScreenClueAppeared : MonoBehaviour
     {
         float direction = Vector3.Dot(player.forward, transform.right);
         float distance = Vector3.Distance(player.position, this.transform.position);
-        //Debug.Log(direction);
-        //Debug.Log(distance);
-        //if(direction < 0.1)
-        //{
-        //    Debug.Log("direction");
-        //}
-        //if (distance < 7)
-        //{
-        //    Debug.Log("distance");
-        //}
-        if (Input.GetKeyDown(KeyCode.F))
-        {
-            if (direction < 0.1 && distance < Distance)
-                Debug.Log(true);
-        }
+        
+        
         if (direction < 0.1 && distance < Distance)
         {
             Debug.Log("true");

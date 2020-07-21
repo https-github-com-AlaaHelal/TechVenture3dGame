@@ -8,6 +8,7 @@ public class ButtonAppear : MonoBehaviour
     public Item item;  // Current item in the slot
     public GameObject ScreenClueScript;
 
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -31,6 +32,7 @@ public class ButtonAppear : MonoBehaviour
                 }
 
             }
+            
         }
     }
     

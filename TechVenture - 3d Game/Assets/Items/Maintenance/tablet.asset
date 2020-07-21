@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: tablet
   icon: {fileID: 21300000, guid: 896a9f808aad7fb46ae72d2a659afd61, type: 3}
-  isDefaultItem: 0
+  isDefaultItem: 1

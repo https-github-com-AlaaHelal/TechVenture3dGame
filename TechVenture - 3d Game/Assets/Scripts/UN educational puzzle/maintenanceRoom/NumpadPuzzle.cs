@@ -1,112 +1,108 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class NumpadPuzzle : MonoBehaviour
 {
+    public string Input = "";
+    public Text Text;
+    public OpenNumPuzzle OpenNumPuzzle;
 
-    public string curPassword = "12345";
-    public string input;
-    public bool onTrigger;
-    public bool doorOpen;
-    public bool keypadScreen;
-    //public Transform doorHinge;
-
-    void OnTriggerEnter(Collider other)
+    private string WinVal_1 = "6020060150";
+    private string WinVal_2 = "1506020060";
+    //private char[] CharsToTrim = { '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '<', '>', '#', '*' };
+   
+    public void Button_1()
     {
-        onTrigger = true;
+        Input += '1';
+        Text.text = Input;
+    }
+    public void Button_2()
+    {
+        Input += '2';
+        Text.text = Input;
+    }
+    public void Button_3()
+    {
+        Input += '3';
+        Text.text = Input;
+    }
+    public void Button_4()
+    {
+        Input += '4';
+        Text.text = Input;
+    }
+    public void Button_5()
+    {
+        Input += '5';
+        Text.text = Input;
+    }
+    public void Button_6()
+    {
+        Input += '6';
+        Text.text = Input;
+    }
+    public void Button_7()
+    {
+        Input += '7';
+        Text.text = Input;
+    }
+    public void Button_8()
+    {
+        Input += '8';
+        Text.text = Input;
+    }
+    public void Button_9()
+    {
+        Input += '9';
+        Text.text = Input;
+    }
+    public void Button_0()
+    {
+        Input += '0';
+        Text.text = Input;
+    }
+    public void Button_Enter()
+    {
+        Win();
+    }
+    public void Button_Del()
+    {
+        int Length = Input.Length;
+        Input = Input.Remove(Length - 1);
+        Text.text = Input;
+    }
+    public void Button_Less()
+    {
+        Input += "<";
+        Text.text = Input;
+    }
+    public void Button_Greater()
+    {
+        Input += ">";
+        Text.text = Input;
+    }
+    public void Button_Hash()
+    {
+        Input += "#";
+        Text.text = Input;
+    }
+    public void Button_Star()
+    {
+        Input += "*";
+        Text.text = Input;
     }
 
-    void OnTriggerExit(Collider other)
+    private void Win()
     {
-        onTrigger = false;
-        keypadScreen = false;
-        input = "";
-    }
-
-    void Update()
-    {
-        if (input == curPassword)
+        if (WinVal_1.Equals(Input) || WinVal_2.Equals(Input))
         {
-            doorOpen = true;
-        }
-
-        if (doorOpen)
-        {
-           // var newRot = Quaternion.RotateTowards(doorHinge.rotation, Quaternion.Euler(0.0f, -90.0f, 0.0f), Time.deltaTime * 250);
-            //doorHinge.rotation = newRot;
-        }
-    }
-
-    void OnGUI()
-    {
-        if (!doorOpen)
-        {
-            if (onTrigger)
-            {
-                GUI.Box(new Rect(0, 0, 200, 25), "Press 'E' to open keypad");
-
-                if (Input.GetKeyDown(KeyCode.E))
-                {
-                    keypadScreen = true;
-                    onTrigger = false;
-                }
-            }
-
-            if (keypadScreen)
-            {
-                GUI.Box(new Rect(0, 0, 320, 455), "");
-                GUI.Box(new Rect(5, 5, 310, 25), input);
-
-                if (GUI.Button(new Rect(5, 35, 100, 100), "1"))
-                {
-                    input = input + "1";
-                }
-
-                if (GUI.Button(new Rect(110, 35, 100, 100), "2"))
-                {
-                    input = input + "2";
-                }
-
-                if (GUI.Button(new Rect(215, 35, 100, 100), "3"))
-                {
-                    input = input + "3";
-                }
-
-                if (GUI.Button(new Rect(5, 140, 100, 100), "4"))
-                {
-                    input = input + "4";
-                }
-
-                if (GUI.Button(new Rect(110, 140, 100, 100), "5"))
-                {
-                    input = input + "5";
-                }
-
-                if (GUI.Button(new Rect(215, 140, 100, 100), "6"))
-                {
-                    input = input + "6";
-                }
-
-                if (GUI.Button(new Rect(5, 245, 100, 100), "7"))
-                {
-                    input = input + "7";
-                }
-
-                if (GUI.Button(new Rect(110, 245, 100, 100), "8"))
-                {
-                    input = input + "8";
-                }
-
-                if (GUI.Button(new Rect(215, 245, 100, 100), "9"))
-                {
-                    input = input + "9";
-                }
-
-                if (GUI.Button(new Rect(110, 350, 100, 100), "0"))
-                {
-                    input = input + "0";
-                }
-            }
+            OpenNumPuzzle.Solved();
         }
     }
+    //public void Exit()
+    //{
+    //    Input = "";
+       
+    //}
 }
